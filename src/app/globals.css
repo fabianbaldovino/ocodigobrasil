@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+  --background: #FCFBF8; /* Off-white Marfim Quente (muito aconchegante e limpo) */
+  --foreground: #381A14; /* Espresso / Mahogany escuro profundo (quente, luxuoso, fugindo do marrom comum) */
+  --surface: #F4EFEA; /* Creme rico para os cards e áreas secundárias */
+  --accent: #C2301A; /* Vermelho Cardeal / Pimenta (desperta paixão e ação imediata) */
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  --spacing-2xl: 12rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Typography - Aggressive Hierarchy (Perfect Fourth 1.333x Scale) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.text-huge {
+  font-size: clamp(3.5rem, 12vw, 6.5rem);
+  text-transform: uppercase;
+}
+
+.text-title {
+  font-size: clamp(1.75rem, 5vw, 3.125rem);
+}
+
+.text-subtitle {
+  font-size: clamp(1.3125rem, 3vw, 2.3125rem);
+  font-weight: 500;
+}
+
+.text-body {
+  font-size: 1.125rem;
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.section {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* Interactive Elements */
+a, button {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0; /* Garante 48px mínimo de touch target no mobile */
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link:focus-visible::after {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(224, 94, 38, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-hero {
+  background-color: var(--accent); /* Vermelho Cardeal / Pimenta for immediate action */
+  color: #ffffff;
+  padding: 1.25rem 2.5rem;
+  font-weight: 900;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  display: inline-block;
+}
+
+.btn-hero:hover, .btn-hero:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(194, 48, 26, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-hero:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  border: 2px solid var(--foreground);
+  color: var(--foreground);
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover, .btn-outline:focus-visible {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+/* Divider */
+hr.divider {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Responsive Utilities */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+
+.header-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .header-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text-col .text-huge {
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .btn-primary, .btn-hero {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem; /* Diminui levemente a fonte no mobile para caber em uma linha se possível */
+  }
+}
+
+/* Markdown Content Styling */
+.markdown-content h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content strong {
+  font-weight: 900;
+}
