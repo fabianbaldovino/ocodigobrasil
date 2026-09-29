@@ -8,7 +8,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "O Código Brasil — Manifesto",
-            "image": "/o_codigo_brasil.png",
+            "image": "/capa_manifesto_o_codigo_brasil_fabian_baldovino.png",
             "brand": { "@type": "Brand", "name": "O Código Brasil" },
             "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
           })
@@ -35,7 +35,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src="/o_codigo_brasil.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} fetchPriority="high" decoding="async" className="hero-book" />
+            <img src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} fetchPriority="high" decoding="async" className="hero-book" />
           </div>
         </div>
       </section>
@@ -223,7 +223,7 @@ export default function Home() {
 
       {/* Call to Action */}
       <section id="contato" className="section container flex-col" style={{ alignItems: 'center', textAlign: 'center', padding: '8rem 0' }}>
-        <img src="/o_codigo_brasil.png" alt="Livro O Código Brasil" style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
+        <img src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil" style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
         <h2 className="text-title">DESTRAVE O CÓDIGO DA SUA MARCA</h2>
         <p className="text-body" style={{ margin: '2rem 0', maxWidth: '800px' }}>
           Tenha acesso ao livro digital completo e descubra o método exato para transformar a sua marca no lugar mais seguro e lucrativo para o seu cliente.

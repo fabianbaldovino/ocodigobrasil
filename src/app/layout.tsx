@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     siteName: 'O Código Brasil',
     title: 'O Código Brasil | Manifesto',
     description: 'O segredo para vender no mercado mais emocional do mundo.',
-    images: [{ url: '/o_codigo_brasil.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
   },
-  twitter: { card: 'summary_large_image', title: 'O Código Brasil | Manifesto', images: ['/o_codigo_brasil.png'] },
+  twitter: { card: 'summary_large_image', title: 'O Código Brasil | Manifesto', images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'] },
   robots: { index: true, follow: true },
 };
 
