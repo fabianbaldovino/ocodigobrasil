@@ -18,11 +18,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ocodigobrasil.com'),
+  metadataBase: new URL('https://ocodigobrasil.com.br'),
   title: { default: 'O Código Brasil | Manifesto', template: '%s | O Código Brasil' },
   description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.',
   openGraph: {
-    type: 'website', locale: 'pt_BR', url: 'https://ocodigobrasil.com',
+    type: 'website', locale: 'pt_BR', url: 'https://ocodigobrasil.com.br',
     siteName: 'O Código Brasil',
     title: 'O Código Brasil | Manifesto',
     description: 'O segredo para vender no mercado mais emocional do mundo.',

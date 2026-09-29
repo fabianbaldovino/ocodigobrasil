@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://ocodigobrasil.com/sitemap.xml',
+    sitemap: 'https://ocodigobrasil.com.br/sitemap.xml',
   };
 }
