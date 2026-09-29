@@ -6,7 +6,7 @@ slug: "o-fenomeno-carmed-fini"
 author: "Fabian Baldovino"
 ---
 
-![Carmed Fini](/carmed.jfif)
+![Carmed Fini](/carmed.jpg)
 
 Tu abre o [LinkedIn](https://www.linkedin.com/) e vê os diretores de Nova Iorque aplaudindo a campanha da [Carmed](https://cimedremedios.com.br/carmed/) com a [Fini](https://www.finistore.com.br/) como se fosse um mero triunfo de *co-branding* e engajamento no [TikTok](https://www.tiktok.com/). Tu lê os gráficos de conversão e acha que a explosão de vendas foi causada por uma precificação acessível e um *design* colorido. Essa é a ilusão patética do *marketing* de planilha. Tu continua acreditando que o jovem foi até a farmácia, usou o Sistema 2 de [Daniel Kahneman](https://pt.wikipedia.org/wiki/Daniel_Kahneman), comparou ingredientes ativos e decidiu que precisava hidratar os lábios para o inverno. A verdade é brutal: a decisão de esgotar estoques não passou pelo córtex lógico. Ela explodiu no cérebro reptiliano, a máquina primitiva focada estritamente em sobrevivência e reprodução. Se tu acha que eles venderam cosmético barato, tu já perdeu o jogo.
 
