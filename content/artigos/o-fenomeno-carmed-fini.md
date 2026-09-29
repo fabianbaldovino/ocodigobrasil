@@ -17,9 +17,3 @@ A tua marca precisa parar de vender utilidade e começar a vender proteção rel
 * **Abandona a ficha técnica:** O teu cliente não liga para a fórmula química do produto ou para a eficiência matemática do teu *software*. Tu precisa ancorar o teu produto em um *Imprint* emocional forte. Qual é a memória de segurança e conforto que a tua solução ativa no cérebro reptiliano dele?
 * **Vende o passaporte da tribo:** O brasileiro não compra o que é tecnicamente melhor, ele compra o que o insere no grupo. Transforma o teu produto em um código de pertencimento. A tua comunicação visual e semiótica tem de sinalizar claramente: quem tem isso está protegido pela nossa Casa; quem não tem está exposto na frieza da Rua.
 * **Manipula a escassez relacional:** Esquece o gatilho barato de "últimas unidades". A tua escassez tem de ser tribal e hierárquica. Mostra que o teu produto é o ingresso para um clube onde o afeto impera e o *design* do perdão acolhe o erro do cliente, substituindo o julgamento inflexível do mercado por reciprocidade inegociável.
-
----
-
-> **ENTENDA O CÓDIGO DO CONSUMO BRASILEIRO**  
-> Se você quer parar de vender para a lógica e aprender exatamente quais botões emocionais apertar para blindar a sua marca contra qualquer concorrência, o manifesto definitivo já está disponível.  
-> [**[Clique aqui e garanta o seu acesso ao manifesto O CÓDIGO BRASIL — por Fabian Baldovino]**](https://pay.hotmart.com/C107804167U)
