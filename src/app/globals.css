@@ -403,3 +403,13 @@ hr.divider {
   border-radius: var(--radius-lg);
   filter: drop-shadow(var(--shadow-3));
 }
+
+.markdown-content img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: 2rem auto;
+  display: block;
+  box-shadow: var(--shadow-2);
+}
