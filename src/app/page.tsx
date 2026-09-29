@@ -211,10 +211,10 @@ export default function Home() {
             </details>
             <details className="faq-item">
               <summary>
-                E se eu não gostar?
+                E se não for o que eu esperava?
               </summary>
               <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
-                Você está protegido pela nossa garantia blindada. Se o conteúdo não explodir a sua cabeça ou você achar que não serve para o seu momento, basta nos enviar um e-mail em até 7 dias que devolvemos 100% do seu investimento.
+                Você tem 7 dias de garantia incondicional. Se a leitura não transformar a sua visão estratégica ou você entender que o método não se aplica à realidade do seu negócio, basta enviar um e-mail. Devolvemos 100% do valor de forma simples, sem burocracia e sem ressentimentos.
               </p>
             </details>
           </div>
@@ -224,9 +224,9 @@ export default function Home() {
       {/* Call to Action */}
       <section id="contato" className="section container flex-col" style={{ alignItems: 'center', textAlign: 'center', padding: '8rem 0' }}>
         <img src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil" style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
-        <h2 className="text-title">DESTRAVE O CÓDIGO DA SUA MARCA</h2>
+        <h2 className="text-title">ENTENDA O CÓDIGO DO CONSUMO BRASILEIRO</h2>
         <p className="text-body" style={{ margin: '2rem 0', maxWidth: '800px' }}>
-          Tenha acesso ao livro digital completo e descubra o método exato para transformar a sua marca no lugar mais seguro e lucrativo para o seu cliente.
+          Tenha acesso à tese completa e descubra o método exato para posicionar a sua marca como o porto seguro (A Casa) do seu cliente, convertendo emoção em lealdade e faturamento.
         </p>
         
         {/* Bonus / Anchoring (Ocultado Temporariamente) 
