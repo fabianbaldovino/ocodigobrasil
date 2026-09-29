@@ -41,27 +41,43 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo</a>
-        <header className="container header-layout" style={{ paddingTop: '2rem' }}>
-          <div style={{ fontWeight: 900, letterSpacing: '-0.02em', fontSize: '1.25rem' }}>
-            O CÓDIGO BRASIL © 2026
+        <header className="site-header">
+          <div className="container header-inner">
+            <Link href="/" className="header-logo" aria-label="O Código Brasil — Início">
+              <span className="logo-main">O CÓDIGO</span>
+              <span className="logo-accent">BRASIL</span>
+            </Link>
+            <nav aria-label="Navegação principal" className="header-nav">
+              <Link href="/" className="header-nav__link">Manifesto</Link>
+              <Link href="/conteudo" className="header-nav__link">Artigos</Link>
+              <a
+                href="https://pay.hotmart.com/C107804167U"
+                className="header-nav__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Comprar
+              </a>
+            </nav>
           </div>
-          <nav aria-label="Navegação principal" style={{ display: 'flex', gap: '2rem' }}>
-            <Link href="/" className="nav-link">O Manifesto</Link>
-            <Link href="/conteudo" className="nav-link">Conteúdo</Link>
-            <a href="https://pay.hotmart.com/C107804167U" className="nav-link" style={{ color: 'var(--accent)' }}>Comprar</a>
-          </nav>
         </header>
         
         <div id="conteudo-principal">
           {children}
         </div>
         
-        <footer className="container header-layout" style={{ paddingBottom: '2rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', marginTop: '4rem' }}>
-          <div style={{ fontWeight: 700, fontSize: '0.875rem' }}>
-            O CÓDIGO BRASIL
-          </div>
-          <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-            Criado por Fabian Baldovino
+        <footer className="site-footer">
+          <div className="container footer-inner">
+            <div className="footer-brand">
+              <div className="footer-logo">O CÓDIGO BRASIL</div>
+              <p className="footer-tagline">
+                Decifrando o comportamento instintivo no mercado mais emocional do mundo.
+              </p>
+            </div>
+            <div className="footer-meta">
+              <p className="footer-author">Criado por Fabian Baldovino</p>
+              <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
+            </div>
           </div>
         </footer>
       </body>

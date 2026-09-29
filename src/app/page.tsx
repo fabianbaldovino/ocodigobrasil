@@ -16,110 +16,158 @@ export default function Home() {
           })
         }}
       />
+
       {/* Hero Section */}
-      <section className="section container" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
-        <div className="grid-2" style={{ alignItems: 'center' }}>
-          <div className="flex-col hero-text-col">
-            <h1 className="text-huge" style={{ margin: '0', display: 'flex', flexDirection: 'column' }}>
-              <span>O CÓDIGO</span>
-              <span style={{ fontSize: '1.35em', fontWeight: 900, lineHeight: 0.9, letterSpacing: '-0.02em', color: 'var(--accent)' }}>BRASIL</span>
+      <section className="section container hero-wrapper">
+        <div className="hero-grid">
+          <div className="hero-header">
+            <div className="badge-luxury">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Manifesto de Neuromarketing
+            </div>
+
+            <h1 className="text-huge">
+              <span>O CÓDIGO</span><br />
+              <span className="logo-accent">BRASIL</span>
             </h1>
-            <p className="text-subtitle" style={{ marginTop: '2rem', color: 'var(--accent)' }}>
+
+            <p className="text-subtitle" style={{ marginTop: '1rem', color: 'var(--accent)' }}>
               O segredo para vender no mercado mais emocional do mundo.
             </p>
-            <p className="text-body" style={{ marginTop: '2rem', fontSize: '1.25rem' }}>
-              Esqueça as regras americanas de marketing. Descubra por que o brasileiro não compra o &quot;melhor produto&quot;, mas sim a marca que faz ele se sentir protegido e em casa.
-            </p>
-            <div style={{ marginTop: '3rem' }}>
-              <a href="#contato" className="btn-hero" aria-label="Rolar para a seção de contato e destravar o código">
-                QUERO DESTRAVAR O CÓDIGO AGORA
-              </a>
+          </div>
+
+          <div className="hero-visual">
+            <div className="hero-book-wrap">
+              <Image 
+                src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" 
+                alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro de Fabian Baldovino" 
+                width={360} 
+                height={480} 
+                priority 
+                className="hero-book" 
+              />
             </div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Image src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} priority className="hero-book" />
+
+          <div className="hero-action">
+            <p className="text-body" style={{ fontSize: '1.125rem' }}>
+              Esqueça as regras americanas de marketing. Descubra por que o brasileiro não compra o &quot;melhor produto&quot;, mas sim a marca que o faz se sentir protegido e em casa.
+            </p>
+
+            <div style={{ marginTop: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', width: '100%', maxWidth: '380px' }}>
+              <a 
+                href="https://pay.hotmart.com/C107804167U" 
+                className="btn-hero"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Acessar o manifesto O Código Brasil na Hotmart"
+              >
+                <span>ACESSAR O MANIFESTO AGORA</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textAlign: 'center', margin: 0 }}>
+                🔒 Acesso Digital Imediato • 7 Dias de Garantia Incondicional
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* The Thesis / Vision Section */}
       <section id="tese" className="section container">
-        <div className="grid-2">
-          <div className="flex-col">
-            <h2 className="text-title">POR QUE VOCÊ ESTÁ PERDENDO VENDAS?</h2>
-            <div style={{ width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginTop: '2rem', boxShadow: 'var(--shadow-1)' }}>
-              <Image 
-                src="/fabian_baldovino_producao_poa_rs.jpg" 
-                alt="Fabian Baldovino Produção" 
-                width={800} height={400}
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'cover',
-                  filter: 'grayscale(20%)'
-                }} 
-              />
+        <div className="card-surface">
+          <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
+            <div className="badge-luxury" style={{ marginBottom: '1rem' }}>
+              Diagnóstico Cultural
             </div>
+            <h2 className="text-title" style={{ margin: '0 auto 1.25rem' }}>
+              Por Que Você Está Perdendo Vendas?
+            </h2>
+            <p className="text-body" style={{ margin: '0 auto', fontSize: '1.125rem' }}>
+              Você já percebeu que ter o produto tecnicamente superior ou o menor preço muitas vezes <strong>não garante a venda no Brasil</strong>?
+            </p>
+            <p className="text-body" style={{ margin: '1rem auto 0', color: 'var(--text-muted)' }}>
+              Para o nosso cérebro instintivo, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
+            </p>
           </div>
-          <div className="flex-col gap-md">
-            <p style={{ fontSize: '1.5rem', fontWeight: 600, lineHeight: 1.4, color: 'var(--foreground)', letterSpacing: '-0.01em' }}>
-              Você já percebeu que ter o melhor produto ou o menor preço muitas vezes não garante a venda no Brasil?
-            </p>
-            <p className="text-body" style={{ fontSize: '1.125rem', opacity: 0.85, lineHeight: 1.7 }}>
-              Isso acontece por um motivo simples: o brasileiro morre de medo de ser enganado por &quot;sistemas frios&quot; ou empresas impessoais. Para se proteger, ele só dá o seu dinheiro para marcas que agem como um parceiro de confiança.
-            </p>
-            <p className="text-body" style={{ fontSize: '1.125rem', opacity: 0.85, lineHeight: 1.7 }}>
-              Se o seu marketing tenta ser &quot;chique&quot;, difícil e cheio de palavras técnicas, o cliente foge. Ele quer clareza, sorriso e a certeza de que você não vai abandoná-lo depois da compra.
-            </p>
-            <div style={{ borderLeft: '4px solid var(--accent)', paddingLeft: '1.5rem', marginTop: '1rem' }}>
-              <p className="text-body" style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--foreground)' }}>
-                O brasileiro compra proximidade, história e confiança. Se a sua marca não se posiciona como o verdadeiro &apos;padrinho&apos; da jornada dele, você continuará perdendo vendas para concorrentes piores, mas que sabem fazer o cliente se sentir em casa.
+
+          <div className="casa-rua-grid">
+            <div className="dual-card dual-card--rua">
+              <span className="dual-card__tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                A Rua (O Erro Comum)
+              </span>
+              <h3 className="dual-card__title">Sistemas Frios e Impessoais</h3>
+              <p className="dual-card__desc">
+                Marketing baseado em manuais importados, vocabulário complexo, menus burocráticos e respostas robotizadas. O cliente sente hostilidade digital e abandona a compra com receio de ser desamparado.
+              </p>
+            </div>
+
+            <div className="dual-card dual-card--casa">
+              <span className="dual-card__tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                A Casa (O Nosso Método)
+              </span>
+              <h3 className="dual-card__title">O Porto Seguro Emocional</h3>
+              <p className="dual-card__desc">
+                A marca atua como fiadora e protetora (&quot;o padrinho&quot;). Linguagem acolhedora, clareza absoluta, pontes humanas pelo WhatsApp e a certeza inegociável de que o cliente jamais estará sozinho.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="container">
-        <hr className="divider" aria-hidden="true" />
-      </div>
-
-      {/* Quem decodificou o Brasil? */}
+      {/* Quem decodificou o Brasil? (Autoridade) */}
       <section id="autoridade" className="section container">
-        <div className="grid-2" style={{ alignItems: 'stretch', gap: '4rem' }}>
+        <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
           
-          {/* Foto de Autoridade (50%) */}
-          <div style={{ width: '100%', position: 'relative' }}>
-            <Image src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" alt="Fabian Baldovino" width={600} height={800} style={{ width: '100%', height: '100%', borderRadius: 'var(--radius-lg)', objectFit: 'cover', objectPosition: 'center', boxShadow: 'var(--shadow-1)' }} />
+          {/* Foto de Autoridade */}
+          <div className="media-card">
+            <Image 
+              src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" 
+              alt="Fabian Baldovino — Autor de O Código Brasil" 
+              width={540} 
+              height={700} 
+              style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+            />
+            <div className="media-caption">
+              Fabian Baldovino • Autor e Estrategista Visual
+            </div>
           </div>
           
-          {/* Bio e Marcas (50%) */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1.5rem' }}>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <h2 className="text-title" style={{ margin: 0, fontSize: '2.5rem', lineHeight: 1 }}>Fabian Baldovino</h2>
-              <p style={{ margin: 0, color: 'var(--accent)', fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Autor & Estrategista Visual
+          {/* Bio e Marcas */}
+          <div className="flex-col gap-md">
+            <div>
+              <div className="badge-luxury" style={{ marginBottom: '0.75rem' }}>
+                Autoridade & Prática
+              </div>
+              <h2 className="text-title" style={{ margin: 0 }}>Fabian Baldovino</h2>
+              <p style={{ margin: '0.35rem 0 0', color: 'var(--accent)', fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Autor & Estrategista de Percepção
               </p>
             </div>
             
             <div className="flex-col gap-sm">
-              <p className="text-body" style={{ color: 'var(--foreground)', fontSize: '1rem', lineHeight: 1.6, opacity: 0.9, margin: 0 }}>
-                Com sólida base em Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado.
+              <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
+                Com sólida formação em Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado nacional.
               </p>
-              <p className="text-body" style={{ color: 'var(--foreground)', fontSize: '1rem', lineHeight: 1.6, opacity: 0.9, margin: 0 }}>
-                Além de orquestrar estratégias cinematográficas e narrativas para o setor privado, Fabian possui um profundo histórico de impacto social e elaboração de políticas públicas. Seus trabalhos contam com o reconhecimento ostensivo da grande mídia – chancelados por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong> –, e com atuações de destaque junto à <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e na esfera acadêmica como palestrante na <strong>UFRGS</strong>.
+              <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
+                Além de orquestrar estratégias narrativas para o setor privado, possui reconhecimento chancelado por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong>, além de passagens de destaque pela <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e palestras na <strong>UFRGS</strong>.
               </p>
-              <p className="text-body" style={{ color: 'var(--foreground)', fontSize: '1rem', lineHeight: 1.6, opacity: 0.9, margin: 0 }}>
-                Foi essa vivência íntima e irrestrita com a realidade popular que o permitiu decodificar a emoção de compra e os medos do povo brasileiro como ninguém. Hoje, ele ajuda marcas a abandonarem os sistemas frios para se tornarem líderes incontestáveis.
+              <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
+                Essa vivência direta com o cotidiano do consumidor brasileiro permitiu decodificar os gatilhos de lealdade e os medos que movem o mercado mais passional do mundo.
               </p>
             </div>
 
-            {/* Marcas - Grid de Logos (Premium Monocromático) */}
-            <div className="flex-col" style={{ gap: '1.5rem', marginTop: '1rem' }}>
-              <h3 className="text-title" style={{ fontSize: '0.875rem', margin: 0, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Marcas Parceiras
-              </h3>
+            {/* Marcas Parceiras */}
+            <div className="flex-col" style={{ gap: '0.85rem', marginTop: '0.5rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                Marcas e Instituições Conectadas
+              </span>
               <div className="brand-grid">
                 {[
                   { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png" },
@@ -138,8 +186,8 @@ export default function Home() {
                     key={client.name}
                     src={client.src} 
                     alt={`Logo da marca parceira ${client.name}`} 
-                    width={90}
-                    height={30}
+                    width={80}
+                    height={24}
                     className="brand-grid__logo"
                   />
                 ))}
@@ -151,100 +199,134 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="container">
-        <hr className="divider" aria-hidden="true" />
-      </div>
-
       {/* Fundamental Principles */}
       <section id="manifesto" className="section container">
-        <h2 className="text-title" style={{ marginBottom: '4rem', textAlign: 'center' }}>O QUE VOCÊ VAI DESCOBRIR</h2>
+        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
+          <div className="badge-luxury" style={{ marginBottom: '1rem' }}>
+            Os 4 Pilares do Método
+          </div>
+          <h2 className="text-title" style={{ margin: 0 }}>O Que Você Vai Descobrir</h2>
+          <p className="text-body" style={{ margin: '0.75rem auto 0', color: 'var(--text-muted)' }}>
+            Princípios práticos para remodelar a comunicação e o posicionamento da sua empresa no mercado brasileiro.
+          </p>
+        </div>
         
-        <div className="grid-2" style={{ gap: '4rem 6rem' }}>
-          <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
-            <h3 className="text-title" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent)' }}>01</h3>
-            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>O Fim da Frieza</p>
-            <p className="text-body" style={{ fontSize: '1.125rem', marginTop: '0.5rem', opacity: 0.85, lineHeight: 1.6 }}>Como parar de tentar vender características chatas (a lógica) e começar a vender a resolução emocional do seu cliente (o alívio).</p>
+        <div className="pillars-grid">
+          <div className="pillar-card">
+            <span className="pillar-num">01</span>
+            <h3 className="pillar-title">O Fim da Frieza</h3>
+            <p className="pillar-desc">
+              Como parar de vender atributos técnicos (lógica pura) e começar a entregar a resolução afetiva que o cliente realmente busca (o alívio).
+            </p>
           </div>
-          <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
-            <h3 className="text-title" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent)' }}>02</h3>
-            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>O Efeito WhatsApp</p>
-            <p className="text-body" style={{ fontSize: '1.125rem', marginTop: '0.5rem', opacity: 0.85, lineHeight: 1.6 }}>Por que as pessoas no Brasil preferem muito mais falar com um humano no WhatsApp do que usar um sistema automático perfeito.</p>
+
+          <div className="pillar-card">
+            <span className="pillar-num">02</span>
+            <h3 className="pillar-title">O Efeito WhatsApp</h3>
+            <p className="pillar-desc">
+              Por que o consumidor brasileiro escolhe conversar com um atendente real antes de passar o cartão em um formulário automatizado perfeito.
+            </p>
           </div>
-          <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
-            <h3 className="text-title" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent)' }}>03</h3>
-            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>A Marca &quot;Padrinho&quot;</p>
-            <p className="text-body" style={{ fontSize: '1.125rem', marginTop: '0.5rem', opacity: 0.85, lineHeight: 1.6 }}>A técnica para parar de focar no seu próprio umbigo e se tornar o verdadeiro guia e protetor da história do cliente.</p>
+
+          <div className="pillar-card">
+            <span className="pillar-num">03</span>
+            <h3 className="pillar-title">A Marca &quot;Padrinho&quot;</h3>
+            <p className="pillar-desc">
+              A transição do discurso egocêntrico para a postura de guardião da jornada do cliente, gerando lealdade inabalável.
+            </p>
           </div>
-          <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
-            <h3 className="text-title" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent)' }}>04</h3>
-            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>O Design de Confiança</p>
-            <p className="text-body" style={{ fontSize: '1.125rem', marginTop: '0.5rem', opacity: 0.85, lineHeight: 1.6 }}>Como as cores, os botões e até a fonte do seu site dizem ao cliente, em milissegundos, se você é amigo ou inimigo.</p>
+
+          <div className="pillar-card">
+            <span className="pillar-num">04</span>
+            <h3 className="pillar-title">O Design de Confiança</h3>
+            <p className="pillar-desc">
+              Como cores, botões, micro-interações e espaçamento informam ao cérebro inconsciente, em 50 milissegundos, se o seu site é acolhedor ou perigoso.
+            </p>
           </div>
         </div>
       </section>
-
-      <div className="container">
-        <hr className="divider" aria-hidden="true" />
-      </div>
 
       {/* FAQ / Quebra de Objeções */}
       <section id="faq" className="section container">
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 className="text-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>PERGUNTAS FREQUENTES</h2>
-          <div className="flex-col gap-sm">
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <div className="badge-luxury" style={{ marginBottom: '0.75rem' }}>
+              Transparência
+            </div>
+            <h2 className="text-title" style={{ margin: 0 }}>Perguntas Frequentes</h2>
+          </div>
+
+          <div className="faq-list">
             <details className="faq-item">
               <summary>
-                Isso serve para negócios físicos e serviços?
+                Isso se aplica a negócios físicos, indústrias e serviços?
               </summary>
-              <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
-                Sim. Seja você dono de uma loja física, de uma clínica, ou prestador de serviços online, o comportamento emocional do consumidor brasileiro é o mesmo. O manifesto ensina como adaptar essa conexão para o seu cenário específico.
+              <p>
+                Sim. Seja você proprietário de clínica, loja física, indústria ou prestador de serviços digitais, o cérebro instintivo do brasileiro é o mesmo. O manifesto detalha como construir essa ponte humana independente do seu segmento.
               </p>
             </details>
+
             <details className="faq-item">
               <summary>
-                Como recebo o manifesto?
+                Como tenho acesso ao material após a confirmação?
               </summary>
-              <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
-                Logo após a confirmação do pagamento, você receberá o acesso imediato ao material completo diretamente no seu e-mail, podendo ler no celular, tablet ou computador.
+              <p>
+                Imediatamente após a aprovação do pedido, você receberá no seu e-mail as credenciais de acesso seguro para ler o documento digital em qualquer dispositivo (celular, tablet ou computador).
               </p>
             </details>
+
             <details className="faq-item">
               <summary>
-                E se não for o que eu esperava?
+                E se o conteúdo não for útil para a minha realidade?
               </summary>
-              <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
-                Você tem 7 dias de garantia incondicional. Se a leitura não transformar a sua visão estratégica ou você entender que o método não se aplica à realidade do seu negócio, basta enviar um e-mail. Devolvemos 100% do valor de forma simples, sem burocracia e sem ressentimentos.
+              <p>
+                Você conta com garantia incondicional de 7 dias. Se o material não expandir a sua clareza de mercado ou não fizer sentido para o seu negócio, basta solicitar o reembolso com um clique. Devolvemos 100% do investimento sem burocracias.
               </p>
             </details>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section id="contato" className="section container flex-col" style={{ alignItems: 'center', textAlign: 'center', padding: '8rem 0' }}>
-        <Image src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil" width={400} height={533} style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
-        <h2 className="text-title">ENTENDA O CÓDIGO DO CONSUMO BRASILEIRO</h2>
-        <p className="text-body" style={{ margin: '2rem 0', maxWidth: '800px' }}>
-          Tenha acesso à tese completa e descubra o método exato para posicionar a sua marca como o porto seguro (A Casa) do seu cliente, convertendo emoção em lealdade e faturamento.
-        </p>
-        
-        {/* Bonus / Anchoring (Ocultado Temporariamente) 
-        <div style={{ background: 'var(--surface)', padding: '1.5rem 2.5rem', borderRadius: '8px', marginBottom: '2.5rem', display: 'inline-flex', alignItems: 'center', gap: '1rem', border: '1px solid rgba(194, 48, 26, 0.2)' }}>
-          <div style={{ width: '24px', height: '24px', background: 'var(--accent)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '0.8rem' }}>✓</div>
-          <p style={{ margin: 0, fontWeight: 600, color: 'var(--foreground)' }}>
-            <span style={{ color: 'var(--accent)', fontWeight: 900 }}>BÔNUS EXCLUSIVO:</span> Garanta hoje e receba também o Mapa Visual do 'Efeito WhatsApp'.
-          </p>
-        </div>
-        */}
+      {/* Call to Action Final */}
+      <section id="comprar" className="section container" style={{ paddingTop: '2rem' }}>
+        <div className="conversion-box">
+          <div className="badge-luxury" style={{ marginBottom: '1.25rem' }}>
+            Acesso ao Documento Oficial
+          </div>
 
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" aria-label="Prosseguir para o checkout seguro na Hotmart e comprar o manifesto agora">
-            COMPRAR O MANIFESTO AGORA
-          </a>
+          <h2 className="text-title" style={{ maxWidth: '650px', margin: '0 auto' }}>
+            Entenda o Código do Consumo Brasileiro
+          </h2>
+
+          <p className="text-body" style={{ margin: '1.25rem auto 2.25rem', maxWidth: '640px', color: 'var(--text-muted)' }}>
+            Adquira o manifesto e aplique a tese que transforma a hostilidade da rua no conforto acolhedor da casa, convertendo empatia em faturamento sustentável.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', width: '100%', maxWidth: '380px' }}>
+            <a 
+              href="https://pay.hotmart.com/C107804167U" 
+              className="btn-hero"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Comprar o manifesto O Código Brasil via Hotmart"
+            >
+              <span>LER O MANIFESTO AGORA</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginTop: '0.25rem' }}>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>
+                🔒 Pagamento Criptografado
+              </span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>•</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>
+                7 Dias de Garantia
+              </span>
+            </div>
+          </div>
         </div>
-        <p style={{ marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-          🔒 Pagamento 100% Seguro. Acesso Imediato.
-        </p>
       </section>
     </main>
   );
