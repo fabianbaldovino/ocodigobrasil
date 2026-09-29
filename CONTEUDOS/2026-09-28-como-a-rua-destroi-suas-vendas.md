@@ -61,4 +61,4 @@ O mercado continua acreditando cegamente que as pessoas compram planilhas de efi
 Transforme a hostilidade da sua operação em abrigo. Transforme a burocracia em relacionamento. Pare de vender para a lógica e comece a conversar com a emoção. É assim que você vence no Brasil.
 
 ---
-*Gostou deste artigo? Ele é parte da tese central de decodificação cultural apresentada no **O Código Brasil**. Descubra como aplicar essas estratégias no seu negócio e domine o mercado nacional.*
+*Gostou deste artigo? Ele é parte da tese central de decodificação cultural apresentada no **O Código Brasil**. Descubra como aplicar essas estratégias no seu negócio e entenda o mercado nacional.*

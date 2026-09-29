@@ -58,4 +58,4 @@ A lição que a sua operação deve extrair deste colapso do sistema financeiro 
 2. **Substitua a Eficiência pela Dignidade:** O Nubank não distribuiu apenas pedaços de plástico roxo; ele devolveu a dignidade financeira a milhões de brasileiros que viviam à margem ou sob a humilhação do sistema. O que o seu produto, no seu nível mais profundo, devolve emocionalmente ao seu público?
 3. **Obrigue a Sua Tecnologia a Ser Cordial:** Se a sua empresa é digital, isso não é um passe livre para ser impessoal. A tecnologia deve servir para escalar o afeto, não para construir muros corporativos. 
 
-O cliente brasileiro continuará a recompensar com fidelidade cega e irracional toda marca que lhe conceder o privilégio inestimável do refúgio. Pare de construir operações bancárias frias. Domine a ciência de construir "Casas".
+O cliente brasileiro continuará a recompensar com fidelidade cega e irracional toda marca que lhe conceder o privilégio inestimável do refúgio. Pare de construir operações bancárias frias. Entenda a ciência de construir "Casas".
