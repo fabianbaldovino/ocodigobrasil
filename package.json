@@ -8,8 +8,7 @@
     "export": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
-    "deploy": "next build && wrangler pages deploy out --project-name=ocodigobrasil"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

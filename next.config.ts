@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   output: "export",
   // Garante URLs com trailing slash para compatibilidade com Cloudflare Pages
   trailingSlash: true,
+  images: {
+    // Export estático não tem servidor de otimização — serve original
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

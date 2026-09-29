@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <main>
@@ -35,7 +37,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} fetchPriority="high" decoding="async" className="hero-book" />
+            <Image src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} priority className="hero-book" />
           </div>
         </div>
       </section>
@@ -46,11 +48,10 @@ export default function Home() {
           <div className="flex-col">
             <h2 className="text-title">POR QUE VOCÊ ESTÁ PERDENDO VENDAS?</h2>
             <div style={{ width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginTop: '2rem', boxShadow: 'var(--shadow-1)' }}>
-              <img 
+              <Image 
                 src="/fabian_baldovino_producao_poa_rs.jpg" 
                 alt="Fabian Baldovino Produção" 
                 width={800} height={400}
-                loading="lazy" decoding="async"
                 style={{ 
                   width: '100%', 
                   height: '100%', 
@@ -89,7 +90,7 @@ export default function Home() {
           
           {/* Foto de Autoridade (50%) */}
           <div style={{ width: '100%', position: 'relative' }}>
-            <img src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" alt="Fabian Baldovino" width={600} height={800} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', borderRadius: 'var(--radius-lg)', objectFit: 'cover', objectPosition: 'center', boxShadow: 'var(--shadow-1)' }} />
+            <Image src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" alt="Fabian Baldovino" width={600} height={800} style={{ width: '100%', height: '100%', borderRadius: 'var(--radius-lg)', objectFit: 'cover', objectPosition: 'center', boxShadow: 'var(--shadow-1)' }} />
           </div>
           
           {/* Bio e Marcas (50%) */}
@@ -133,14 +134,12 @@ export default function Home() {
                   { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" },
                   { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png" }
                 ].map((client) => (
-                  <img 
+                  <Image 
                     key={client.name}
                     src={client.src} 
                     alt={`Logo da marca parceira ${client.name}`} 
                     width={90}
                     height={30}
-                    loading="lazy"
-                    decoding="async"
                     className="brand-grid__logo"
                   />
                 ))}
@@ -223,7 +222,7 @@ export default function Home() {
 
       {/* Call to Action */}
       <section id="contato" className="section container flex-col" style={{ alignItems: 'center', textAlign: 'center', padding: '8rem 0' }}>
-        <img src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil" style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
+        <Image src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" alt="Livro O Código Brasil" width={400} height={533} style={{ width: '100%', maxWidth: '250px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.1))', marginBottom: '3rem' }} />
         <h2 className="text-title">ENTENDA O CÓDIGO DO CONSUMO BRASILEIRO</h2>
         <p className="text-body" style={{ margin: '2rem 0', maxWidth: '800px' }}>
           Tenha acesso à tese completa e descubra o método exato para posicionar a sua marca como o porto seguro (A Casa) do seu cliente, convertendo emoção em lealdade e faturamento.
