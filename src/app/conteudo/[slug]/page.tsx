@@ -1,4 +1,5 @@
 import { getPostData, getSortedPostsData } from '@/lib/markdown';
+import { formatDateBR } from '@/lib/format';
 import { Metadata } from 'next';
 
 type Props = {
@@ -29,7 +30,7 @@ export default async function Post({ params }: Props) {
             {postData.description}
           </p>
           <div style={{ display: 'flex', gap: '2rem', fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
-            <time>{new Date(postData.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</time>
+            <time dateTime={postData.date}>{formatDateBR(postData.date)}</time>
             <span>POR <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>FABIAN BALDOVINO</a></span>
           </div>
         </header>

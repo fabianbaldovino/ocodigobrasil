@@ -1,6 +1,19 @@
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "O Código Brasil — Manifesto",
+            "image": "/o_codigo_brasil.png",
+            "brand": { "@type": "Brand", "name": "O Código Brasil" },
+            "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
+          })
+        }}
+      />
       {/* Hero Section */}
       <section className="section container" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
         <div className="grid-2" style={{ alignItems: 'center' }}>
@@ -13,7 +26,7 @@ export default function Home() {
               O segredo para vender no mercado mais emocional do mundo.
             </p>
             <p className="text-body" style={{ marginTop: '2rem', fontSize: '1.25rem' }}>
-              Esqueça as regras americanas de marketing. Descubra por que o brasileiro não compra o "melhor produto", mas sim a marca que faz ele se sentir protegido e em casa.
+              Esqueça as regras americanas de marketing. Descubra por que o brasileiro não compra o &quot;melhor produto&quot;, mas sim a marca que faz ele se sentir protegido e em casa.
             </p>
             <div style={{ marginTop: '3rem' }}>
               <a href="#contato" className="btn-hero" aria-label="Rolar para a seção de contato e destravar o código">
@@ -22,7 +35,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src="/o_codigo_brasil.png" alt="Livro O Código Brasil" style={{ width: '100%', maxWidth: '400px', height: 'auto', borderRadius: '12px', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))' }} />
+            <img src="/o_codigo_brasil.png" alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro" width={400} height={533} fetchPriority="high" decoding="async" className="hero-book" />
           </div>
         </div>
       </section>
@@ -32,10 +45,12 @@ export default function Home() {
         <div className="grid-2">
           <div className="flex-col">
             <h2 className="text-title">POR QUE VOCÊ ESTÁ PERDENDO VENDAS?</h2>
-            <div style={{ width: '100%', height: '400px', borderRadius: '12px', overflow: 'hidden', marginTop: '2rem', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
+            <div style={{ width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginTop: '2rem', boxShadow: 'var(--shadow-1)' }}>
               <img 
                 src="/fabian_baldovino_producao_poa_rs.jpg" 
                 alt="Fabian Baldovino Produção" 
+                width={800} height={400}
+                loading="lazy" decoding="async"
                 style={{ 
                   width: '100%', 
                   height: '100%', 
@@ -50,14 +65,14 @@ export default function Home() {
               Você já percebeu que ter o melhor produto ou o menor preço muitas vezes não garante a venda no Brasil?
             </p>
             <p className="text-body" style={{ fontSize: '1.125rem', opacity: 0.85, lineHeight: 1.7 }}>
-              Isso acontece por um motivo simples: o brasileiro morre de medo de ser enganado por "sistemas frios" ou empresas impessoais. Para se proteger, ele só dá o seu dinheiro para marcas que agem como um parceiro de confiança.
+              Isso acontece por um motivo simples: o brasileiro morre de medo de ser enganado por &quot;sistemas frios&quot; ou empresas impessoais. Para se proteger, ele só dá o seu dinheiro para marcas que agem como um parceiro de confiança.
             </p>
             <p className="text-body" style={{ fontSize: '1.125rem', opacity: 0.85, lineHeight: 1.7 }}>
-              Se o seu marketing tenta ser "chique", difícil e cheio de palavras técnicas, o cliente foge. Ele quer clareza, sorriso e a certeza de que você não vai abandoná-lo depois da compra.
+              Se o seu marketing tenta ser &quot;chique&quot;, difícil e cheio de palavras técnicas, o cliente foge. Ele quer clareza, sorriso e a certeza de que você não vai abandoná-lo depois da compra.
             </p>
             <div style={{ borderLeft: '4px solid var(--accent)', paddingLeft: '1.5rem', marginTop: '1rem' }}>
               <p className="text-body" style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--foreground)' }}>
-                O brasileiro compra proximidade, história e confiança. Se a sua marca não se posiciona como o verdadeiro 'padrinho' da jornada dele, você continuará perdendo vendas para concorrentes piores, mas que sabem fazer o cliente se sentir em casa.
+                O brasileiro compra proximidade, história e confiança. Se a sua marca não se posiciona como o verdadeiro &apos;padrinho&apos; da jornada dele, você continuará perdendo vendas para concorrentes piores, mas que sabem fazer o cliente se sentir em casa.
               </p>
             </div>
           </div>
@@ -74,7 +89,7 @@ export default function Home() {
           
           {/* Foto de Autoridade (50%) */}
           <div style={{ width: '100%', position: 'relative' }}>
-            <img src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" alt="Fabian Baldovino" style={{ width: '100%', height: '100%', borderRadius: '12px', objectFit: 'cover', objectPosition: 'center', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} />
+            <img src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" alt="Fabian Baldovino" width={600} height={800} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', borderRadius: 'var(--radius-lg)', objectFit: 'cover', objectPosition: 'center', boxShadow: 'var(--shadow-1)' }} />
           </div>
           
           {/* Bio e Marcas (50%) */}
@@ -101,10 +116,10 @@ export default function Home() {
 
             {/* Marcas - Grid de Logos (Premium Monocromático) */}
             <div className="flex-col" style={{ gap: '1.5rem', marginTop: '1rem' }}>
-              <h3 className="text-title" style={{ fontSize: '0.875rem', margin: 0, opacity: 0.4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <h3 className="text-title" style={{ fontSize: '0.875rem', margin: 0, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Marcas Parceiras
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1.5rem', alignItems: 'center', justifyItems: 'center' }}>
+              <div className="brand-grid">
                 {[
                   { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png" },
                   { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.png" },
@@ -118,23 +133,16 @@ export default function Home() {
                   { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" },
                   { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png" }
                 ].map((client) => (
-                  <div key={client.name} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                    <img 
-                      src={client.src} 
-                      alt={`Logo da marca parceira ${client.name}`} 
-                      loading="lazy"
-                      decoding="async"
-                      style={{ 
-                        width: '100%', 
-                        maxWidth: '90px', 
-                        height: 'auto', 
-                        maxHeight: '30px',
-                        objectFit: 'contain', 
-                        filter: 'brightness(0) opacity(70%)',
-                        mixBlendMode: 'multiply'
-                      }} 
-                    />
-                  </div>
+                  <img 
+                    key={client.name}
+                    src={client.src} 
+                    alt={`Logo da marca parceira ${client.name}`} 
+                    width={90}
+                    height={30}
+                    loading="lazy"
+                    decoding="async"
+                    className="brand-grid__logo"
+                  />
                 ))}
               </div>
             </div>
@@ -165,7 +173,7 @@ export default function Home() {
           </div>
           <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
             <h3 className="text-title" style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent)' }}>03</h3>
-            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>A Marca "Padrinho"</p>
+            <p style={{ fontWeight: 900, fontSize: '1.25rem', marginTop: '1rem', textTransform: 'uppercase' }}>A Marca &quot;Padrinho&quot;</p>
             <p className="text-body" style={{ fontSize: '1.125rem', marginTop: '0.5rem', opacity: 0.85, lineHeight: 1.6 }}>A técnica para parar de focar no seu próprio umbigo e se tornar o verdadeiro guia e protetor da história do cliente.</p>
           </div>
           <div style={{ borderTop: '2px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
@@ -185,28 +193,25 @@ export default function Home() {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h2 className="text-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>PERGUNTAS FREQUENTES</h2>
           <div className="flex-col gap-sm">
-            <details style={{ background: 'var(--surface)', padding: '1.5rem', borderRadius: '8px', cursor: 'pointer' }}>
-              <summary style={{ fontWeight: 700, fontSize: '1.125rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <details className="faq-item">
+              <summary>
                 Isso serve para negócios físicos e serviços?
-                <span style={{ color: 'var(--accent)' }}>+</span>
               </summary>
               <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
                 Sim. Seja você dono de uma loja física, de uma clínica, ou prestador de serviços online, o comportamento emocional do consumidor brasileiro é o mesmo. O manifesto ensina como adaptar essa conexão para o seu cenário específico.
               </p>
             </details>
-            <details style={{ background: 'var(--surface)', padding: '1.5rem', borderRadius: '8px', cursor: 'pointer' }}>
-              <summary style={{ fontWeight: 700, fontSize: '1.125rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <details className="faq-item">
+              <summary>
                 Como recebo o manifesto?
-                <span style={{ color: 'var(--accent)' }}>+</span>
               </summary>
               <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
                 Logo após a confirmação do pagamento, você receberá o acesso imediato ao material completo diretamente no seu e-mail, podendo ler no celular, tablet ou computador.
               </p>
             </details>
-            <details style={{ background: 'var(--surface)', padding: '1.5rem', borderRadius: '8px', cursor: 'pointer' }}>
-              <summary style={{ fontWeight: 700, fontSize: '1.125rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <details className="faq-item">
+              <summary>
                 E se eu não gostar?
-                <span style={{ color: 'var(--accent)' }}>+</span>
               </summary>
               <p className="text-body" style={{ marginTop: '1rem', opacity: 0.85 }}>
                 Você está protegido pela nossa garantia blindada. Se o conteúdo não explodir a sua cabeça ou você achar que não serve para o seu momento, basta nos enviar um e-mail em até 7 dias que devolvemos 100% do seu investimento.
@@ -238,7 +243,7 @@ export default function Home() {
             COMPRAR O MANIFESTO AGORA
           </a>
         </div>
-        <p style={{ marginTop: '1.5rem', fontSize: '0.875rem', opacity: 0.6, fontWeight: 500 }}>
+        <p style={{ marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 500 }}>
           🔒 Pagamento 100% Seguro. Acesso Imediato.
         </p>
       </section>

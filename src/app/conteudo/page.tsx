@@ -1,4 +1,5 @@
 import { getSortedPostsData } from '@/lib/markdown';
+import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -13,7 +14,7 @@ export default function Conteudo() {
   return (
     <main>
       <section className="section container flex-col">
-        <h1 className="text-title" style={{ color: '#d32f2f' }}>CONTEÚDO E ARTIGOS</h1>
+        <h1 className="text-title" style={{ color: 'var(--accent)' }}>CONTEÚDO E ARTIGOS</h1>
         <p className="text-body" style={{ marginTop: '1rem', maxWidth: '800px' }}>
           Estudos, análises de mercado e a decodificação do cérebro instintivo brasileiro.
         </p>
@@ -32,7 +33,7 @@ export default function Conteudo() {
                   </h2>
                   <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
                   <span style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
-                    {new Date(date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                    {formatDateBR(date)}
                   </span>
                 </Link>
               </article>
