@@ -2,7 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
+
+const SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 const postsDirectory = path.join(process.cwd(), 'content/artigos');
 
@@ -37,12 +41,17 @@ export function getSortedPostsData() {
 }
 
 export async function getPostData(slug: string) {
+  if (!SLUG_PATTERN.test(slug)) {
+    throw new Error(`Slug inválido: ${slug}`);
+  }
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
-  
+
   const processedContent = await remark()
-    .use(html)
+    .use(remarkRehype)
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
