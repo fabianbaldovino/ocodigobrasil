@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title: 'O Código Brasil | Manifesto', images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'] },
   robots: { index: true, follow: true },
+  alternates: { canonical: '/' },
 };
 
 export default function RootLayout({

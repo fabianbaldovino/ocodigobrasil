@@ -10,7 +10,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "O Código Brasil — Manifesto",
-            "image": "/capa_manifesto_o_codigo_brasil_fabian_baldovino.png",
+            "image": "https://ocodigobrasil.com.br/capa_manifesto_o_codigo_brasil_fabian_baldovino.png",
             "brand": { "@type": "Brand", "name": "O Código Brasil" },
             "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
           })
@@ -192,7 +192,7 @@ export default function Home() {
               <div key={client.name} className="brand-item">
                 <Image 
                   src={client.src} 
-                  alt={`Logo da marca parceira ${client.name}`} 
+                  alt={`${client.name}: Empresa atendida pela metodologia O Código Brasil`} 
                   width={200}
                   height={100}
                   style={{ '--logo-scale': client.scale || 1 } as React.CSSProperties}
