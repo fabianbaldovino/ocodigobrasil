@@ -1,6 +1,8 @@
 import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
 import ShareButtons from '@/components/ShareButtons';
+import Stars from '@/components/Stars';
+import Comments from '@/components/Comments';
 import { Metadata } from 'next';
 
 type Props = {
@@ -69,6 +71,9 @@ export default async function Post({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
           style={{ width: '100%' }}
         />
+
+        <Stars slug={postData.slug} />
+        <Comments slug={postData.slug} />
 
         <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ marginBottom: '3rem' }}>

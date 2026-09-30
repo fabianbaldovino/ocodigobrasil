@@ -2,7 +2,13 @@
 
 # dependencies
 /node_modules
+/functions/node_modules
 /.pnp
+
+# firebase emulators (logs locais)
+firebase-debug.log
+firestore-debug.log
+*.debug.log
 .pnp.*
 .yarn/*
 !.yarn/patches
