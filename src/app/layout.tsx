@@ -76,7 +76,7 @@ export default function RootLayout({
               </p>
             </div>
             <div className="footer-meta">
-              <p className="footer-author">Criado por Fabian Baldovino</p>
+              <p className="footer-author">Criado por <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Fabian Baldovino</a></p>
               <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
             </div>
           </div>

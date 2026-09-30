@@ -3,7 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkRehype from 'remark-rehype';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 
 const SLUG_PATTERN = /^[a-z0-9-]+$/;
@@ -48,9 +49,18 @@ export async function getPostData(slug: string) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
 
+  const customSchema = {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      '*': [...(defaultSchema.attributes?.['*'] || []), 'id', 'name', 'className']
+    }
+  };
+
   const processedContent = await remark()
     .use(remarkRehype)
-    .use(rehypeSanitize)
+    .use(rehypeSanitize, customSchema)
+    .use(rehypeSlug)
     .use(rehypeStringify)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();

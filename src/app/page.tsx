@@ -21,7 +21,7 @@ export default function Home() {
       <section className="section container hero-wrapper">
         <div className="hero-grid">
           <div className="hero-header">
-            <div className="badge-luxury">
+            <div className="badge-luxury" style={{ marginBottom: '1.25rem' }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
@@ -127,13 +127,15 @@ export default function Home() {
           
           {/* Foto de Autoridade */}
           <div className="media-card">
-            <Image 
-              src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" 
-              alt="Fabian Baldovino — Autor de O Código Brasil" 
-              width={540} 
-              height={700} 
-              style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
-            />
+            <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino">
+              <Image 
+                src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" 
+                alt="Fabian Baldovino — Autor de O Código Brasil" 
+                width={540} 
+                height={700} 
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+              />
+            </a>
             <div className="media-caption">
               Fabian Baldovino • Autor e Estrategista Visual
             </div>
@@ -153,49 +155,52 @@ export default function Home() {
             
             <div className="flex-col gap-sm">
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
-                Com sólida formação em Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado nacional.
+                Com um rigoroso estudo autodidata nas áreas de Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado nacional.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
-                Além de orquestrar estratégias narrativas para o setor privado, possui reconhecimento chancelado por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong>, além de passagens de destaque pela <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e palestras na <strong>UFRGS</strong>.
+                Além de orquestrar estratégias narrativas para o setor privado e atuar fortemente na educação com projetos de ensino transversais focados na produção de conhecimento, possui reconhecimento chancelado por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong>, com passagens de destaque pela <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e palestras na <strong>UFRGS</strong>.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
                 Essa vivência direta com o cotidiano do consumidor brasileiro permitiu decodificar os gatilhos de lealdade e os medos que movem o mercado mais passional do mundo.
               </p>
             </div>
 
-            {/* Marcas Parceiras */}
-            <div className="flex-col" style={{ gap: '0.85rem', marginTop: '0.5rem' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Marcas e Instituições Conectadas
-              </span>
-              <div className="brand-grid">
-                {[
-                  { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png" },
-                  { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.png" },
-                  { name: "BPM Society", src: "/marcas/logo_bpmsociety_brasil.png" },
-                  { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.png" },
-                  { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.png" },
-                  { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.png" },
-                  { name: "PUC RS", src: "/marcas/logo_puc_rs.png" },
-                  { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.png" },
-                  { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.png" },
-                  { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" },
-                  { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png" }
-                ].map((client) => (
-                  <Image 
-                    key={client.name}
-                    src={client.src} 
-                    alt={`Logo da marca parceira ${client.name}`} 
-                    width={80}
-                    height={24}
-                    className="brand-grid__logo"
-                  />
-                ))}
-              </div>
-            </div>
-
           </div>
           
+        </div>
+
+        {/* Marcas Parceiras - Agora horizontal e comprida sob a foto */}
+        <div className="flex-col" style={{ gap: '1rem', marginTop: '4rem' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>
+            Marcas e Instituições Conectadas
+          </span>
+          <div className="brand-grid">
+            {[
+              { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.png", scale: 1.35 },
+              { name: "Termolar", src: "/marcas/termolar_porto_alegre_rio_grande_do_sul_fabian_baldovino_producao_audiovisual.png" },
+              { name: "PUC RS", src: "/marcas/logo_puc_rs.png", scale: 1.4 },
+              { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.png", scale: 1.25 },
+              { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png", scale: 1.2 },
+              { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.png", scale: 0.75 },
+              { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.png", scale: 0.8 },
+              { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.png" },
+              { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.png" },
+              { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png", scale: 0.7 },
+              { name: "BPM Society", src: "/marcas/logo_bpmsociety_brasil.png", scale: 0.7 },
+              { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" }
+            ].map((client) => (
+              <div key={client.name} className="brand-item">
+                <Image 
+                  src={client.src} 
+                  alt={`Logo da marca parceira ${client.name}`} 
+                  width={200}
+                  height={100}
+                  style={{ '--logo-scale': client.scale || 1 } as React.CSSProperties}
+                  className="brand-grid__logo"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
