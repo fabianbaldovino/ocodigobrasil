@@ -1,18 +1,11 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { apiGet, apiPost } from '@/lib/api';
+import { fetchComments, submitComment, type PostComment } from '@/lib/api';
 import { formatDateBR } from '@/lib/format';
 
-type Comment = {
-  id: string;
-  name: string;
-  text: string;
-  createdAt: string | null;
-};
-
 export default function Comments({ slug }: { slug: string }) {
-  const [comments, setComments] = useState<Comment[] | null>(null);
+  const [comments, setComments] = useState<PostComment[] | null>(null);
   const [available, setAvailable] = useState(false);
   const [name, setName] = useState('');
   const [text, setText] = useState('');
@@ -23,11 +16,13 @@ export default function Comments({ slug }: { slug: string }) {
   useEffect(() => {
     let alive = true;
     (async () => {
-      const data = await apiGet<{ comments: Comment[] }>(`/api/post/${slug}`);
-      if (!alive) return;
-      if (data && Array.isArray(data.comments)) {
-        setComments(data.comments);
+      try {
+        const list = await fetchComments(slug);
+        if (!alive) return;
+        setComments(list);
         setAvailable(true);
+      } catch {
+        if (!alive) return;
       }
     })();
     return () => {
@@ -38,23 +33,15 @@ export default function Comments({ slug }: { slug: string }) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (state === 'sending') return;
-    if (website.trim() !== '') {
-      setState('sent');
-      return;
-    }
     setState('sending');
     setErrorMessage('');
-    const { data, error } = await apiPost<{ ok: boolean }>(`/api/post/${slug}/comment`, {
-      name,
-      text,
-      website,
-    });
-    if (data && data.ok) {
+    const result = await submitComment(slug, { name, text, website });
+    if (result.ok) {
       setState('sent');
       setName('');
       setText('');
     } else {
-      setErrorMessage(error || 'Não foi possível enviar agora.');
+      setErrorMessage(result.error);
       setState('error');
     }
   }

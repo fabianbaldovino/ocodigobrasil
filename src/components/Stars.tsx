@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { apiGet, apiPost, type Rating } from '@/lib/api';
+import { fetchRatings, voteRating, type Rating } from '@/lib/api';
 import StarIcon from './StarIcon';
 
 function getDeviceId(): string {
@@ -33,11 +33,13 @@ export default function Stars({ slug }: { slug: string }) {
   useEffect(() => {
     let alive = true;
     (async () => {
-      const data = await apiGet<{ ratings: Record<string, Rating> }>(`/api/ratings?slugs=${slug}`);
-      if (!alive) return;
-      if (data && data.ratings && data.ratings[slug]) {
-        setRating(data.ratings[slug]);
+      try {
+        const ratings = await fetchRatings([slug]);
+        if (!alive) return;
+        setRating(ratings[slug] || { avg: 0, count: 0 });
         setAvailable(true);
+      } catch {
+        if (!alive) return;
       }
       try {
         const saved = Number(localStorage.getItem(`ocb_vote_${slug}`) || 0);
@@ -53,20 +55,17 @@ export default function Stars({ slug }: { slug: string }) {
     if (state === 'loading') return;
     setState('loading');
     setErrorMessage('');
-    const { data, error } = await apiPost<{ ok: boolean; rating: Rating }>(`/api/post/${slug}/vote`, {
-      score,
-      deviceId: getDeviceId(),
-    });
-    if (data) {
-      setRating(data.rating);
+    try {
+      const result = await voteRating(slug, score, getDeviceId());
+      setRating(result);
       setMyVote(score);
       setAvailable(true);
       try {
         localStorage.setItem(`ocb_vote_${slug}`, String(score));
       } catch {}
       setState('done');
-    } else {
-      setErrorMessage(error || 'Não foi possível registrar agora.');
+    } catch {
+      setErrorMessage('Não foi possível registrar agora.');
       setState('error');
     }
   }

@@ -1,8 +1,82 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+
+    function validSlug(s) {
+      return s is string && s.matches('^[a-z0-9-]+$');
+    }
+
+    function validDevice(id) {
+      return id is string && id.matches('^[A-Za-z0-9_-]{8,64}$');
+    }
+
+    function validTimestamp(t) {
+      return t == request.time;
+    }
+
+    // Notas 5 estrelas — leitura pública, escrita validada
+    match /ratings/{slug} {
+      allow read: if true;
+
+      allow create: if validSlug(slug)
+        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt'])
+        && request.resource.data.count is int
+        && request.resource.data.count >= 0
+        && request.resource.data.count <= 1
+        && request.resource.data.sum is number
+        && request.resource.data.sum >= 0
+        && request.resource.data.sum <= 5
+        && request.resource.data.avg is number
+        && request.resource.data.avg >= 0
+        && request.resource.data.avg <= 5
+        && validTimestamp(request.resource.data.updatedAt);
+
+      allow update: if validSlug(slug)
+        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt'])
+        && request.resource.data.count is int
+        && request.resource.data.count >= resource.data.count - 1
+        && request.resource.data.count <= resource.data.count + 1
+        && request.resource.data.sum is number
+        && request.resource.data.sum >= 0
+        && request.resource.data.sum <= request.resource.data.count * 5
+        && request.resource.data.avg is number
+        && request.resource.data.avg >= 0
+        && request.resource.data.avg <= 5
+        && validTimestamp(request.resource.data.updatedAt);
+
+      allow delete: if false;
+
+      // Voto por dispositivo (1 voto/dispositivo, re-voto sobrescreve)
+      match /votes/{deviceId} {
+        allow read: if validDevice(deviceId);
+        allow create, update: if validDevice(deviceId)
+          && request.resource.data.keys().hasOnly(['score', 'updatedAt'])
+          && request.resource.data.score is int
+          && request.resource.data.score >= 1
+          && request.resource.data.score <= 5
+          && validTimestamp(request.resource.data.updatedAt);
+        allow delete: if false;
+      }
+    }
+
+    // Comentários — leitura pública apenas dos aprovados,
+    // criação validada (entram como "pending"), moderação via console/Admin
+    match /comments/{commentId} {
+      allow read: if resource.data.status == 'approved';
+
+      allow create: if validSlug(request.resource.data.slug)
+        && request.resource.data.keys().hasOnly(['slug', 'name', 'text', 'status', 'createdAt'])
+        && request.resource.data.status == 'pending'
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 60
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 2
+        && request.resource.data.text.size() <= 1000
+        && validTimestamp(request.resource.data.createdAt);
+
+      allow update, delete: if false;
     }
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { apiGet, type Rating } from '@/lib/api';
+import { fetchRatings, type Rating } from '@/lib/api';
 import StarIcon from './StarIcon';
 
 export default function RatingsSummary({ slug }: { slug: string }) {
@@ -10,10 +10,14 @@ export default function RatingsSummary({ slug }: { slug: string }) {
   useEffect(() => {
     let alive = true;
     (async () => {
-      const data = await apiGet<{ ratings: Record<string, Rating> }>(`/api/ratings?slugs=${slug}`);
-      if (!alive) return;
-      const r = data && data.ratings && data.ratings[slug];
-      if (r && r.count > 0) setRating(r);
+      try {
+        const ratings = await fetchRatings([slug]);
+        if (!alive) return;
+        const r = ratings[slug];
+        if (r && r.count > 0) setRating(r);
+      } catch {
+        if (!alive) return;
+      }
     })();
     return () => {
       alive = false;
