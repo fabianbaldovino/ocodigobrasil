@@ -1,5 +1,6 @@
 import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
+import ShareButtons from '@/components/ShareButtons';
 import { Metadata } from 'next';
 
 type Props = {
@@ -11,9 +12,34 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const postData = await getPostData(resolvedParams.slug);
+  const canonicalPath = `/conteudo/${postData.slug}/`;
+  const shareTitle = `${postData.title} | O Código Brasil`;
+  const ogImage = {
+    url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png',
+    width: 1200,
+    height: 630,
+    alt: 'Livro O Código Brasil',
+  };
+
   return {
-    title: `${postData.title} | O Código Brasil`,
+    title: postData.title,
     description: postData.description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      type: 'article',
+      locale: 'pt_BR',
+      siteName: 'O Código Brasil',
+      url: canonicalPath,
+      title: shareTitle,
+      description: postData.description,
+      publishedTime: postData.date,
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: shareTitle,
+      images: [ogImage.url],
+    },
   };
 }
 
@@ -33,6 +59,9 @@ export default async function Post({ params }: Props) {
             <time dateTime={postData.date}>{formatDateBR(postData.date)}</time>
             <span>POR <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>FABIAN BALDOVINO</a></span>
           </div>
+          <div style={{ marginTop: '2rem' }}>
+            <ShareButtons slug={postData.slug} title={postData.title} />
+          </div>
         </header>
 
         <div 
@@ -42,6 +71,9 @@ export default async function Post({ params }: Props) {
         />
 
         <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          <div style={{ marginBottom: '3rem' }}>
+            <ShareButtons slug={postData.slug} title={postData.title} compact />
+          </div>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '1rem', color: 'var(--foreground)' }}>
             O Manifesto
           </h2>

@@ -1,11 +1,27 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
+import ShareButtons from '@/components/ShareButtons';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Conteúdo | O Código Brasil',
+  title: 'Conteúdo',
   description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
+  alternates: { canonical: '/conteudo/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'O Código Brasil',
+    url: '/conteudo/',
+    title: 'Conteúdo | O Código Brasil',
+    description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Conteúdo | O Código Brasil',
+    images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
+  },
 };
 
 export default function Conteudo() {
@@ -26,16 +42,17 @@ export default function Conteudo() {
             <p className="text-body">Nenhum artigo publicado ainda.</p>
           ) : (
             allPostsData.map(({ slug, title, description, date }) => (
-              <article key={slug} style={{ borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '2rem' }}>
-                <Link href={`/conteudo/${slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <h2 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1rem', letterSpacing: '-0.02em' }}>
-                    {title}
-                  </h2>
-                  <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
-                  <span style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
+              <article key={slug} className="post-card" style={{ borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '2rem' }}>
+                <h2 className="post-card__title" style={{ fontSize: '2rem', fontWeight: 900, letterSpacing: '-0.02em' }}>
+                  <Link href={`/conteudo/${slug}/`}>{title}</Link>
+                </h2>
+                <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
+                  <time dateTime={date} style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
                     {formatDateBR(date)}
-                  </span>
-                </Link>
+                  </time>
+                  <ShareButtons slug={slug} title={title} compact />
+                </div>
               </article>
             ))
           )}

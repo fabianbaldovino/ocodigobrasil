@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Inter, Playfair_Display } from 'next/font/google';
+import ActiveLink from '@/components/ActiveLink';
 import './globals.css';
 
 const inter = Inter({
@@ -48,8 +49,8 @@ export default function RootLayout({
               <span className="logo-accent">BRASIL</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
-              <Link href="/" className="header-nav__link">Manifesto</Link>
-              <Link href="/conteudo" className="header-nav__link">Artigos</Link>
+              <ActiveLink href="/" className="header-nav__link">Manifesto</ActiveLink>
+              <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
               <a
                 href="https://pay.hotmart.com/C107804167U"
                 className="header-nav__cta"
