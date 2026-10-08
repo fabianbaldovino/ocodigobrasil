@@ -8,6 +8,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
 import { SITE_URL } from '@/lib/site';
 import AuthorBio from '@/components/AuthorBio';
+import { FEATURE_COMMENTS_ENABLED } from '@/lib/site';
 
 type Props = {
   params: Promise<{
@@ -98,8 +99,18 @@ export default async function Post({ params }: Props) {
           style={{ width: '100%' }}
         />
 
-        <Stars slug={postData.slug} />
-        <Comments slug={postData.slug} />
+        {FEATURE_COMMENTS_ENABLED ? (
+          <>
+            <Stars slug={postData.slug} />
+            <Comments slug={postData.slug} />
+          </>
+        ) : (
+          <>
+            <span aria-live="polite" style={{ color: 'var(--text-muted)' }}>
+              Comentários e notas desativados via configuração
+            </span>
+          </>
+        )}
 
         <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <div style={{ marginBottom: '3rem' }}>
