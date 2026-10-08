@@ -1290,7 +1290,7 @@ hr.divider {
 /* Bio do autor */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .author-bio { max-width: 800px; margin: 0 auto 4rem; padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; background-color: var(--surface-alt); border: 1px solid rgba(0, 0, 0, 0.05); border-radius: var(--radius-lg); }
-.author-bio__photo { border-radius: 50%; object-fit: cover; }
+.author-bio__photo { border-radius: 50%; object-fit: cover; transform: rotate(-90deg); }
 .author-bio__body { flex: 1 1 300px; }
 .author-bio__name { margin: 0 0 0.25rem; font-size: 1.25rem; font-weight: 700; color: var(--foreground); }
 .author-bio__role { margin: 0 0 0.75rem; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
