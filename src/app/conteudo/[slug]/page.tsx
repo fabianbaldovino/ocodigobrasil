@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
 import { SITE_URL } from '@/lib/site';
+import AuthorBio from '@/components/AuthorBio';
 
 type Props = {
   params: Promise<{
@@ -119,6 +120,10 @@ export default async function Post({ params }: Props) {
           </a>
         </div>
       </article>
+
+      <div style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+        <AuthorBio />
+      </div>
     </main>
   );
 }

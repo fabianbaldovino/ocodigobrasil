@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/site";
 import { faqData } from "@/lib/faqData";
 import { JsonLd } from "@/components/JsonLd";
 import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
+import AuthorBio from "@/components/AuthorBio";
 
 export default function Home() {
   const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.";
@@ -272,6 +273,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AuthorBio />
+
 
       {/* Call to Action Final */}
       <section id="comprar" className="section container" style={{ paddingTop: '2rem' }}>
