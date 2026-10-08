@@ -59,7 +59,7 @@ export default async function Post({ params }: Props) {
   const postData = await getPostData(resolvedParams.slug);
 
   const finalDesc = postData.metaDescription || postData.description;
-  const canonicalPath = `/conteudo/${postData.slug}/`;
+
   const ogImageUrl = `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`;
   
   const jsonLdData = buildGraph([

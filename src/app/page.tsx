@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SITE_URL } from "@/lib/site";
+
 import { faqData } from "@/lib/faqData";
 import { JsonLd } from "@/components/JsonLd";
 import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
