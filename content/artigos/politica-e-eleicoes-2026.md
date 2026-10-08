@@ -4,9 +4,11 @@ description: "Por que tu trata o futuro do teu país como um clássico de doming
 date: "2026-10-02"
 slug: "politica-e-eleicoes-2026"
 author: "Fabian Baldovino"
+metaTitle: "Política e Eleições 2026"
+metaDescription: "Por que tu trata o futuro do teu país como um clássico de domingo (e a grande mentira do voto racional)."
 ---
 
-# Política e Eleições 2026
+
 Por que tu trata o futuro do teu país como um clássico de domingo (e a grande mentira do voto racional)
 
 ## A Ilusão da Racionalidade Falsa

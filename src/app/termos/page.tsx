@@ -2,10 +2,25 @@ import { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Termos de Uso | O Código Brasil',
-  description: 'Regras de utilização, direitos de propriedade intelectual e responsabilidades.',
+  title: 'Termos de Uso',
+  description: 'Termos de uso do site e do manifesto O Código Brasil: acesso ao conteúdo digital, propriedade intelectual e limitação de responsabilidade.',
   alternates: {
     canonical: `${SITE_URL}/termos/`,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'O Código Brasil',
+    url: `${SITE_URL}/termos/`,
+    title: 'Termos de Uso | O Código Brasil',
+    description: 'Termos de uso do site e do manifesto O Código Brasil: acesso ao conteúdo digital, propriedade intelectual e limitação de responsabilidade.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Termos de Uso | O Código Brasil',
+    description: 'Termos de uso do site e do manifesto O Código Brasil: acesso ao conteúdo digital, propriedade intelectual e limitação de responsabilidade.',
+    images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
 

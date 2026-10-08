@@ -15,17 +15,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const postData = await getPostData(resolvedParams.slug);
   const canonicalPath = `/conteudo/${postData.slug}/`;
-  const shareTitle = `${postData.title} | O Código Brasil`;
+  
+  const finalTitle = postData.metaTitle || postData.title;
+  const finalDesc = postData.metaDescription || postData.description;
+  const shareTitle = postData.metaTitleAbsolute ? finalTitle : `${finalTitle} | O Código Brasil`;
+
   const ogImage = {
     url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png',
     width: 1200,
     height: 630,
-    alt: 'Livro O Código Brasil',
+    alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino',
   };
 
   return {
-    title: postData.title,
-    description: postData.description,
+    title: postData.metaTitleAbsolute ? { absolute: finalTitle } : finalTitle,
+    description: finalDesc,
     alternates: { canonical: canonicalPath },
     openGraph: {
       type: 'article',
@@ -33,13 +37,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'O Código Brasil',
       url: canonicalPath,
       title: shareTitle,
-      description: postData.description,
+      description: finalDesc,
       publishedTime: postData.date,
       images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: shareTitle,
+      description: finalDesc,
       images: [ogImage.url],
     },
   };

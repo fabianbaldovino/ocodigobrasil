@@ -4,6 +4,9 @@ description: "Descubra por que o praticante de CrossFit não compra saúde, mas 
 date: "2026-09-30"
 slug: "culto-do-suor-crossfit"
 author: "Fabian Baldovino"
+metaTitle: "O Culto do Suor: por que o brasileiro vicia no CrossFit"
+metaTitleAbsolute: true
+metaDescription: "Descubra por que o praticante de CrossFit não compra saúde, mas sim a sobrevivência primitiva e a lealdade inegociável de uma tribo."
 ---
 
 *O mercado fitness tradicional vende aluguel de esteira e eficiência calórica, ignorando que o cérebro latino foge do isolamento. O praticante de [CrossFit](https://pt.wikipedia.org/wiki/CrossFit "Programa de treinamento de força e condicionamento físico de alta intensidade, caracterizado por movimentos funcionais constantemente variados.") não compra saúde; ele compra a sobrevivência primitiva e a lealdade inegociável de uma tribo.*

@@ -4,6 +4,8 @@ description: "A reviravolta da Havaianas não foi uma vitória de design de prod
 date: "2026-09-28"
 slug: "o-case-havaianas"
 author: "Fabian Baldovino"
+metaTitle: "Case Havaianas: a borracha que virou ouro"
+metaDescription: "A reviravolta da Havaianas não foi uma vitória de design de produto, mas a maior manipulação de Código Cultural já vista no mercado brasileiro."
 ---
 
 

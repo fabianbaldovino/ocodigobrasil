@@ -2,10 +2,25 @@ import { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Política de Reembolso | O Código Brasil',
-  description: 'Política de garantia incondicional e procedimentos de reembolso.',
+  title: 'Política de Reembolso',
+  description: 'Política de reembolso do manifesto O Código Brasil: garantia de 7 dias, com o pedido feito pela plataforma Hotmart.',
   alternates: {
     canonical: `${SITE_URL}/reembolso/`,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'O Código Brasil',
+    url: `${SITE_URL}/reembolso/`,
+    title: 'Política de Reembolso | O Código Brasil',
+    description: 'Política de reembolso do manifesto O Código Brasil: garantia de 7 dias, com o pedido feito pela plataforma Hotmart.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Política de Reembolso | O Código Brasil',
+    description: 'Política de reembolso do manifesto O Código Brasil: garantia de 7 dias, com o pedido feito pela plataforma Hotmart.',
+    images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
 

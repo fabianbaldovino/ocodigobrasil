@@ -2,10 +2,25 @@ import { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade | O Código Brasil',
-  description: 'Como protegemos e tratamos os seus dados no acesso ao nosso conteúdo.',
+  title: 'Política de Privacidade',
+  description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
   alternates: {
     canonical: `${SITE_URL}/privacidade/`,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'O Código Brasil',
+    url: `${SITE_URL}/privacidade/`,
+    title: 'Política de Privacidade | O Código Brasil',
+    description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Política de Privacidade | O Código Brasil',
+    description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
+    images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
 

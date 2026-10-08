@@ -6,21 +6,22 @@ import RatingsSummary from '@/components/RatingsSummary';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Conteúdo',
-  description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
+  title: 'Artigos',
+  description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
   alternates: { canonical: '/conteudo/' },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'O Código Brasil',
     url: '/conteudo/',
-    title: 'Conteúdo | O Código Brasil',
-    description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
-    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
+    title: 'Artigos | O Código Brasil',
+    description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Conteúdo | O Código Brasil',
+    title: 'Artigos | O Código Brasil',
+    description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
     images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };

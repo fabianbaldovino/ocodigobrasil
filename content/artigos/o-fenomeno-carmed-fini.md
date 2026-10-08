@@ -4,6 +4,9 @@ description: "O mercado aplaude uma colaboração de sucesso, ignorando que o br
 date: "2026-09-29"
 slug: "o-fenomeno-carmed-fini"
 author: "Fabian Baldovino"
+metaTitle: "O Cheiro da Sobrevivência: a histeria da Carmed Fini"
+metaTitleAbsolute: true
+metaDescription: "O mercado aplaude a colaboração, mas o brasileiro não comprou hidratação labial: comprou o desespero de não ser abandonado na Rua."
 ---
 
 ![Carmed Fini](/carmed.jpg)

@@ -4,6 +4,8 @@ description: "O seu glossário definitivo para decodificar os conceitos socioló
 date: "2026-09-30"
 slug: "mini-dicionario-codigo-brasil"
 author: "Fabian Baldovino"
+metaTitle: "Mini Dicionário: os conceitos do método"
+metaDescription: "Glossário dos conceitos do método O Código Brasil: cérebro instintivo, Casa e Rua, Homem Cordial, Código Cultural e mais."
 ---
 
 Para que você consiga extrair o máximo do nosso Manifesto e aplique essas regras no seu negócio imediatamente, preparamos este Mini Dicionário com os conceitos mais letais da nossa metodologia. Salve esta página como o seu guia de consulta rápida.

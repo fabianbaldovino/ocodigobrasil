@@ -4,6 +4,9 @@ description: "Por que o Nubank abalou a hegemonia dos grandes bancos? A resposta
 date: "2026-09-28"
 slug: "o-fenomeno-nubank"
 author: "Fabian Baldovino"
+metaTitle: "O Fenômeno Nubank: a antropologia da Revolução Roxa"
+metaTitleAbsolute: true
+metaDescription: "Por que o Nubank abalou a hegemonia dos grandes bancos? Não foram as taxas zero: ele transformou a 'Rua' hostil na 'Casa' que acolhe."
 ---
 
 

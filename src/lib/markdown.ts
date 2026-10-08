@@ -28,7 +28,7 @@ export function getSortedPostsData() {
 
       return {
         slug,
-        ...(matterResult.data as { title: string; date: string; description: string }),
+        ...(matterResult.data as { title: string; date: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
       };
     });
 
@@ -68,6 +68,6 @@ export async function getPostData(slug: string) {
   return {
     slug,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; description: string }),
+    ...(matterResult.data as { title: string; date: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
   };
 }
