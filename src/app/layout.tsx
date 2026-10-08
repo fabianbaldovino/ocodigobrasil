@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site';
 import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
+import Footer from '@/components/Footer';
 import './globals.css';
 
 const inter = Inter({
@@ -69,20 +70,7 @@ export default function RootLayout({
           {children}
         </div>
         
-        <footer className="site-footer">
-          <div className="container footer-inner">
-            <div className="footer-brand">
-              <div className="footer-logo">O CÓDIGO BRASIL</div>
-              <p className="footer-tagline">
-                Decifrando o comportamento instintivo no mercado mais emocional do mundo.
-              </p>
-            </div>
-            <div className="footer-meta">
-              <p className="footer-author">Criado por <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Fabian Baldovino</a></p>
-              <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
