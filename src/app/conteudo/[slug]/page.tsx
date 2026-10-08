@@ -93,7 +93,7 @@ export default async function Post({ params }: Props) {
           <a 
             href="https://pay.hotmart.com/C107804167U" 
             className="btn-hero" 
-            aria-label="Prosseguir para o checkout seguro na Hotmart e comprar o manifesto agora"
+            aria-label="Comprar o manifesto agora, checkout seguro na Hotmart"
           >
             COMPRAR O MANIFESTO AGORA
           </a>

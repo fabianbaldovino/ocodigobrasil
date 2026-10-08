@@ -30,7 +30,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-huge">
-              <span>O CÓDIGO</span><br />
+              <span>O CÓDIGO</span>{' '}<br />
               <span className="logo-accent">BRASIL</span>
             </h1>
 
@@ -63,7 +63,7 @@ export default function Home() {
                 className="btn-hero"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Acessar o manifesto O Código Brasil na Hotmart"
+                aria-label="Acessar o manifesto agora, na Hotmart"
               >
                 <span>ACESSAR O MANIFESTO AGORA</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -314,7 +314,7 @@ export default function Home() {
               className="btn-hero"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Comprar o manifesto O Código Brasil via Hotmart"
+              aria-label="Ler o manifesto agora, via Hotmart"
             >
               <span>LER O MANIFESTO AGORA</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
