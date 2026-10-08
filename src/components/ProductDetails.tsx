@@ -22,11 +22,11 @@ export default function ProductDetails() {
       
       {hasAnyDetail && (
         <section aria-labelledby="details-heading" style={{ background: 'var(--surface)', padding: '2rem', borderRadius: 'var(--radius-lg)' }}>
-          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
+          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prÃ©via)</div>}
           <h2 id="details-heading" style={{ fontSize: 'var(--fs-h3)', marginBottom: '1.5rem', color: 'var(--foreground)' }}>Detalhes do Manifesto</h2>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {showFormato && <li style={{ color: 'var(--text-muted)' }}><strong>Formato:</strong> {produto.formato}</li>}
-            {showPaginas && <li style={{ color: 'var(--text-muted)' }}><strong>Páginas:</strong> {produto.paginas}</li>}
+            {showPaginas && <li style={{ color: 'var(--text-muted)' }}><strong>PÃ¡ginas:</strong> {produto.paginas}</li>}
             {showTempo && <li style={{ color: 'var(--text-muted)' }}><strong>Tempo de leitura:</strong> {produto.tempoDeLeitura}</li>}
             {showAcesso && <li style={{ color: 'var(--text-muted)' }}><strong>Acesso:</strong> {produto.formaDeAcesso}</li>}
           </ul>
@@ -35,7 +35,7 @@ export default function ProductDetails() {
 
       {showPreco && (
         <section aria-labelledby="price-heading" style={{ background: 'var(--foreground)', color: 'var(--background)', padding: '3rem 2rem', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
-          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
+          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prÃ©via)</div>}
           <h2 id="price-heading" style={{ fontSize: 'var(--fs-body)', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--surface-alt)', marginBottom: '1rem' }}>Investimento</h2>
           <div style={{ fontSize: 'var(--fs-h1)', fontWeight: 900, marginBottom: '2rem' }}>{produto.preco}</div>
           <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Acessar o manifesto agora">
@@ -46,14 +46,14 @@ export default function ProductDetails() {
 
       {showWhatsapp && (
         <section aria-labelledby="whatsapp-heading" style={{ textAlign: 'center', padding: '2rem' }}>
-          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
-          <h2 id="whatsapp-heading" style={{ fontSize: 'var(--fs-lead)', marginBottom: '1rem' }}>Ficou com alguma dúvida?</h2>
+          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prÃ©via)</div>}
+          <h2 id="whatsapp-heading" style={{ fontSize: 'var(--fs-lead)', marginBottom: '1rem' }}>Ficou com alguma dÃºvida?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Entre em contato direto comigo pelo WhatsApp.</p>
           <a 
-            href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('Olá Fabian, tenho interesse no manifesto O Código Brasil mas fiquei com uma dúvida.')}`}
+            href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('OlÃ¡ Fabian, tenho interesse no manifesto O CÃ³digo Brasil mas fiquei com uma dÃºvida.')}`}
             target="_blank" 
             rel="noopener noreferrer" 
-            aria-label="Falar no WhatsApp com Fabian"
+            aria-label="Falar no WhatsApp (+55 51 99965-4160) com Fabian"
             style={{ 
               display: 'inline-block', 
               background: '#1F5C3E', /* Dark green for AAA contrast against #FCFBF8 */
@@ -64,7 +64,7 @@ export default function ProductDetails() {
               textDecoration: 'none'
             }}
           >
-            Falar no WhatsApp
+            Falar no WhatsApp (+55 51 99965-4160)
           </a>
         </section>
       )}
@@ -72,3 +72,4 @@ export default function ProductDetails() {
     </div>
   );
 }
+
