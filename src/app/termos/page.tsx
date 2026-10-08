@@ -43,7 +43,11 @@ export default function Termos() {
 
         <h2>6. Foro de Eleição</h2>
         <p>
-          Para dirimir quaisquer controvérsias oriundas destes Termos de Uso, as partes elegem o foro da Comarca de <strong>TODO_DADO: Foro da cidade/estado</strong>, renunciando expressamente a qualquer outro, por mais privilegiado que seja.
+          Para dirimir quaisquer controvérsias oriundas destes Termos de Uso, as partes elegem o foro da Comarca de <strong>TODO_DADO: Foro da cidade/estado</strong>, renunciando expressamente a qualquer outro, por mais privilegiado que seja, ressalvado o direito do consumidor de propor ação no foro do seu domicílio.
+        </p>
+
+        <p style={{ marginTop: '3rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+          Última atualização: <strong>TODO_DADO: data</strong>
         </p>
       </div>
     </div>
