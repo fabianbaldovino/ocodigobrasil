@@ -20,8 +20,8 @@ export default function Footer() {
           </div>
 
           <div className="footer-company-info" style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-            <p><strong>Fabian Alexis Baldovino Paciel</strong> (pessoa física)</p>
-            <p>CNPJ: Não se aplica (pessoa física)</p>
+            <p><strong>57.974.931 Fabian Alexis Baldovino Paciel</strong></p>
+            <p>CNPJ: 57.974.931/0001-08 (MEI)</p>
             <p>E-mail: <a href={`mailto:${SITE_EMAIL}`} style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>{SITE_EMAIL}</a></p>
             <p>WhatsApp: <a href="https://wa.me/5551999654160" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>+55 51 99965-4160</a></p>
           </div>

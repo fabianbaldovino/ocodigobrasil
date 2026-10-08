@@ -33,7 +33,7 @@ export default function Termos() {
       <div className="markdown-content text-body">
         <h2>1. Objeto</h2>
         <p>
-          Os presentes Termos de Uso regulam o acesso e a utilização dos conteúdos digitais e serviços oferecidos pelo O Código Brasil, gerido por <strong>Fabian Alexis Baldovino Paciel</strong>, pessoa física (CNPJ: não se aplica).
+          Os presentes Termos de Uso regulam o acesso e a utilização dos conteúdos digitais e serviços oferecidos pelo O Código Brasil, gerido por <strong>57.974.931 Fabian Alexis Baldovino Paciel</strong> (CNPJ: 57.974.931/0001-08).
         </p>
         
         <h2>2. Acesso ao Conteúdo Digital</h2>

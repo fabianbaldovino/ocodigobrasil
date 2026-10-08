@@ -33,7 +33,7 @@ export default function Privacidade() {
       <div className="markdown-content text-body">
         <h2>1. Quem Somos</h2>
         <p>
-          Esta Política de Privacidade descreve como <strong>Fabian Alexis Baldovino Paciel</strong>, pessoa física (CNPJ: não se aplica), responsável pelo site O Código Brasil, trata os dados pessoais de quem o visita.
+          Esta Política de Privacidade descreve como <strong>57.974.931 Fabian Alexis Baldovino Paciel</strong> (CNPJ: 57.974.931/0001-08), responsável pelo site O Código Brasil, trata os dados pessoais de quem o visita.
         </p>
 
         <h2>2. Dados Tratados</h2>
