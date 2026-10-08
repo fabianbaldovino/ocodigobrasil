@@ -8,7 +8,13 @@
     "export": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:todo": "node scripts/check-todo.mjs",
+    "check:meta": "node scripts/check-meta.mjs",
+    "check:jsonld": "node scripts/check-jsonld.mjs",
+    "test:rules": "firebase emulators:exec --only firestore \"node --test tests/firestore-rules/rules.test.js\"",
+    "check:sample": "node scripts/check-sample.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs"
   },
   "dependencies": {
     "firebase": "^12.19.0",
@@ -23,11 +29,13 @@
     "remark-rehype": "^11.1.2"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
+    "firebase-tools": "^15.33.0",
     "typescript": "^5"
   }
 }

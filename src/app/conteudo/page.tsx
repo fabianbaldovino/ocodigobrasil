@@ -3,24 +3,26 @@ import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
 import RatingsSummary from '@/components/RatingsSummary';
+import { FEATURE_COMMENTS_ENABLED } from '@/lib/site';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Conteúdo',
-  description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
+  title: 'Artigos',
+  description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
   alternates: { canonical: '/conteudo/' },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'O Código Brasil',
     url: '/conteudo/',
-    title: 'Conteúdo | O Código Brasil',
-    description: 'Artigos e estudos de caso sobre neuromarketing, comportamento do consumidor brasileiro e o Método O Código Brasil.',
-    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
+    title: 'Artigos | O Código Brasil',
+    description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Conteúdo | O Código Brasil',
+    title: 'Artigos | O Código Brasil',
+    description: 'Artigos sobre o comportamento do consumidor brasileiro, com análises de marcas como Nubank e Havaianas e o método O Código Brasil.',
     images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
@@ -33,7 +35,7 @@ export default function Conteudo() {
       <section className="section container flex-col">
         <h1 className="text-title" style={{ color: 'var(--accent)' }}>CONTEÚDO E ARTIGOS</h1>
         <p className="text-body" style={{ marginTop: '1rem', maxWidth: '800px' }}>
-          Estudos, análises de mercado e a decodificação do cérebro instintivo brasileiro.
+          Estudos, análises de mercado e a decodificação da reação primária brasileira.
         </p>
       </section>
 
@@ -49,10 +51,10 @@ export default function Conteudo() {
                 </h2>
                 <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
-                  <time dateTime={date} style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
+                  <time dateTime={date} style={{ fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
                     {formatDateBR(date)}
                   </time>
-                  <RatingsSummary slug={slug} />
+                  {FEATURE_COMMENTS_ENABLED && <RatingsSummary slug={slug} />}
                   <ShareButtons slug={slug} title={title} compact />
                 </div>
               </article>

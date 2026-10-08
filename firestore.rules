@@ -4,7 +4,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function validSlug(s) {
-      return s is string && s.matches('^[a-z0-9-]+$');
+      return s in ['como-a-rua-destroi-suas-vendas', 'culto-do-suor-crossfit', 'mini-dicionario-codigo-brasil', 'o-case-havaianas', 'o-fenomeno-carmed-fini', 'o-fenomeno-nubank', 'politica-e-eleicoes-2026'];
     }
 
     function validDevice(id) {
@@ -15,39 +15,65 @@ service cloud.firestore {
       return t == request.time;
     }
 
-    // Notas 5 estrelas — leitura pública, escrita validada
+    function validateRatingCreate(req, slug) {
+      let voter = req.lastVoter;
+      let ref = /databases/$(database)/documents/ratings/$(slug)/votes/$(voter);
+      let newScore = existsAfter(ref) ? getAfter(ref).data.score : 0;
+
+      return newScore > 0
+        && req.count == 1
+        && req.sum == newScore
+        && req.sum >= 1
+        && req.sum <= 5
+        && req.avg >= req.sum - 0.01
+        && req.avg <= req.sum + 0.01
+        && req.avg >= 1
+        && req.avg <= 5;
+    }
+
+    function validateRatingUpdate(req, res, slug) {
+      let voter = req.lastVoter;
+      let ref = /databases/$(database)/documents/ratings/$(slug)/votes/$(voter);
+      let oldScore = exists(ref) ? get(ref).data.score : 0;
+      let newScore = existsAfter(ref) ? getAfter(ref).data.score : 0;
+      
+      return newScore > 0
+        && req.sum == res.sum - oldScore + newScore
+        && req.count == res.count + (oldScore == 0 ? 1 : 0)
+        && req.count >= 1
+        && req.sum >= req.count
+        && req.sum <= req.count * 5
+        && req.avg >= ((req.sum * 1.0 / req.count) - 0.01)
+        && req.avg <= ((req.sum * 1.0 / req.count) + 0.01)
+        && req.avg >= 1
+        && req.avg <= 5;
+    }
+
+    function validateVoteAcoplamento(slug, deviceId) {
+      let ref = /databases/$(database)/documents/ratings/$(slug);
+      let parent = existsAfter(ref) ? getAfter(ref).data : null;
+      return parent != null 
+        && parent.updatedAt == request.time
+        && parent.lastVoter == deviceId;
+    }
+
     match /ratings/{slug} {
       allow read: if true;
 
       allow create: if validSlug(slug)
-        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt'])
-        && request.resource.data.count is int
-        && request.resource.data.count >= 0
-        && request.resource.data.count <= 1
-        && request.resource.data.sum is number
-        && request.resource.data.sum >= 0
-        && request.resource.data.sum <= 5
-        && request.resource.data.avg is number
-        && request.resource.data.avg >= 0
-        && request.resource.data.avg <= 5
-        && validTimestamp(request.resource.data.updatedAt);
+        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt', 'lastVoter'])
+        && validDevice(request.resource.data.lastVoter)
+        && validTimestamp(request.resource.data.updatedAt)
+        && validateRatingCreate(request.resource.data, slug);
 
       allow update: if validSlug(slug)
-        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt'])
-        && request.resource.data.count is int
-        && request.resource.data.count >= resource.data.count - 1
-        && request.resource.data.count <= resource.data.count + 1
-        && request.resource.data.sum is number
-        && request.resource.data.sum >= 0
-        && request.resource.data.sum <= request.resource.data.count * 5
-        && request.resource.data.avg is number
-        && request.resource.data.avg >= 0
-        && request.resource.data.avg <= 5
-        && validTimestamp(request.resource.data.updatedAt);
+        && request.resource.data.keys().hasOnly(['count', 'sum', 'avg', 'updatedAt', 'lastVoter'])
+        && validDevice(request.resource.data.lastVoter)
+        && validTimestamp(request.resource.data.updatedAt)
+        && validateRatingUpdate(request.resource.data, resource.data, slug);
 
       allow delete: if false;
 
-      // Voto por dispositivo (1 voto/dispositivo, re-voto sobrescreve)
       match /votes/{deviceId} {
         allow read: if validDevice(deviceId);
         allow create, update: if validDevice(deviceId)
@@ -55,7 +81,8 @@ service cloud.firestore {
           && request.resource.data.score is int
           && request.resource.data.score >= 1
           && request.resource.data.score <= 5
-          && validTimestamp(request.resource.data.updatedAt);
+          && validTimestamp(request.resource.data.updatedAt)
+          && validateVoteAcoplamento(slug, deviceId);
         allow delete: if false;
       }
     }

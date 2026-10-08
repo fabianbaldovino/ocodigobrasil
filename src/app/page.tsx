@@ -1,21 +1,26 @@
 import Image from "next/image";
 
+import { faqData } from "@/lib/faqData";
+import { JsonLd } from "@/components/JsonLd";
+import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
+import AuthorBio from "@/components/AuthorBio";
+import ProductDetails from "@/components/ProductDetails";
+import Testimonials from "@/components/Testimonials";
+
+
 export default function Home() {
+  const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.";
+  const jsonLdData = buildGraph([
+    generateWebSite(),
+    generateOrganization(),
+    generatePerson(),
+    generateCreativeWork(metaDescription),
+    generateFAQPage(faqData)
+  ]);
+
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "O Código Brasil — Manifesto",
-            "image": "https://ocodigobrasil.com.br/capa_manifesto_o_codigo_brasil_fabian_baldovino.png",
-            "brand": { "@type": "Brand", "name": "O Código Brasil" },
-            "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
-          })
-        }}
-      />
+      <JsonLd data={jsonLdData} />
 
       {/* Hero Section */}
       <section className="section container hero-wrapper">
@@ -29,7 +34,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-huge">
-              <span>O CÓDIGO</span><br />
+              <span>O CÓDIGO</span>{' '}<br />
               <span className="logo-accent">BRASIL</span>
             </h1>
 
@@ -41,7 +46,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-book-wrap">
               <Image 
-                src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" 
+                src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.webp" 
                 alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro de Fabian Baldovino" 
                 width={360} 
                 height={480} 
@@ -62,9 +67,9 @@ export default function Home() {
                 className="btn-hero"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Acessar o manifesto O Código Brasil na Hotmart"
+                aria-label="Quero o manifesto: checkout seguro na Hotmart"
               >
-                <span>ACESSAR O MANIFESTO AGORA</span>
+                <span>Quero o manifesto</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -91,7 +96,7 @@ export default function Home() {
               Você já percebeu que ter o produto tecnicamente superior ou o menor preço muitas vezes <strong>não garante a venda no Brasil</strong>?
             </p>
             <p className="text-body" style={{ margin: '1rem auto 0', color: 'var(--text-muted)' }}>
-              Para o nosso cérebro instintivo, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
+              Para a nossa reação primária, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
             </p>
           </div>
 
@@ -129,10 +134,10 @@ export default function Home() {
           <div className="media-card">
             <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino">
               <Image 
-                src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" 
+                src="/fabian_baldovino_producao_audiovisual_porto_alegre.webp" 
                 alt="Fabian Baldovino — Autor de O Código Brasil" 
-                width={540} 
-                height={700} 
+                width={1080} 
+                height={1021} 
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
               />
             </a>
@@ -158,7 +163,7 @@ export default function Home() {
                 Com um rigoroso estudo autodidata nas áreas de Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado nacional.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
-                Além de orquestrar estratégias narrativas para o setor privado e atuar fortemente na educação com projetos de ensino transversais focados na produção de conhecimento, possui reconhecimento chancelado por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong>, com passagens de destaque pela <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e palestras na <strong>UFRGS</strong>.
+                Além de orquestrar estratégias narrativas para o setor privado, atuou na educação: o projeto Curta nas Escolas, que ajudou a criar em 2011, foi noticiado pelo <strong>Correio do Povo</strong>, pelo <strong>Jornal da Capital</strong>, pela <strong>Prefeitura de Porto Alegre</strong> e pela <strong>Câmara Municipal de Porto Alegre</strong>, e Fabian foi palestrante na <strong>UFRGS</strong>.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
                 Essa vivência direta com o cotidiano do consumidor brasileiro permitiu decodificar os gatilhos de lealdade e os medos que movem o mercado mais passional do mundo.
@@ -176,18 +181,18 @@ export default function Home() {
           </span>
           <div className="brand-grid">
             {[
-              { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.png", scale: 1.35 },
-              { name: "Termolar", src: "/marcas/termolar_porto_alegre_rio_grande_do_sul_fabian_baldovino_producao_audiovisual.png" },
-              { name: "PUC RS", src: "/marcas/logo_puc_rs.png", scale: 1.4 },
-              { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.png", scale: 1.25 },
-              { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png", scale: 1.2 },
-              { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.png", scale: 0.75 },
-              { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.png", scale: 0.8 },
-              { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.png" },
-              { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.png" },
-              { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png", scale: 0.7 },
+              { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.webp", scale: 1.35 },
+              { name: "Termolar", src: "/marcas/termolar_porto_alegre_rio_grande_do_sul_fabian_baldovino_producao_audiovisual.webp" },
+              { name: "PUC RS", src: "/marcas/logo_puc_rs.webp", scale: 1.4 },
+              { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.webp", scale: 1.25 },
+              { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.webp", scale: 1.2 },
+              { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.webp", scale: 0.75 },
+              { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.webp", scale: 0.8 },
+              { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.webp" },
+              { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.webp" },
+              { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.webp", scale: 0.7 },
               { name: "BPM Society", src: "/marcas/logo_bpmsociety_brasil.png", scale: 0.7 },
-              { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" }
+              { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.webp" }
             ].map((client) => (
               <div key={client.name} className="brand-item">
                 <Image 
@@ -262,35 +267,21 @@ export default function Home() {
           </div>
 
           <div className="faq-list">
-            <details className="faq-item">
-              <summary>
-                Isso se aplica a negócios físicos, indústrias e serviços?
-              </summary>
-              <p>
-                Sim. Seja você proprietário de clínica, loja física, indústria ou prestador de serviços digitais, o cérebro instintivo do brasileiro é o mesmo. O manifesto detalha como construir essa ponte humana independente do seu segmento.
-              </p>
-            </details>
-
-            <details className="faq-item">
-              <summary>
-                Como tenho acesso ao material após a confirmação?
-              </summary>
-              <p>
-                Imediatamente após a aprovação do pedido, você receberá no seu e-mail as credenciais de acesso seguro para ler o documento digital em qualquer dispositivo (celular, tablet ou computador).
-              </p>
-            </details>
-
-            <details className="faq-item">
-              <summary>
-                E se o conteúdo não for útil para a minha realidade?
-              </summary>
-              <p>
-                Você conta com garantia incondicional de 7 dias. Se o material não expandir a sua clareza de mercado ou não fizer sentido para o seu negócio, basta solicitar o reembolso com um clique. Devolvemos 100% do investimento sem burocracias.
-              </p>
-            </details>
+            {faqData.map((faq, index) => (
+              <details key={index} className="faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
+
+      <AuthorBio />
+
+
+      <ProductDetails />
+      <Testimonials />
 
       {/* Call to Action Final */}
       <section id="comprar" className="section container" style={{ paddingTop: '2rem' }}>
@@ -313,9 +304,9 @@ export default function Home() {
               className="btn-hero"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Comprar o manifesto O Código Brasil via Hotmart"
+              aria-label="Quero o manifesto: checkout seguro na Hotmart"
             >
-              <span>LER O MANIFESTO AGORA</span>
+              <span>Quero o manifesto</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>

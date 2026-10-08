@@ -118,6 +118,9 @@ export default function Comments({ slug }: { slug: string }) {
           <button type="submit" className="comment-submit" disabled={state === 'sending'}>
             {state === 'sending' ? 'Enviando…' : 'Enviar comentário'}
           </button>
+          <p className="widget-note" style={{ fontSize: '0.75rem', marginTop: '0.75rem' }}>
+            Ao enviar, você concorda com o tratamento do seu nome e comentário conforme a <a href="/privacidade/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Política de Privacidade</a>.
+          </p>
           <p className="widget-note" role="status">
             {state === 'sent' && 'Comentário enviado! Ele será publicado após moderação.'}
             {state === 'error' && errorMessage}

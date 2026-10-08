@@ -4,6 +4,7 @@
   --surface: #F5EFEB; /* Creme rico acolhedor para os cards e áreas secundárias */
   --surface-alt: #EFE7E0; /* Superfície de contraste suave */
   --accent: #C2301A; /* Vermelho Cardeal / Pimenta (desperta paixão e ação imediata) */
+  --accent-text: #B92C17; /* acento AA para texto pequeno (5,9:1 sobre --background) */
   --accent-soft: rgba(194, 48, 26, 0.08);
   --accent-border: rgba(194, 48, 26, 0.22);
   
@@ -28,7 +29,7 @@
 
   /* Opacidade de texto — valores com contraste AAA sobre --background */
   --text-muted: #5F4E48;
-  --text-faint: #786761;
+  --text-faint: #736259; /* AA (>= 4,8:1) sobre --background, --surface e --surface-alt */
 
   /* Tipografia — Perfect Fourth 1.333x */
   --fs-xs:     0.75rem;
@@ -270,7 +271,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-text);
   border: 1px solid var(--accent-border);
 }
 
@@ -927,8 +928,7 @@ hr.divider {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--foreground);
-  opacity: 0.6;
+  color: var(--text-muted);
   margin-right: 0.25rem;
 }
 
@@ -1286,3 +1286,14 @@ hr.divider {
   color: var(--foreground);
   opacity: 0.65;
 }
+
+/* Bio do autor */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.author-bio { max-width: 800px; margin: 0 auto 4rem; padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; background-color: var(--surface-alt); border: 1px solid rgba(0, 0, 0, 0.05); border-radius: var(--radius-lg); }
+.author-bio__photo { border-radius: 50%; object-fit: cover; object-position: center 10%; }
+.author-bio__body { flex: 1 1 300px; }
+.author-bio__name { margin: 0 0 0.25rem; font-size: 1.25rem; font-weight: 700; color: var(--foreground); }
+.author-bio__role { margin: 0 0 0.75rem; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
+.author-bio__text { margin: 0 0 1rem; color: var(--text-muted); }
+.author-bio__link { font-weight: 700; text-decoration: underline; color: var(--foreground); }
+.author-bio__link:hover, .author-bio__link:focus-visible { text-decoration-thickness: 3px; }

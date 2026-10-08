@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
+import Footer from '@/components/Footer';
 import './globals.css';
 
 const inter = Inter({
@@ -19,17 +21,22 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ocodigobrasil.com.br'),
-  title: { default: 'O Código Brasil | Manifesto', template: '%s | O Código Brasil' },
-  description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.',
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'O Código Brasil: manifesto sobre como o brasileiro compra', template: '%s | O Código Brasil' },
+  description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
   openGraph: {
-    type: 'website', locale: 'pt_BR', url: 'https://ocodigobrasil.com.br',
+    type: 'website', locale: 'pt_BR', url: SITE_URL,
     siteName: 'O Código Brasil',
-    title: 'O Código Brasil | Manifesto',
-    description: 'O segredo para vender no mercado mais emocional do mundo.',
-    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Livro O Código Brasil' }],
+    title: 'O Código Brasil: manifesto sobre como o brasileiro compra',
+    description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
+    images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
-  twitter: { card: 'summary_large_image', title: 'O Código Brasil | Manifesto', images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'] },
+  twitter: { 
+    card: 'summary_large_image', 
+    title: 'O Código Brasil: manifesto sobre como o brasileiro compra', 
+    description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
+    images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'] 
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
 };
@@ -45,8 +52,8 @@ export default function RootLayout({
         <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo</a>
         <header className="site-header">
           <div className="container header-inner">
-            <Link href="/" className="header-logo" aria-label="O Código Brasil — Início">
-              <span className="logo-main">O CÓDIGO</span>
+            <Link href="/" className="header-logo" aria-label="O Código Brasil, página inicial">
+              <span className="logo-main">O CÓDIGO</span>{' '}
               <span className="logo-accent">BRASIL</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
@@ -68,20 +75,7 @@ export default function RootLayout({
           {children}
         </div>
         
-        <footer className="site-footer">
-          <div className="container footer-inner">
-            <div className="footer-brand">
-              <div className="footer-logo">O CÓDIGO BRASIL</div>
-              <p className="footer-tagline">
-                Decifrando o comportamento instintivo no mercado mais emocional do mundo.
-              </p>
-            </div>
-            <div className="footer-meta">
-              <p className="footer-author">Criado por <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Fabian Baldovino</a></p>
-              <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

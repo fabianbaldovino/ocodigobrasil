@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 type ShareButtonsProps = {
   slug: string;
   title: string;
   compact?: boolean;
 };
-
-const SITE_URL = 'https://ocodigobrasil.com.br';
 
 function WhatsAppIcon() {
   return (
@@ -67,7 +66,7 @@ export default function ShareButtons({ slug, title, compact = false }: ShareButt
 
   const networks = [
     { key: 'whatsapp', label: 'Compartilhar no WhatsApp', href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`, icon: <WhatsAppIcon /> },
-    { key: 'x', label: 'Compartilhar no X', href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`, icon: <XIcon /> },
+    { key: 'x', label: 'Compartilhar no X', href: `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`, icon: <XIcon /> },
     { key: 'facebook', label: 'Compartilhar no Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, icon: <FacebookIcon /> },
     { key: 'linkedin', label: 'Compartilhar no LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, icon: <LinkedInIcon /> },
   ];
