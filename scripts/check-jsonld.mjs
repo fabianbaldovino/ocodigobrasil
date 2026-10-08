@@ -132,6 +132,10 @@ for (const file of files) {
 
   for (const scriptTag of scripts) {
     const inner = scriptTag.match(/>([\s\S]*?)<\/script>/i)[1];
+    if (inner.includes('<')) {
+      console.error(`ERRO [${file}]: JSON-LD contem "<" literal (deve ser escapado como \\u003c).`);
+      process.exit(1);
+    }
     let data;
     try {
       data = JSON.parse(inner);
