@@ -7,42 +7,22 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getSortedPostsData();
 
-  return [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/conteudo/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/privacidade/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/termos/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/reembolso/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    ...posts.map((post) => ({
+  let maxDate = new Date(0);
+  const postsMap = posts.map((post) => {
+    const d = new Date(post.updated || post.date);
+    if (d > maxDate) maxDate = d;
+    return {
       url: `${SITE_URL}/conteudo/${post.slug}/`,
-      lastModified: new Date(post.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
+      lastModified: d.toISOString().split('T')[0],
+    };
+  });
+
+  return [
+    { url: SITE_URL },
+    { url: `${SITE_URL}/conteudo/`, lastModified: maxDate.toISOString().split('T')[0] },
+    { url: `${SITE_URL}/privacidade/` },
+    { url: `${SITE_URL}/termos/` },
+    { url: `${SITE_URL}/reembolso/` },
+    ...postsMap,
   ];
 }

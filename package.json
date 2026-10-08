@@ -13,7 +13,8 @@
     "check:meta": "node scripts/check-meta.mjs",
     "check:jsonld": "node scripts/check-jsonld.mjs",
     "test:rules": "firebase emulators:exec --only firestore \"node --test tests/firestore-rules/rules.test.js\"",
-    "check:sample": "node scripts/check-sample.mjs"
+    "check:sample": "node scripts/check-sample.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs"
   },
   "dependencies": {
     "firebase": "^12.19.0",
