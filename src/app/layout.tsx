@@ -52,8 +52,8 @@ export default function RootLayout({
         <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo</a>
         <header className="site-header">
           <div className="container header-inner">
-            <Link href="/" className="header-logo">
-              <span className="logo-main">O CÓDIGO</span>
+            <Link href="/" className="header-logo" aria-label="O Código Brasil, página inicial">
+              <span className="logo-main">O CÓDIGO</span>{' '}
               <span className="logo-accent">BRASIL</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
