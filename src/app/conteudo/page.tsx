@@ -35,7 +35,7 @@ export default function Conteudo() {
       <section className="section container flex-col">
         <h1 className="text-title" style={{ color: 'var(--accent)' }}>CONTEÚDO E ARTIGOS</h1>
         <p className="text-body" style={{ marginTop: '1rem', maxWidth: '800px' }}>
-          Estudos, análises de mercado e a decodificação do cérebro instintivo brasileiro.
+          Estudos, análises de mercado e a decodificação da reação primária brasileira.
         </p>
       </section>
 

@@ -1,7 +1,7 @@
 export const faqData = [
   {
     question: "Isso se aplica a negócios físicos, indústrias e serviços?",
-    answer: "Sim. Seja você proprietário de clínica, loja física, indústria ou prestador de serviços digitais, o cérebro instintivo do brasileiro é o mesmo. O manifesto detalha como construir essa ponte humana independente do seu segmento."
+    answer: "Sim. Seja você proprietário de clínica, loja física, indústria ou prestador de serviços digitais, a reação primária do brasileiro é a mesma. O manifesto detalha como construir essa ponte humana independente do seu segmento."
   },
   {
     question: "Como tenho acesso ao material após a confirmação?",

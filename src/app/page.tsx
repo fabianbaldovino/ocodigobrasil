@@ -9,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 
 
 export default function Home() {
-  const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.";
+  const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.";
   const jsonLdData = buildGraph([
     generateWebSite(),
     generateOrganization(),
@@ -67,9 +67,9 @@ export default function Home() {
                 className="btn-hero"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Acessar o manifesto agora, na Hotmart"
+                aria-label="Quero o manifesto: checkout seguro na Hotmart"
               >
-                <span>ACESSAR O MANIFESTO AGORA</span>
+                <span>Quero o manifesto</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -96,7 +96,7 @@ export default function Home() {
               Você já percebeu que ter o produto tecnicamente superior ou o menor preço muitas vezes <strong>não garante a venda no Brasil</strong>?
             </p>
             <p className="text-body" style={{ margin: '1rem auto 0', color: 'var(--text-muted)' }}>
-              Para o nosso cérebro instintivo, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
+              Para a nossa reação primária, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
             </p>
           </div>
 
@@ -304,9 +304,9 @@ export default function Home() {
               className="btn-hero"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Ler o manifesto agora, via Hotmart"
+              aria-label="Quero o manifesto: checkout seguro na Hotmart"
             >
-              <span>LER O MANIFESTO AGORA</span>
+              <span>Quero o manifesto</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>

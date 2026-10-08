@@ -38,8 +38,8 @@ export default function ProductDetails() {
           {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
           <h2 id="price-heading" style={{ fontSize: 'var(--fs-body)', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--surface-alt)', marginBottom: '1rem' }}>Investimento</h2>
           <div style={{ fontSize: 'var(--fs-h1)', fontWeight: 900, marginBottom: '2rem' }}>{produto.preco}</div>
-          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Acessar o manifesto agora">
-            ACESSAR O MANIFESTO
+          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Quero o manifesto: checkout seguro na Hotmart">
+            Quero o manifesto
           </a>
         </section>
       )}
