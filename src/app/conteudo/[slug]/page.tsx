@@ -4,6 +4,9 @@ import ShareButtons from '@/components/ShareButtons';
 import Stars from '@/components/Stars';
 import Comments from '@/components/Comments';
 import { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
+import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
+import { SITE_URL } from '@/lib/site';
 
 type Props = {
   params: Promise<{
@@ -54,8 +57,25 @@ export default async function Post({ params }: Props) {
   const resolvedParams = await params;
   const postData = await getPostData(resolvedParams.slug);
 
+  const finalDesc = postData.metaDescription || postData.description;
+  const canonicalPath = `/conteudo/${postData.slug}/`;
+  const ogImageUrl = `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`;
+  
+  const jsonLdData = buildGraph([
+    generatePerson(),
+    generateOrganization(),
+    generateArticle(
+      postData.slug,
+      postData.title,
+      finalDesc,
+      postData.date,
+      ogImageUrl
+    )
+  ]);
+
   return (
     <main>
+      <JsonLd data={jsonLdData} />
       <article className="section container flex-col" style={{ maxWidth: '800px', margin: '0 auto' }}>
         <header style={{ marginBottom: '4rem', borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '3rem' }}>
           <h1 className="text-title" style={{ marginBottom: '1.5rem', color: 'var(--foreground)' }}>{postData.title}</h1>

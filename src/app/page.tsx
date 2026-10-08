@@ -1,22 +1,22 @@
 import Image from "next/image";
 import { SITE_URL } from "@/lib/site";
+import { faqData } from "@/lib/faqData";
+import { JsonLd } from "@/components/JsonLd";
+import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
 
 export default function Home() {
+  const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.";
+  const jsonLdData = buildGraph([
+    generateWebSite(),
+    generateOrganization(),
+    generatePerson(),
+    generateCreativeWork(metaDescription),
+    generateFAQPage(faqData)
+  ]);
+
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "O Código Brasil — Manifesto",
-            "image": `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`,
-            "brand": { "@type": "Brand", "name": "O Código Brasil" },
-            "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
-          })
-        }}
-      />
+      <JsonLd data={jsonLdData} />
 
       {/* Hero Section */}
       <section className="section container hero-wrapper">
@@ -263,32 +263,12 @@ export default function Home() {
           </div>
 
           <div className="faq-list">
-            <details className="faq-item">
-              <summary>
-                Isso se aplica a negócios físicos, indústrias e serviços?
-              </summary>
-              <p>
-                Sim. Seja você proprietário de clínica, loja física, indústria ou prestador de serviços digitais, o cérebro instintivo do brasileiro é o mesmo. O manifesto detalha como construir essa ponte humana independente do seu segmento.
-              </p>
-            </details>
-
-            <details className="faq-item">
-              <summary>
-                Como tenho acesso ao material após a confirmação?
-              </summary>
-              <p>
-                Imediatamente após a aprovação do pedido, você receberá no seu e-mail as credenciais de acesso seguro para ler o documento digital em qualquer dispositivo (celular, tablet ou computador).
-              </p>
-            </details>
-
-            <details className="faq-item">
-              <summary>
-                E se o conteúdo não for útil para a minha realidade?
-              </summary>
-              <p>
-                Você conta com garantia incondicional de 7 dias. Se o material não expandir a sua clareza de mercado ou não fizer sentido para o seu negócio, basta solicitar o reembolso com um clique. Devolvemos 100% do investimento sem burocracias.
-              </p>
-            </details>
+            {faqData.map((faq, index) => (
+              <details key={index} className="faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
