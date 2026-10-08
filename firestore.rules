@@ -43,8 +43,8 @@ service cloud.firestore {
         && req.count >= 1
         && req.sum >= req.count
         && req.sum <= req.count * 5
-        && req.avg >= ((req.sum / req.count) - 0.01)
-        && req.avg <= ((req.sum / req.count) + 0.01)
+        && req.avg >= ((req.sum * 1.0 / req.count) - 0.01)
+        && req.avg <= ((req.sum * 1.0 / req.count) + 0.01)
         && req.avg >= 1
         && req.avg <= 5;
     }
