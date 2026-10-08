@@ -38,7 +38,7 @@ export default function ProductDetails() {
           {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
           <h2 id="price-heading" style={{ fontSize: 'var(--fs-body)', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--surface-alt)', marginBottom: '1rem' }}>Investimento</h2>
           <div style={{ fontSize: 'var(--fs-h1)', fontWeight: 900, marginBottom: '2rem' }}>{produto.preco}</div>
-          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Comprar o manifesto agora">
+          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Acessar o manifesto agora">
             ACESSAR O MANIFESTO
           </a>
         </section>
@@ -53,7 +53,7 @@ export default function ProductDetails() {
             href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('Olá Fabian, tenho interesse no manifesto O Código Brasil mas fiquei com uma dúvida.')}`}
             target="_blank" 
             rel="noopener noreferrer" 
-            aria-label="Falar com Fabian no WhatsApp"
+            aria-label="Falar no WhatsApp com Fabian"
             style={{ 
               display: 'inline-block', 
               background: '#1F5C3E', /* Dark green for AAA contrast against #FCFBF8 */
