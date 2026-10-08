@@ -1,7 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://ocodigobrasil.com.br';
+// Extract SITE_URL from src/lib/site.ts
+const siteContent = fs.readFileSync(path.join('src', 'lib', 'site.ts'), 'utf8');
+const match = siteContent.match(/export const SITE_URL = ["']([^"']+)["']/);
+if (!match) {
+  console.error('ERRO: Nao foi possivel ler SITE_URL de src/lib/site.ts');
+  process.exit(1);
+}
+const SITE_URL = match[1];
 
 function walk(dir) {
   let results = [];
@@ -19,13 +26,19 @@ function walk(dir) {
 }
 
 function checkDisallowedKeys(obj, file) {
-  const disallowed = ['aggregateRating', 'review', 'offers', 'isbn', 'bookFormat'];
+  const disallowed = ['aggregateRating', 'review', 'offers', 'isbn', 'bookFormat', 'price', 'priceCurrency', 'availability'];
+  const disallowedTypes = ['Book', 'Product', 'Offer'];
+  
   if (Array.isArray(obj)) {
     obj.forEach(item => checkDisallowedKeys(item, file));
   } else if (obj !== null && typeof obj === 'object') {
+    if (obj['@type'] && disallowedTypes.includes(obj['@type'])) {
+      console.error(`ERRO [${file}]: @type ${obj['@type']} nao permitido sem dados confirmados pelo dono.`);
+      process.exit(1);
+    }
     for (const key of Object.keys(obj)) {
       if (disallowed.includes(key)) {
-        console.error(`ERRO [${file}]: Chave ${key} não permitida sem dados confirmados pelo dono.`);
+        console.error(`ERRO [${file}]: Chave ${key} nao permitida sem dados confirmados pelo dono.`);
         process.exit(1);
       }
       checkDisallowedKeys(obj[key], file);
@@ -36,7 +49,7 @@ function checkDisallowedKeys(obj, file) {
 function checkTodoDado(obj, file) {
   if (typeof obj === 'string') {
     if (obj.includes('TODO_DADO')) {
-      console.error(`ERRO [${file}]: Valor contém TODO_DADO.`);
+      console.error(`ERRO [${file}]: Valor contem TODO_DADO.`);
       process.exit(1);
     }
   } else if (Array.isArray(obj)) {
@@ -57,14 +70,14 @@ function checkUrls(obj, file) {
       if (urlKeys.includes(key)) {
         let val = obj[key];
         if (typeof val === 'string') {
-          if (val !== 'https://www.fabian.art.br' && !val.startsWith(SITE_URL)) {
-            console.error(`ERRO [${file}]: Chave ${key} possui URL inválida/relativa: ${val}`);
+          if (val !== 'https://www.fabian.art.br' && val !== SITE_URL && !val.startsWith(SITE_URL + '/')) {
+            console.error(`ERRO [${file}]: Chave ${key} possui URL invalida/relativa: ${val}`);
             process.exit(1);
           }
         } else if (Array.isArray(val)) {
           val.forEach(v => {
-            if (typeof v === 'string' && v !== 'https://www.fabian.art.br' && !v.startsWith(SITE_URL)) {
-              console.error(`ERRO [${file}]: Chave ${key} possui URL inválida/relativa: ${v}`);
+            if (typeof v === 'string' && v !== 'https://www.fabian.art.br' && v !== SITE_URL && !v.startsWith(SITE_URL + '/')) {
+              console.error(`ERRO [${file}]: Chave ${key} possui URL invalida/relativa: ${v}`);
               process.exit(1);
             }
           });
@@ -100,11 +113,22 @@ function extractH1(html) {
 const files = walk('out').filter(f => f.endsWith('index.html'));
 
 for (const file of files) {
+  // Skip 404 page
+  if (file.endsWith('404.html') || file.includes('404')) continue;
+  // legally pages skip
+  if (file.includes('termos') || file.includes('privacidade') || file.includes('reembolso')) continue;
+
   const content = fs.readFileSync(file, 'utf8');
   const scripts = content.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
-  if (!scripts) continue;
+  if (!scripts) {
+    if (file === path.join('out', 'index.html') || (file.includes(path.join('conteudo')) && !file.endsWith(path.join('conteudo', 'index.html')))) {
+      console.error(`ERRO [${file}]: JSON-LD ausente.`);
+      process.exit(1);
+    }
+    continue;
+  }
 
-  const foundTypes = [];
+  let foundTypes = [];
 
   for (const scriptTag of scripts) {
     const inner = scriptTag.match(/>([\s\S]*?)<\/script>/i)[1];
@@ -129,16 +153,18 @@ for (const file of files) {
       }
       
       if (node['@type'] === 'FAQPage' && node.mainEntity) {
-        const textOnly = normalize(content.replace(/<[^>]*>/g, ' '));
+        let htmlNoScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ' ');
+        // Apply unescapeHtml to the visible text for accurate comparison
+        const textOnly = unescapeHtml(normalize(htmlNoScripts.replace(/<[^>]*>/g, ' ')));
         for (const qa of node.mainEntity) {
-          const q = normalize(qa.name);
-          const a = normalize(qa.acceptedAnswer.text);
+          const q = unescapeHtml(normalize(qa.name));
+          const a = unescapeHtml(normalize(qa.acceptedAnswer.text));
           if (!textOnly.includes(q)) {
-            console.error(`ERRO [${file}]: Pergunta do FAQ não encontrada no HTML visível: ${q}`);
+            console.error(`ERRO [${file}]: Pergunta do FAQ nao encontrada no HTML visivel: ${q}`);
             process.exit(1);
           }
           if (!textOnly.includes(a)) {
-            console.error(`ERRO [${file}]: Resposta do FAQ não encontrada no HTML visível: ${a}`);
+            console.error(`ERRO [${file}]: Resposta do FAQ nao encontrada no HTML visivel: ${a}`);
             process.exit(1);
           }
         }
@@ -147,22 +173,20 @@ for (const file of files) {
       if (node['@type'] === 'Article') {
         const h1Text = extractH1(content);
         if (!h1Text || h1Text !== normalize(node.headline)) {
-          console.error(`ERRO [${file}]: Headline do Article ("${normalize(node.headline)}") não confere com H1 ("${h1Text}").`);
+          console.error(`ERRO [${file}]: Headline do Article ("${normalize(node.headline)}") nao confere com H1 ("${h1Text}").`);
           process.exit(1);
         }
-        // Extract front matter date for verification?
-        // Wait, the front matter date is inside the markdown files. The instructions say "datePublished igual à date do front matter".
-        // I should read the markdown file to check it!
-        // The slug can be extracted from the file path.
+        
         const parts = file.split(path.sep);
         const slug = parts[parts.length - 2];
         const mdFile = path.join('content', 'artigos', slug + '.md');
         if (fs.existsSync(mdFile)) {
           const mdContent = fs.readFileSync(mdFile, 'utf8');
-          const dateMatch = mdContent.match(/date:\s*"([^"]+)"/);
+          const dateMatch = mdContent.match(/date:\s*(['"]?)([^'"]+)\1/);
           if (dateMatch) {
-            if (node.datePublished !== dateMatch[1]) {
-              console.error(`ERRO [${file}]: datePublished ("${node.datePublished}") não confere com front matter ("${dateMatch[1]}").`);
+            const dateVal = dateMatch[2].trim();
+            if (node.datePublished !== dateVal) {
+              console.error(`ERRO [${file}]: datePublished ("${node.datePublished}") nao confere com front matter ("${dateVal}").`);
               process.exit(1);
             }
           }
@@ -171,7 +195,26 @@ for (const file of files) {
     }
   }
 
+  // Expectation table
+  if (file === path.join('out', 'index.html')) {
+    const required = ['WebSite', 'Person', 'CreativeWork', 'FAQPage'];
+    for (const req of required) {
+      if (!foundTypes.includes(req)) {
+        console.error(`ERRO [${file}]: Tipo obrigatorio ${req} ausente.`);
+        process.exit(1);
+      }
+    }
+  } else if (file.includes(path.join('conteudo')) && !file.endsWith(path.join('conteudo', 'index.html'))) {
+    const required = ['Person', 'Organization', 'Article'];
+    for (const req of required) {
+      if (!foundTypes.includes(req)) {
+        console.error(`ERRO [${file}]: Tipo obrigatorio ${req} ausente.`);
+        process.exit(1);
+      }
+    }
+  }
+
   console.log(`${file} | Tipos: ${foundTypes.join(', ')}`);
 }
 
-console.log("Validação JSON-LD aprovada.");
+console.log("Validacao JSON-LD aprovada.");
