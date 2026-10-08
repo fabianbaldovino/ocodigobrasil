@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-book-wrap">
               <Image 
-                src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.png" 
+                src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.webp" 
                 alt="Livro O Código Brasil — manifesto sobre o consumo brasileiro de Fabian Baldovino" 
                 width={360} 
                 height={480} 
@@ -134,10 +134,10 @@ export default function Home() {
           <div className="media-card">
             <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino">
               <Image 
-                src="/fabian_baldovino_producao_audiovisual_porto_alegre.png" 
+                src="/fabian_baldovino_producao_audiovisual_porto_alegre.webp" 
                 alt="Fabian Baldovino — Autor de O Código Brasil" 
-                width={540} 
-                height={700} 
+                width={1080} 
+                height={1021} 
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
               />
             </a>
@@ -163,7 +163,7 @@ export default function Home() {
                 Com um rigoroso estudo autodidata nas áreas de Ciências Sociais, Filosofia e Pedagogia, Fabian atua como a retaguarda invisível de grandes negócios, dominando a arquitetura de percepção que blinda marcas no mercado nacional.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
-                Além de orquestrar estratégias narrativas para o setor privado e atuar fortemente na educação com projetos de ensino transversais focados na produção de conhecimento, possui reconhecimento chancelado por veículos como <strong>Zero Hora</strong>, <strong>Carta Capital</strong> e <strong>Correio do Povo</strong>, com passagens de destaque pela <strong>Prefeitura de Porto Alegre</strong>, <strong>Câmara Municipal</strong> e palestras na <strong>UFRGS</strong>.
+                Além de orquestrar estratégias narrativas para o setor privado, atuou na educação: o projeto Curta nas Escolas, que ajudou a criar em 2011, foi noticiado pelo <strong>Correio do Povo</strong>, pelo <strong>Jornal da Capital</strong>, pela <strong>Prefeitura de Porto Alegre</strong> e pela <strong>Câmara Municipal de Porto Alegre</strong>, e Fabian foi palestrante na <strong>UFRGS</strong>.
               </p>
               <p className="text-body" style={{ fontSize: '0.9375rem', color: 'var(--text-muted)' }}>
                 Essa vivência direta com o cotidiano do consumidor brasileiro permitiu decodificar os gatilhos de lealdade e os medos que movem o mercado mais passional do mundo.
@@ -181,18 +181,18 @@ export default function Home() {
           </span>
           <div className="brand-grid">
             {[
-              { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.png", scale: 1.35 },
-              { name: "Termolar", src: "/marcas/termolar_porto_alegre_rio_grande_do_sul_fabian_baldovino_producao_audiovisual.png" },
-              { name: "PUC RS", src: "/marcas/logo_puc_rs.png", scale: 1.4 },
-              { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.png", scale: 1.25 },
-              { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.png", scale: 1.2 },
-              { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.png", scale: 0.75 },
-              { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.png", scale: 0.8 },
-              { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.png" },
-              { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.png" },
-              { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.png", scale: 0.7 },
+              { name: "Copelmi", src: "/marcas/logo_copelmi_rio_grande_do_sul.webp", scale: 1.35 },
+              { name: "Termolar", src: "/marcas/termolar_porto_alegre_rio_grande_do_sul_fabian_baldovino_producao_audiovisual.webp" },
+              { name: "PUC RS", src: "/marcas/logo_puc_rs.webp", scale: 1.4 },
+              { name: "Quick House", src: "/marcas/logo_quick_house_canoas_rio_grande_do_sul.webp", scale: 1.25 },
+              { name: "Fábrica de Suplementos", src: "/marcas/FABIRCA_DE_SUPLEMENTOS.webp", scale: 1.2 },
+              { name: "Kolosh", src: "/marcas/logo_kolosh_poa_rs.webp", scale: 0.75 },
+              { name: "Seival Sul Mineração", src: "/marcas/logo_seival_sul_mineracao_rs.webp", scale: 0.8 },
+              { name: "Prefeitura de Canoas", src: "/marcas/logo_Prefeitura_de_canoas_rio_grande_do_sul.webp" },
+              { name: "Mercato", src: "/marcas/logo_mercato_rio_grande_do_sul.webp" },
+              { name: "Wedy Nutrition", src: "/marcas/logo_wedy_nutrition_brasil.webp", scale: 0.7 },
               { name: "BPM Society", src: "/marcas/logo_bpmsociety_brasil.png", scale: 0.7 },
-              { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.png" }
+              { name: "Vita Minimalista", src: "/marcas/logo_vita_minimalista_porto_alegre_rs.webp" }
             ].map((client) => (
               <div key={client.name} className="brand-item">
                 <Image 
