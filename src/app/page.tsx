@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SITE_URL } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "O Código Brasil — Manifesto",
-            "image": "https://ocodigobrasil.com.br/capa_manifesto_o_codigo_brasil_fabian_baldovino.png",
+            "image": `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`,
             "brand": { "@type": "Brand", "name": "O Código Brasil" },
             "offers": { "@type": "Offer", "priceCurrency": "BRL", "url": "https://pay.hotmart.com/C107804167U" }
           })

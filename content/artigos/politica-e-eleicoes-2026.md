@@ -38,4 +38,4 @@ Aprende as lições brutais do comportamento humano instintivo e aplica na tua e
 
 Para sobreviver e lucrar de verdade, tu precisa parar de tentar ser o executivo das cartilhas gringas e assumir a paixão, o sangue e a dor do latino-americano. Tu precisa entender a antropologia do consumo e como a nossa mente opera sob pressão. Se tu está pronto para abandonar o discurso vazio e aprender a apertar o verdadeiro botão de sobrevivência da mente humana, o teu próximo passo é inegociável.
 
-Mergulha no nosso manifesto em [www.ocodigobrasil.com.br](https://www.ocodigobrasil.com.br/). O mercado não é lógico; ele é puramente emocional. Bem-vindo ao jogo real.
+Mergulha no nosso manifesto em [ocodigobrasil.com.br](https://ocodigobrasil.com.br/). O mercado não é lógico; ele é puramente emocional. Bem-vindo ao jogo real.

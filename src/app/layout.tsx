@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import './globals.css';
@@ -19,11 +20,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ocodigobrasil.com.br'),
+  metadataBase: new URL(SITE_URL),
   title: { default: 'O Código Brasil | Manifesto', template: '%s | O Código Brasil' },
   description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.',
   openGraph: {
-    type: 'website', locale: 'pt_BR', url: 'https://ocodigobrasil.com.br',
+    type: 'website', locale: 'pt_BR', url: SITE_URL,
     siteName: 'O Código Brasil',
     title: 'O Código Brasil | Manifesto',
     description: 'O segredo para vender no mercado mais emocional do mundo.',

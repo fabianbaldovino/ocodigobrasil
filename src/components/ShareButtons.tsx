@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 type ShareButtonsProps = {
   slug: string;
   title: string;
   compact?: boolean;
 };
-
-const SITE_URL = 'https://ocodigobrasil.com.br';
 
 function WhatsAppIcon() {
   return (
