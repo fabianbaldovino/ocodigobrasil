@@ -6,9 +6,9 @@ import Comments from '@/components/Comments';
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, FEATURE_COMMENTS_ENABLED } from '@/lib/site';
 import AuthorBio from '@/components/AuthorBio';
-import { FEATURE_COMMENTS_ENABLED } from '@/lib/site';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 type Props = {
   params: Promise<{
@@ -58,6 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Post({ params }: Props) {
   const resolvedParams = await params;
   const postData = await getPostData(resolvedParams.slug);
+  const allPosts = getSortedPostsData();
+  const relatedPosts = allPosts.filter((p) => p.slug !== postData.slug).slice(0, 3);
 
   const finalDesc = postData.metaDescription || postData.description;
 
@@ -71,7 +73,8 @@ export default async function Post({ params }: Props) {
       postData.title,
       finalDesc,
       postData.date,
-      ogImageUrl
+      ogImageUrl,
+      postData.updated
     )
   ]);
 
@@ -79,12 +82,19 @@ export default async function Post({ params }: Props) {
     <main>
       <JsonLd data={jsonLdData} />
       <article className="section container flex-col" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <Breadcrumbs
+          items={[
+            { name: 'O Código Brasil', url: SITE_URL },
+            { name: 'Conteúdo', url: `${SITE_URL}/conteudo/` },
+            { name: postData.title, url: `${SITE_URL}/conteudo/${postData.slug}/` },
+          ]}
+        />
         <header style={{ marginBottom: '4rem', borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '3rem' }}>
           <h1 className="text-title" style={{ marginBottom: '1.5rem', color: 'var(--foreground)' }}>{postData.title}</h1>
           <p className="text-subtitle" style={{ opacity: 0.7, marginBottom: '2.5rem', fontFamily: 'Inter, sans-serif', fontWeight: 400, maxWidth: '800px', lineHeight: '1.5' }}>
             {postData.description}
           </p>
-          <div style={{ display: 'flex', gap: '2rem', fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
+          <div style={{ display: 'flex', gap: '2rem', fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
             <time dateTime={postData.date}>{formatDateBR(postData.date)}</time>
             <span>POR <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>FABIAN BALDOVINO</a></span>
           </div>
@@ -99,17 +109,30 @@ export default async function Post({ params }: Props) {
           style={{ width: '100%' }}
         />
 
-        {FEATURE_COMMENTS_ENABLED ? (
+        {FEATURE_COMMENTS_ENABLED && (
           <>
             <Stars slug={postData.slug} />
             <Comments slug={postData.slug} />
           </>
-        ) : (
-          <>
-            <span aria-live="polite" style={{ color: 'var(--text-muted)' }}>
-              Comentários e notas desativados via configuração
-            </span>
-          </>
+        )}
+
+        {relatedPosts.length > 0 && (
+          <section aria-labelledby="leia-tambem-heading" style={{ marginTop: '4rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+            <h2 id="leia-tambem-heading" style={{ fontSize: 'var(--fs-h2)', marginBottom: '2rem', color: 'var(--foreground)' }}>Leia Também</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {relatedPosts.map(({ slug, title, description, date }) => (
+                <article key={slug} style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '1.5rem' }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
+                    <a href={`/conteudo/${slug}/`} style={{ color: 'var(--foreground)', textDecoration: 'none' }}>{title}</a>
+                  </h3>
+                  <p className="text-body" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>{description}</p>
+                  <time dateTime={date} style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700 }}>
+                    {formatDateBR(date)}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
 
         <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>

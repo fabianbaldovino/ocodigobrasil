@@ -3,6 +3,7 @@ import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
 import RatingsSummary from '@/components/RatingsSummary';
+import { FEATURE_COMMENTS_ENABLED } from '@/lib/site';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -50,10 +51,10 @@ export default function Conteudo() {
                 </h2>
                 <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
-                  <time dateTime={date} style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 700 }}>
+                  <time dateTime={date} style={{ fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
                     {formatDateBR(date)}
                   </time>
-                  <RatingsSummary slug={slug} />
+                  {FEATURE_COMMENTS_ENABLED && <RatingsSummary slug={slug} />}
                   <ShareButtons slug={slug} title={title} compact />
                 </div>
               </article>

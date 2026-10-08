@@ -173,6 +173,18 @@ for (const file of files) {
           }
         }
       }
+      
+      if (node['@type'] === 'BreadcrumbList' && node.itemListElement) {
+        let htmlNoScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ' ');
+        const textOnly = unescapeHtml(normalize(htmlNoScripts.replace(/<[^>]*>/g, ' ')));
+        for (const item of node.itemListElement) {
+          const name = unescapeHtml(normalize(item.name));
+          if (!textOnly.includes(name)) {
+            console.error(`ERRO [${file}]: Item do Breadcrumb não encontrado no HTML visível: ${name}`);
+            process.exit(1);
+          }
+        }
+      }
 
       if (node['@type'] === 'Article') {
         const h1Text = extractH1(content);
@@ -194,6 +206,17 @@ for (const file of files) {
               process.exit(1);
             }
           }
+          const updatedMatch = mdContent.match(/updated:\s*(['"]?)([^'"]+)\1/);
+          if (updatedMatch) {
+            const updatedVal = updatedMatch[2].trim();
+            if (node.dateModified !== updatedVal) {
+              console.error(`ERRO [${file}]: dateModified ("${node.dateModified}") nao confere com front matter ("${updatedVal}").`);
+              process.exit(1);
+            }
+          } else if (node.dateModified && node.dateModified !== node.datePublished) {
+            console.error(`ERRO [${file}]: dateModified existe mas nao ha updated no front matter.`);
+            process.exit(1);
+          }
         }
       }
     }
@@ -209,7 +232,7 @@ for (const file of files) {
       }
     }
   } else if (file.includes(path.join('conteudo')) && !file.endsWith(path.join('conteudo', 'index.html'))) {
-    const required = ['Person', 'Organization', 'Article'];
+    const required = ['Person', 'Organization', 'Article', 'BreadcrumbList'];
     for (const req of required) {
       if (!foundTypes.includes(req)) {
         console.error(`ERRO [${file}]: Tipo obrigatorio ${req} ausente.`);

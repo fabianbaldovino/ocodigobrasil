@@ -28,15 +28,17 @@ export function getSortedPostsData() {
 
       return {
         slug,
-        ...(matterResult.data as { title: string; date: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
+        ...(matterResult.data as { title: string; date: string; updated?: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
       };
     });
 
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
-    } else {
+    } else if (a.date > b.date) {
       return -1;
+    } else {
+      return a.slug.localeCompare(b.slug);
     }
   });
 }
@@ -68,6 +70,6 @@ export async function getPostData(slug: string) {
   return {
     slug,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
+    ...(matterResult.data as { title: string; date: string; updated?: string; description: string; metaTitle?: string; metaDescription?: string; metaTitleAbsolute?: boolean }),
   };
 }
