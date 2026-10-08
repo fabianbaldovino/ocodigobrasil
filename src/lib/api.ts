@@ -45,10 +45,12 @@ export async function voteRating(slug: string, score: number, deviceId: string):
     const d = ratingSnap.exists() ? ratingSnap.data() : { count: 0, sum: 0 };
     const count = (d.count || 0) + (prev === 0 ? 1 : 0);
     const sum = (d.sum || 0) - prev + score;
-    const avg = count ? Math.round((sum / count) * 10) / 10 : 0;
+    // O avg precisa ser gravado com a precisão máxima (sem arredondamento /10) 
+    // para que a regra do Firestore aceite a tolerância restrita de 0.01.
+    const avg = count ? sum / count : 0;
 
     tx.set(voteRef, { score, updatedAt: serverTimestamp() });
-    tx.set(ratingRef, { count, sum, avg, updatedAt: serverTimestamp() }, { merge: true });
+    tx.set(ratingRef, { count, sum, avg, updatedAt: serverTimestamp(), lastVoter: deviceId }, { merge: true });
     return { avg, count };
   });
 }
