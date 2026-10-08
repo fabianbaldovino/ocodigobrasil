@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SITE_EMAIL } from '@/lib/site';
 
 export default function Footer() {
   return (
@@ -19,10 +20,10 @@ export default function Footer() {
           </div>
 
           <div className="footer-company-info" style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-            <p><strong>TODO_DADO: Razão social</strong></p>
-            <p>CNPJ: <strong>TODO_DADO: CNPJ</strong></p>
-            <p>E-mail: <strong>TODO_DADO: E-mail de suporte</strong></p>
-            <p>WhatsApp: <strong>TODO_DADO: WhatsApp</strong></p>
+            <p><strong>Fabian Alexis Baldovino Paciel</strong> (pessoa física)</p>
+            <p>CNPJ: Não se aplica (pessoa física)</p>
+            <p>E-mail: <a href={`mailto:${SITE_EMAIL}`} style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>{SITE_EMAIL}</a></p>
+            <p>WhatsApp: <a href="https://wa.me/5551999654160" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>+55 51 99965-4160</a></p>
           </div>
 
           <p className="footer-author" style={{ marginBottom: '0.5rem' }}>

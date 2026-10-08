@@ -33,7 +33,7 @@ export default function Termos() {
       <div className="markdown-content text-body">
         <h2>1. Objeto</h2>
         <p>
-          Os presentes Termos de Uso regulam o acesso e a utilização dos conteúdos digitais e serviços oferecidos pelo &quot;O Código Brasil&quot;, gerido por <strong>TODO_DADO: Razão social</strong>, CNPJ <strong>TODO_DADO: CNPJ</strong>.
+          Os presentes Termos de Uso regulam o acesso e a utilização dos conteúdos digitais e serviços oferecidos pelo O Código Brasil, gerido por <strong>Fabian Alexis Baldovino Paciel</strong>, pessoa física (CNPJ: não se aplica).
         </p>
         
         <h2>2. Acesso ao Conteúdo Digital</h2>
@@ -43,12 +43,12 @@ export default function Termos() {
 
         <h2>3. Propriedade Intelectual</h2>
         <p>
-          Todo o conteúdo presente no site e no manifesto, incluindo textos, artigos, teses metodológicas, imagens, logotipos e códigos, é protegido pela Lei de Direitos Autorais e pertence integralmente e com exclusividade à <strong>TODO_DADO: Razão social</strong> ou aos seus respectivos idealizadores. É expressamente proibida a reprodução, distribuição, revenda ou modificação sem a devida autorização prévia por escrito.
+          Todo o conteúdo presente no site e no manifesto, incluindo textos, artigos, teses metodológicas, imagens, logotipos e códigos, é protegido pela Lei de Direitos Autorais e pertence integralmente e com exclusividade a <strong>Fabian Alexis Baldovino Paciel</strong>. É expressamente proibida a reprodução, distribuição, revenda ou modificação sem a devida autorização prévia por escrito.
         </p>
 
         <h2>4. Limitação de Responsabilidade</h2>
         <p>
-          As teses e estratégias apresentadas no manifesto &quot;O Código Brasil&quot; possuem caráter estritamente educativo e analítico. Não garantimos resultados financeiros específicos, aumento de faturamento imediato ou conversões padronizadas, visto que a performance de qualquer estratégia comercial depende de fatores individuais, operacionais e conjunturais do negócio de cada leitor.
+          As teses e estratégias apresentadas no manifesto O Código Brasil possuem caráter estritamente educativo e analítico. Não garantimos resultados financeiros específicos, aumento de faturamento imediato ou conversões padronizadas, visto que a performance de qualquer estratégia comercial depende de fatores individuais, operacionais e conjunturais do negócio de cada leitor.
         </p>
 
         <h2>5. Modificações e Atualizações</h2>
@@ -58,11 +58,11 @@ export default function Termos() {
 
         <h2>6. Foro de Eleição</h2>
         <p>
-          Para dirimir quaisquer controvérsias oriundas destes Termos de Uso, as partes elegem o foro da Comarca de <strong>TODO_DADO: Foro da cidade/estado</strong>, renunciando expressamente a qualquer outro, por mais privilegiado que seja, ressalvado o direito do consumidor de propor ação no foro do seu domicílio.
+          Para dirimir quaisquer controvérsias oriundas destes Termos de Uso, as partes elegem o foro da Comarca de <strong>Porto Alegre</strong>, renunciando expressamente a qualquer outro, por mais privilegiado que seja, ressalvado o direito do consumidor de propor ação no foro do seu domicílio.
         </p>
 
         <p style={{ marginTop: '3rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-          Última atualização: <strong>TODO_DADO: data</strong>
+          Última atualização: <strong>08 de outubro de 2026</strong>
         </p>
       </div>
     </div>

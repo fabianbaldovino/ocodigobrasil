@@ -53,8 +53,8 @@ export default function Reembolso() {
           Em caso de dúvidas operacionais, nossa equipe está à disposição:
         </p>
         <ul>
-          <li>E-mail: <strong>TODO_DADO: E-mail de suporte</strong></li>
-          <li>WhatsApp: <strong>TODO_DADO: WhatsApp</strong></li>
+          <li>E-mail: <strong>fbpaciel@gmail.com</strong></li>
+          <li>WhatsApp: <strong>+55 51 99965-4160</strong></li>
         </ul>
       </div>
     </div>

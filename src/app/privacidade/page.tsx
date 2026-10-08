@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
-  description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
+  description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
   alternates: {
     canonical: `${SITE_URL}/privacidade/`,
   },
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     siteName: 'O Código Brasil',
     url: `${SITE_URL}/privacidade/`,
     title: 'Política de Privacidade | O Código Brasil',
-    description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
+    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
     images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Política de Privacidade | O Código Brasil',
-    description: 'Como o site O Código Brasil trata dados pessoais: comentários, notas, armazenamento local e pagamento pela Hotmart.',
+    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
     images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
@@ -33,54 +33,44 @@ export default function Privacidade() {
       <div className="markdown-content text-body">
         <h2>1. Quem Somos</h2>
         <p>
-          Esta Política de Privacidade descreve como a empresa <strong>TODO_DADO: Razão social</strong>, inscrita sob o CNPJ <strong>TODO_DADO: CNPJ</strong>, coleta, utiliza e protege os seus dados pessoais durante a sua navegação e interação com o site oficial do &quot;O Código Brasil&quot;.
+          Esta Política de Privacidade descreve como <strong>Fabian Alexis Baldovino Paciel</strong>, pessoa física (CNPJ: não se aplica), responsável pelo site O Código Brasil, trata os dados pessoais de quem o visita.
         </p>
 
-        <h2>2. Dados Coletados</h2>
-        <p>Nosso compromisso é com o minimalismo na coleta de dados. Coletamos e tratamos apenas os seguintes dados:</p>
+        <h2>2. Dados Tratados</h2>
+        <p>Nosso compromisso é com o mínimo de dados possível. Hoje, o site não possui comentários, notas, cadastro ou login, e não usa cookies de publicidade nem ferramentas de análise de terceiros. O que pode ser tratado:</p>
         <ul>
-          <li><strong>Dados fornecidos diretamente por você:</strong> Apenas o <strong>Nome</strong> e o <strong>Comentário</strong> inseridos nos formulários de artigos. Não coletamos seu e-mail ou dados de navegação no envio. Não armazenamos o endereço IP em nosso banco de dados. A infraestrutura do Google (Firebase Hosting e Firestore), que processa as requisições, pode registrar dados técnicos de conexão, como o IP, conforme as políticas do Google.</li>
-          <li><strong>Armazenamento Local (Local Storage):</strong> Utilizamos o armazenamento local do seu navegador estritamente para fins <strong>funcionais</strong> (geração de um identificador pseudonimizado <code>ocb_device</code> para evitar votos duplicados em nossos artigos). Esse identificador é gravado no banco de dados junto com a nota atribuída. <strong>Não utilizamos</strong> cookies de rastreamento agressivo, pixels de publicidade ou ferramentas de análise de terceiros. A aplicação inicializa exclusivamente o serviço de banco de dados (Firestore), sem habilitar o Firebase Analytics ou Auth.</li>
+          <li><strong>Registros técnicos de acesso:</strong> o site é hospedado no Firebase Hosting (Google), que pode registrar dados técnicos de conexão, como endereço IP e tipo de navegador, conforme as políticas do Google.</li>
+          <li><strong>Contato:</strong> se você nos escrever por e-mail ou clicar no botão de WhatsApp, usaremos as informações que você enviar (como nome, e-mail ou telefone) apenas para responder à sua mensagem. O WhatsApp é operado pela Meta, sob as políticas dela.</li>
+          <li><strong>Compra:</strong> o pagamento e a entrega do manifesto acontecem no ambiente da <strong>Hotmart</strong>, que atua como operadora de pagamento e coleta os dados necessários à compra. Nenhum dado bancário passa ou é armazenado em nossos servidores.</li>
         </ul>
 
-        <h2>3. Finalidade, Moderação e Retenção</h2>
+        <h2>3. Finalidade e Compartilhamento</h2>
         <p>
-          O tratamento do seu nome e comentário baseia-se no seu <strong>consentimento</strong>, manifestado ao enviar o formulário, após aviso visível na interface. Todos os comentários passam por um filtro de <strong>moderação prévia</strong> (revisão manual <strong>TODO_DADO: por quem aprova</strong>) e são registrados inicialmente como &quot;pendentes&quot; antes de serem publicados.
-        </p>
-        <p>
-          Os comentários aprovados e as notas (estrelas) são mantidos por prazo indeterminado (<strong>TODO_DADO: Prazo de guarda, caso exista um limite definido</strong>) como parte do acervo de discussões do site.
+          Usamos os dados apenas para manter o site funcionando, responder a contatos e viabilizar a compra. Não vendemos seus dados pessoais. Os dados tratados por Google, Meta e Hotmart seguem as políticas de cada empresa e podem envolver transferência internacional de dados.
         </p>
 
-        <h2>4. Compartilhamento e Transferência Internacional de Dados</h2>
+        <h2>4. Direitos do Titular (LGPD)</h2>
         <p>
-          Não vendemos ou repassamos seus dados pessoais. Todas as transações financeiras e coletas de dados de pagamento para a aquisição do manifesto são realizadas integralmente no ambiente seguro da <strong>Hotmart</strong>, que atua como operadora de pagamento. Nenhum dado bancário transita ou é armazenado em nossos servidores.
-        </p>
-        <p>
-          Os dados armazenados no Firebase (Firestore) podem estar sujeitos a transferência internacional, dependendo da infraestrutura do Google (Região: <strong>TODO_DADO: Região do Firestore</strong>).
-        </p>
-
-        <h2>5. Direitos do Titular (LGPD)</h2>
-        <p>
-          De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você possui o direito de:
+          De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode:
         </p>
         <ul>
           <li>Confirmar a existência de tratamento de dados;</li>
           <li>Acessar, corrigir ou atualizar os seus dados;</li>
           <li>Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários;</li>
-          <li>Revogar o seu consentimento a qualquer momento.</li>
+          <li>Revogar o seu consentimento a qualquer momento, quando o tratamento se basear nele.</li>
         </ul>
 
-        <h2>6. Contato e Exclusão de Dados</h2>
+        <h2>5. Contato e Encarregado (DPO)</h2>
         <p>
-          Como o nosso formulário não exige login, não possuímos uma funcionalidade automatizada de exclusão de comentários. Caso deseje remover um comentário publicado com o seu nome, ou exercer qualquer outro direito sob a LGPD, entre em contato conosco através do e-mail abaixo informando o link do artigo:
+          O encarregado pelo tratamento de dados é o próprio responsável pelo site. Para exercer qualquer direito, escreva para:
         </p>
         <ul>
-          <li><strong>TODO_DADO: Nome do Encarregado / DPO</strong></li>
-          <li>E-mail para solicitações de exclusão: <strong>TODO_DADO: E-mail de suporte</strong></li>
+          <li><strong>Fabian Alexis Baldovino Paciel</strong></li>
+          <li>E-mail: <strong>fbpaciel@gmail.com</strong></li>
         </ul>
 
         <p style={{ marginTop: '3rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-          Última atualização: <strong>TODO_DADO: data</strong>
+          Última atualização: <strong>08 de outubro de 2026</strong>
         </p>
       </div>
     </div>
