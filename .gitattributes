@@ -1,0 +1,13 @@
+# Normaliza finais de linha: o repositório guarda LF; no Windows o checkout pode usar CRLF.
+* text=auto
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
