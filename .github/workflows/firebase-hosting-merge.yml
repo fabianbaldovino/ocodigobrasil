@@ -16,6 +16,8 @@ jobs:
         run: npm run typecheck
       - name: Build Next.js
         run: npm run build
+      - name: Check TODO_DADO
+        run: npm run check:todo
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
