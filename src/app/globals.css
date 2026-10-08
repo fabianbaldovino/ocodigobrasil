@@ -4,6 +4,7 @@
   --surface: #F5EFEB; /* Creme rico acolhedor para os cards e áreas secundárias */
   --surface-alt: #EFE7E0; /* Superfície de contraste suave */
   --accent: #C2301A; /* Vermelho Cardeal / Pimenta (desperta paixão e ação imediata) */
+  --accent-text: #B92C17; /* acento AA para texto pequeno (5,9:1 sobre --background) */
   --accent-soft: rgba(194, 48, 26, 0.08);
   --accent-border: rgba(194, 48, 26, 0.22);
   
@@ -28,7 +29,7 @@
 
   /* Opacidade de texto — valores com contraste AAA sobre --background */
   --text-muted: #5F4E48;
-  --text-faint: #786761;
+  --text-faint: #736259; /* AA (>= 4,8:1) sobre --background, --surface e --surface-alt */
 
   /* Tipografia — Perfect Fourth 1.333x */
   --fs-xs:     0.75rem;
@@ -270,7 +271,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-text);
   border: 1px solid var(--accent-border);
 }
 
@@ -927,8 +928,7 @@ hr.divider {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--foreground);
-  opacity: 0.6;
+  color: var(--text-muted);
   margin-right: 0.25rem;
 }
 
