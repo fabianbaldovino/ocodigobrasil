@@ -9,8 +9,6 @@ metaDescription: "Por que tu trata o futuro do teu país como um clássico de do
 ---
 
 
-Por que tu trata o futuro do teu país como um clássico de domingo (e a grande mentira do voto racional)
-
 ## A Ilusão da Racionalidade Falsa
 Os analistas de paletó e as cartilhas gringas de marketing adoram contar uma mentira reconfortante. Eles acreditam piamente que o eleitor brasileiro, mergulhado nessa tensão quase doentia das eleições, vai às urnas pesando propostas, calculando o déficit fiscal e analisando a eficiência das políticas públicas.
 
