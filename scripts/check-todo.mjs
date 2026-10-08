@@ -5,7 +5,11 @@ function walk(dir, callback) {
   if (!fs.existsSync(dir)) return;
   fs.readdirSync(dir).forEach(f => {
     const dirPath = path.join(dir, f);
-    fs.statSync(dirPath).isDirectory() ? walk(dirPath, callback) : callback(dirPath);
+    if (fs.statSync(dirPath).isDirectory()) {
+      walk(dirPath, callback);
+    } else {
+      callback(dirPath);
+    }
   });
 }
 

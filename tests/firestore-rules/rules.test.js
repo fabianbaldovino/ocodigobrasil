@@ -1,5 +1,4 @@
 import { describe, it, before, after, beforeEach } from 'node:test';
-import assert from 'node:assert';
 import { initializeTestEnvironment, assertFails, assertSucceeds } from '@firebase/rules-unit-testing';
 import { readFileSync } from 'fs';
 import { runTransaction, doc, setDoc, getDoc, getDocs, collection, serverTimestamp, deleteDoc } from 'firebase/firestore';
@@ -56,7 +55,7 @@ describe('Firestore Rules - Ratings & Votes', () => {
         const ratingRef = doc(db, 'ratings', slug);
         const voteRef = doc(db, 'ratings', slug, 'votes', dev2);
         
-        const [voteSnap, ratingSnap] = await Promise.all([tx.get(voteRef), tx.get(ratingRef)]);
+        const [, ratingSnap] = await Promise.all([tx.get(voteRef), tx.get(ratingRef)]);
         const d = ratingSnap.exists() ? ratingSnap.data() : { count: 0, sum: 0 };
         
         const count = d.count + 1; // prev is 0
@@ -246,9 +245,8 @@ describe('Firestore Rules - Ratings & Votes', () => {
         const ratingRef = doc(db, 'ratings', slug);
         const voteRef = doc(db, 'ratings', slug, 'votes', newVoter);
         
-        const [voteSnap, ratingSnap] = await Promise.all([tx.get(voteRef), tx.get(ratingRef)]);
+        const [, ratingSnap] = await Promise.all([tx.get(voteRef), tx.get(ratingRef)]);
         
-        const prev = 0;
         const d = ratingSnap.data();
         const score = 5;
         
