@@ -86,7 +86,7 @@ export function generateArticle(slug: string, title: string, description: string
   };
 }
 
-export function buildGraph(nodes: any[]) {
+export function buildGraph(nodes: Record<string, unknown>[]) {
   return {
     "@context": "https://schema.org",
     "@graph": nodes
