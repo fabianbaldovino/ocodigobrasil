@@ -4,6 +4,9 @@ import { faqData } from "@/lib/faqData";
 import { JsonLd } from "@/components/JsonLd";
 import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
 import AuthorBio from "@/components/AuthorBio";
+import ProductDetails from "@/components/ProductDetails";
+import Testimonials from "@/components/Testimonials";
+
 
 export default function Home() {
   const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto definitivo sobre o cérebro instintivo brasileiro.";
@@ -276,6 +279,9 @@ export default function Home() {
 
       <AuthorBio />
 
+
+      <ProductDetails />
+      <Testimonials />
 
       {/* Call to Action Final */}
       <section id="comprar" className="section container" style={{ paddingTop: '2rem' }}>
