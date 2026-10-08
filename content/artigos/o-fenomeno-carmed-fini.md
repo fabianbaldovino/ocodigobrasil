@@ -9,7 +9,7 @@ metaTitleAbsolute: true
 metaDescription: "O mercado aplaude a colaboração, mas o brasileiro não comprou hidratação labial: comprou o desespero de não ser abandonado na Rua."
 ---
 
-![Carmed Fini](/carmed.jpg)
+![Carmed Fini](/carmed.webp)
 
 Você abre o [LinkedIn](https://www.linkedin.com/) e vê os diretores de Nova Iorque aplaudindo a campanha da [Carmed](https://cimedremedios.com.br/carmed/) com a [Fini](https://www.finistore.com.br/) como se fosse um mero triunfo de *co-branding* e engajamento no [TikTok](https://www.tiktok.com/). Você lê os gráficos de conversão e acha que a explosão de vendas foi causada por uma precificação acessível e um *design* colorido. Essa é a ilusão patética do *marketing* de planilha. Você continua acreditando que o jovem foi até a farmácia, usou o Sistema 2 de [Daniel Kahneman](https://pt.wikipedia.org/wiki/Daniel_Kahneman), comparou ingredientes ativos e decidiu que precisava hidratar os lábios para o inverno. A verdade é brutal: a decisão de esgotar estoques não passou pelo córtex lógico. Ela acionou a força motriz profunda, focada estritamente em sobrevivência e reprodução. Se você acha que eles venderam cosmético barato, você já perdeu o jogo.
 
