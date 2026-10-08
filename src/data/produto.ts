@@ -22,7 +22,7 @@ export const produto: ProdutoInfo = {
   tempoDeLeitura: "TODO_DADO: Tempo estimado de leitura",
   formaDeAcesso: "TODO_DADO: Forma de acesso (ex: Download imediato via Hotmart)",
   preco: "TODO_DADO: Preço do produto",
-  whatsapp: "TODO_DADO: Número do WhatsApp apenas dígitos com DDI (ex: 555199999999)",
+  whatsapp: "5551999654160",
   email: "fbpaciel@gmail.com",
   depoimentos: []
 };
