@@ -10,6 +10,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "check:todo": "node scripts/check-todo.mjs",
+    "check:meta": "node scripts/check-meta.mjs",
     "test:rules": "firebase emulators:exec --only firestore \"node --test tests/firestore-rules/rules.test.js\""
   },
   "dependencies": {

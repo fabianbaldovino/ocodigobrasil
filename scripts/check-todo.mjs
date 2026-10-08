@@ -15,16 +15,22 @@ function walk(dir, callback) {
 
 try {
   let found = false;
+  const extCounts = {};
   
   walk('out', (filePath) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     if (content.includes('TODO_DADO')) {
-      console.error(`ERRO: Marcador TODO_DADO esquecido em ${filePath}`);
+      const ext = path.extname(filePath) || 'sem_extensao';
+      extCounts[ext] = (extCounts[ext] || 0) + 1;
       found = true;
     }
   });
 
   if (found) {
+    console.error('ERROS TODO_DADO por extensão:');
+    for (const [ext, count] of Object.entries(extCounts)) {
+      console.error(`  ${ext}: ${count} arquivo(s)`);
+    }
     console.error('\nBuild reprovado. Preencha os dados institucionais.');
     process.exit(1);
   }
