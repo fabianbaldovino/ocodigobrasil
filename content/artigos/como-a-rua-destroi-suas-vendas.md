@@ -1,11 +1,11 @@
 ---
 title: "Como a 'Rua' destrói as suas vendas no Brasil"
-description: "Descubra por que a impessoalidade e a lógica americana não funcionam no mercado mais emocional do mundo."
+description: "Descubra por que a impessoalidade e a lógica americana de vendas não funcionam no Brasil, o mercado mais emocional do mundo."
 date: "2026-09-28"
 slug: "como-a-rua-destroi-suas-vendas"
 author: "Fabian Baldovino"
 metaTitle: "Como a \"Rua\" destrói suas vendas no Brasil"
-metaDescription: "Descubra por que a impessoalidade e a lógica americana não funcionam no mercado mais emocional do mundo."
+metaDescription: "Descubra por que a impessoalidade e a lógica americana de vendas não funcionam no Brasil, o mercado mais emocional do mundo."
 ---
 
 

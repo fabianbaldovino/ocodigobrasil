@@ -1,18 +1,18 @@
 ---
 title: "Mini Dicionário: O Código Brasil"
-description: "O seu glossário definitivo para decodificar os conceitos sociológicos, neurobiológicos e antropológicos que sustentam as vendas no mercado mais emocional do mundo."
+description: "O seu glossário para decodificar os códigos culturais e antropológicos do consumo no mercado mais emocional do mundo."
 date: "2026-09-30"
 slug: "mini-dicionario-codigo-brasil"
 author: "Fabian Baldovino"
 metaTitle: "Mini Dicionário: os conceitos do método"
-metaDescription: "Glossário dos conceitos do método O Código Brasil: cérebro instintivo, Casa e Rua, Homem Cordial, Código Cultural e mais."
+metaDescription: "Glossário dos conceitos do método O Código Brasil: reação primária, Casa e Rua, Homem Cordial, Código Cultural e mais."
 ---
 
 Para que você consiga extrair o máximo do nosso Manifesto e aplique essas regras no seu negócio imediatamente, preparamos este Mini Dicionário com os conceitos mais letais da nossa metodologia. Salve esta página como o seu guia de consulta rápida.
 
 <a id="sistema-1" name="sistema-1"></a>
-## 1. Cérebro Instintivo (Sistema 1)
-A parte mais primitiva da mente, também conhecida como cérebro reptiliano. Responsável por decisões rápidas, instintivas e focadas puramente na sobrevivência, segurança e reprodução. Segundo Clotaire Rapaille e Daniel Kahneman, é ele quem realmente **assina o cheque** e toma a decisão de compra, movido por emoções inconscientes.
+## 1. Reação Primária (Sistema 1)
+A parte da decisão que acontece abaixo do discurso racional, ligada à sobrevivência, à segurança e à reprodução. Termo de Clotaire Rapaille, que dialoga com o Sistema 1 de Daniel Kahneman: o impulso que prevalece sobre o discurso racional e orienta a decisão de compra, movido por emoções inconscientes.
 
 <a id="sistema-2" name="sistema-2"></a>
 ## 2. Córtex Cerebral (Sistema 2)
