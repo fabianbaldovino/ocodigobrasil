@@ -1,4 +1,4 @@
-import { SITE_URL } from "./site";
+import { SITE_URL, SITE_EMAIL } from "./site";
 
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const ORG_ID = `${SITE_URL}/#organization`;
@@ -10,7 +10,9 @@ export function generatePerson() {
     "@id": PERSON_ID,
     "name": "Fabian Baldovino",
     "url": "https://www.fabian.art.br",
-    "jobTitle": "Brand Filmmaker"
+    "jobTitle": "Brand Filmmaker",
+    "description": "Brand filmmaker em Porto Alegre e autor do manifesto O Código Brasil, sobre como o código cultural molda a decisão de compra do brasileiro.",
+    "email": SITE_EMAIL
   };
 }
 
@@ -63,9 +65,9 @@ export function generateFAQPage(qaPairs: { question: string; answer: string }[])
   };
 }
 
-export function generateArticle(slug: string, title: string, description: string, date: string, ogImage: string) {
+export function generateArticle(slug: string, title: string, description: string, date: string, ogImage: string, updated?: string) {
   const url = `${SITE_URL}/conteudo/${slug}/`;
-  return {
+  const article: Record<string, unknown> = {
     "@type": "Article",
     "@id": `${url}#article`,
     "headline": title,
@@ -84,6 +86,10 @@ export function generateArticle(slug: string, title: string, description: string
     },
     "inLanguage": "pt-BR"
   };
+  if (updated) {
+    article["dateModified"] = updated;
+  }
+  return article;
 }
 
 export function buildGraph(nodes: Record<string, unknown>[]) {

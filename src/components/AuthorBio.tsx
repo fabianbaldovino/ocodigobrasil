@@ -10,7 +10,7 @@ type AuthorBioProps = {
 const AUTHOR_NAME = "Fabian Baldovino";
 const AUTHOR_ROLE = "Brand Filmmaker";
 const ABOUT_URL = "https://www.fabian.art.br/sobre";
-const DEFAULT_TEXT = "TODO_DADO: texto da bio (aprovação do dono)";
+const DEFAULT_TEXT = "Fabian Baldovino é uruguaio, vive em Porto Alegre (RS) e trabalha como brand filmmaker. Graduado em Ciências Sociais e autodidata em audiovisual e marcas, começou na educação: em 2011, como educador social da Fundação de Educação e Cultura do Sport Club Internacional, desenvolveu com Eduardo Textor o projeto Curta nas Escolas, em que alunos de escolas municipais produziram curtas-metragens, e foi palestrante na UFRGS. Depois migrou para o audiovisual profissional: dirigiu a edição de três programas de TV em uma emissora afiliada da Rede Globo e atuou em agências e produtoras. Hoje faz filmes de marca, como a série Ele não vai embora (Termolar) e campanhas para Wedy Nutrition e Ristorante Fontana, a partir da leitura do código cultural. É autor do manifesto O Código Brasil.";
 
 export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: AuthorBioProps) {
   return (

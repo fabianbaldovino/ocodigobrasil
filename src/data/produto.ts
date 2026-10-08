@@ -12,6 +12,7 @@ export interface ProdutoInfo {
   formaDeAcesso: string;
   preco: string;
   whatsapp: string;
+  email?: string;
   depoimentos: Depoimento[];
 }
 
@@ -22,6 +23,7 @@ export const produto: ProdutoInfo = {
   formaDeAcesso: "TODO_DADO: Forma de acesso (ex: Download imediato via Hotmart)",
   preco: "TODO_DADO: Preço do produto",
   whatsapp: "TODO_DADO: Número do WhatsApp apenas dígitos com DDI (ex: 555199999999)",
+  email: "fbpaciel@gmail.com",
   depoimentos: []
 };
 
