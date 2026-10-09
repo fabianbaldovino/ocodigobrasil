@@ -34,8 +34,13 @@ export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: Aut
           target="_blank"
           rel="noopener noreferrer"
         >
-          Conheça o trabalho de Fabian<span className="sr-only"> (abre em nova aba)</span>
+          Conheça o trabalho de Fabian Baldovino<span className="sr-only"> (abre em nova aba)</span>
         </a>
+        <p style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a> &middot; <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>Instagram</a> &middot; <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>YouTube</a>
+          <br />
+          Portfólio: <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Fabian Baldovino</a>
+        </p>
       </div>
     </aside>
   );

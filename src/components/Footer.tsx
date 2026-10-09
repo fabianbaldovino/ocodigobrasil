@@ -28,6 +28,12 @@ export default function Footer() {
 
           <p className="footer-author" style={{ marginBottom: '0.5rem' }}>
             Criado por <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Fabian Baldovino</a>
+            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
+            <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>LinkedIn</a>
+            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
+            <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Instagram</a>
+            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
+            <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>YouTube</a>
           </p>
           <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
         </div>

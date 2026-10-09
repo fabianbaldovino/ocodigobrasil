@@ -154,7 +154,7 @@ export default function Home() {
               </div>
               <h2 className="text-title" style={{ margin: 0 }}>Fabian Baldovino</h2>
               <p style={{ margin: '0.35rem 0 0', color: 'var(--accent)', fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Autor & Estrategista de Percepção
+                Brand Filmmaker em Porto Alegre
               </p>
             </div>
             

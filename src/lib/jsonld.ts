@@ -10,6 +10,16 @@ export function generatePerson() {
     "@id": PERSON_ID,
     "name": "Fabian Baldovino",
     "url": "https://www.fabian.art.br",
+    "sameAs": [
+      "https://www.linkedin.com/in/fabianbaldovino/",
+      "https://www.instagram.com/fabianbaldovino9/",
+      "https://www.youtube.com/@FabianBaldovino9",
+      "https://www.threads.com/@fabianbaldovino9"
+    ],
+    "telephone": "+5551999654160",
+    "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
+    "knowsAbout": ["Brand filmmaking", "Produção audiovisual", "Código cultural brasileiro", "Comportamento de consumo"],
+    "workLocation": { "@type": "Place", "name": "Porto Alegre, RS, Brasil" },
     "jobTitle": "Brand Filmmaker",
     "description": "Brand filmmaker em Porto Alegre e autor do manifesto O Código Brasil, sobre como o código cultural molda a decisão de compra do brasileiro.",
     "email": SITE_EMAIL
@@ -21,7 +31,10 @@ export function generateOrganization() {
     "@type": "Organization",
     "@id": ORG_ID,
     "name": "O Código Brasil",
-    "url": SITE_URL
+    "url": SITE_URL,
+    "founder": {
+      "@id": PERSON_ID
+    }
   };
 }
 
