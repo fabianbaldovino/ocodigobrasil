@@ -134,10 +134,10 @@ export default function Home() {
           <div className="media-card">
             <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino">
               <Image 
-                src="/fabian_baldovino_producao_audiovisual_porto_alegre.webp" 
+                src="/fabian_baldovino_porto_alegre_Rio_grande_do_sul_2.webp" 
                 alt="Fabian Baldovino — Autor de O Código Brasil" 
-                width={1080} 
-                height={1021} 
+                width={1000} 
+                height={1000} 
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
               />
             </a>
