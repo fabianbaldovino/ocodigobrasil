@@ -4,6 +4,7 @@ import { SITE_URL } from '@/lib/site';
 import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import Footer from '@/components/Footer';
+import Analytics from '@/components/Analytics';
 import './globals.css';
 
 const inter = Inter({
@@ -76,6 +77,7 @@ export default function RootLayout({
         </div>
         
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
