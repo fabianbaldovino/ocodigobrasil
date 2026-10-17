@@ -14,7 +14,9 @@ export function generatePerson() {
       "https://www.linkedin.com/in/fabianbaldovino/",
       "https://www.instagram.com/fabianbaldovino9/",
       "https://www.youtube.com/@FabianBaldovino9",
-      "https://www.threads.com/@fabianbaldovino9"
+      "https://www.threads.com/@fabianbaldovino9",
+      // Mesma pessoa do portfólio: liga esta entidade ao Person de www.fabian.art.br
+      "https://www.fabian.art.br/sobre"
     ],
     "telephone": "+5551999654160",
     "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },

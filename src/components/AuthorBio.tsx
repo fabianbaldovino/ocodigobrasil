@@ -10,6 +10,7 @@ type AuthorBioProps = {
 const AUTHOR_NAME = "Fabian Baldovino";
 const AUTHOR_ROLE = "Brand Filmmaker";
 const ABOUT_URL = "https://www.fabian.art.br/sobre";
+const LOCAL_URL = "https://www.fabian.art.br/produtora-de-video-porto-alegre";
 const DEFAULT_TEXT = "Fabian Baldovino é uruguaio, vive em Porto Alegre (RS) e trabalha como brand filmmaker. Autodidata, começou na educação: em 2011, como educador social da Fundação de Educação e Cultura do Sport Club Internacional, desenvolveu com Eduardo Textor o projeto Curta nas Escolas, em que alunos de escolas municipais produziram curtas-metragens, e foi palestrante na UFRGS. Depois migrou para o audiovisual profissional: dirigiu a edição de três programas de TV em uma emissora afiliada da Rede Globo e atuou em agências e produtoras. Hoje faz filmes de marca, como a série Ele não vai embora (Termolar) e campanhas para Wedy Nutrition e Ristorante Fontana, a partir da leitura do código cultural. É autor do manifesto O Código Brasil.";
 
 export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: AuthorBioProps) {
@@ -39,7 +40,7 @@ export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: Aut
         <p style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
           <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a> &middot; <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>Instagram</a> &middot; <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>YouTube</a>
           <br />
-          Portfólio: <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Fabian Baldovino</a>
+          Portfólio: <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Fabian Baldovino</a> &middot; <a href={LOCAL_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Produtora de vídeo em Porto Alegre</a>
         </p>
       </div>
     </aside>
