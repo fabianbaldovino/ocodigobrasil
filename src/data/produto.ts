@@ -11,17 +11,21 @@ export interface ProdutoInfo {
   tempoDeLeitura: string;
   formaDeAcesso: string;
   preco: string;
+  parcelamento?: string;
   whatsapp: string;
   email?: string;
   depoimentos: Depoimento[];
 }
 
 export const produto: ProdutoInfo = {
-  formato: "TODO_DADO: Formato do material (ex: PDF otimizado para leitura em tela)",
-  paginas: "TODO_DADO: Número de páginas",
-  tempoDeLeitura: "TODO_DADO: Tempo estimado de leitura",
-  formaDeAcesso: "TODO_DADO: Forma de acesso (ex: Download imediato via Hotmart)",
-  preco: "TODO_DADO: Preço do produto",
+  // Conferido no arquivo O_CODIGO_BRASIL_001.pdf (24 páginas A4, ~5 mil palavras)
+  // e no checkout da Hotmart em 17/10/2026.
+  formato: "E-book digital em PDF",
+  paginas: "24 páginas",
+  tempoDeLeitura: "Cerca de 25 minutos",
+  formaDeAcesso: "Acesso imediato pela Hotmart, no celular, tablet ou computador",
+  preco: "R$ 97,00",
+  parcelamento: "à vista ou em 12x de R$ 10,03",
   whatsapp: "5551999654160",
   email: "fbpaciel@gmail.com",
   depoimentos: []
