@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, GA_MEASUREMENT_ID } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
@@ -37,9 +37,16 @@ export default function Privacidade() {
         </p>
 
         <h2>2. Dados Tratados</h2>
-        <p>Nosso compromisso é com o mínimo de dados possível. Hoje, o site não possui comentários, notas, cadastro ou login, e não usa cookies de publicidade nem ferramentas de análise de terceiros. O que pode ser tratado:</p>
+        {GA_MEASUREMENT_ID ? (
+          <p>Nosso compromisso é com o mínimo de dados possível. Hoje, o site não possui comentários, notas, cadastro ou login, e não usa cookies de publicidade. O que pode ser tratado:</p>
+        ) : (
+          <p>Nosso compromisso é com o mínimo de dados possível. Hoje, o site não possui comentários, notas, cadastro ou login, e não usa cookies de publicidade nem ferramentas de análise de terceiros. O que pode ser tratado:</p>
+        )}
         <ul>
           <li><strong>Registros técnicos de acesso:</strong> o site é hospedado no Firebase Hosting (Google), que pode registrar dados técnicos de conexão, como endereço IP e tipo de navegador, conforme as políticas do Google.</li>
+          {GA_MEASUREMENT_ID && (
+            <li><strong>Estatísticas de visita:</strong> usamos o Google Analytics para saber quantas pessoas visitam o site, quais páginas leem e quantas clicam para comprar. Ele usa cookies e registra dados como páginas vistas, tipo de dispositivo e cidade aproximada, sem identificar você pelo nome. Os sinais de publicidade do Google ficam desligados. Você pode bloquear esses cookies no seu navegador ou com o <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">complemento de desativação do Google Analytics</a>.</li>
+          )}
           <li><strong>Contato:</strong> se você nos escrever por e-mail ou clicar no botão de WhatsApp, usaremos as informações que você enviar (como nome, e-mail ou telefone) apenas para responder à sua mensagem. O WhatsApp é operado pela Meta, sob as políticas dela.</li>
           <li><strong>Compra:</strong> o pagamento e a entrega do manifesto acontecem no ambiente da <strong>Hotmart</strong>, que atua como operadora de pagamento e coleta os dados necessários à compra. Nenhum dado bancário passa ou é armazenado em nossos servidores.</li>
         </ul>

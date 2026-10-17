@@ -1,18 +1,13 @@
 import {
   addDoc,
   collection,
-  doc,
-  getDoc,
   getDocs,
   limit,
   query,
-  runTransaction,
   serverTimestamp,
   where,
 } from 'firebase/firestore';
 import { db } from './firebase';
-
-export type Rating = { avg: number; count: number };
 
 export type PostComment = {
   id: string;
@@ -22,38 +17,6 @@ export type PostComment = {
 };
 
 const SLUG_RE = /^[a-z0-9-]+$/;
-
-export async function fetchRatings(slugs: string[]): Promise<Record<string, Rating>> {
-  const valid = slugs.filter((s) => SLUG_RE.test(s)).slice(0, 20);
-  const out: Record<string, Rating> = {};
-  const snaps = await Promise.all(valid.map((s) => getDoc(doc(db, 'ratings', s))));
-  valid.forEach((s, i) => {
-    const d = snaps[i].data();
-    out[s] = { avg: d?.avg ?? 0, count: d?.count ?? 0 };
-  });
-  return out;
-}
-
-export async function voteRating(slug: string, score: number, deviceId: string): Promise<Rating> {
-  if (!SLUG_RE.test(slug)) throw new Error('slug inválido');
-  const ratingRef = doc(db, 'ratings', slug);
-  const voteRef = doc(db, 'ratings', slug, 'votes', deviceId);
-
-  return runTransaction(db, async (tx) => {
-    const [voteSnap, ratingSnap] = await Promise.all([tx.get(voteRef), tx.get(ratingRef)]);
-    const prev = voteSnap.exists() ? Number(voteSnap.data()?.score || 0) : 0;
-    const d = ratingSnap.exists() ? ratingSnap.data() : { count: 0, sum: 0 };
-    const count = (d.count || 0) + (prev === 0 ? 1 : 0);
-    const sum = (d.sum || 0) - prev + score;
-    // O avg precisa ser gravado com a precisão máxima (sem arredondamento /10) 
-    // para que a regra do Firestore aceite a tolerância restrita de 0.01.
-    const avg = count ? sum / count : 0;
-
-    tx.set(voteRef, { score, updatedAt: serverTimestamp() });
-    tx.set(ratingRef, { count, sum, avg, updatedAt: serverTimestamp(), lastVoter: deviceId }, { merge: true });
-    return { avg, count };
-  });
-}
 
 export async function fetchComments(slug: string): Promise<PostComment[]> {
   if (!SLUG_RE.test(slug)) return [];

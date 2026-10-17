@@ -2,8 +2,6 @@ import { getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
-import RatingsSummary from '@/components/RatingsSummary';
-import { FEATURE_COMMENTS_ENABLED } from '@/lib/site';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -54,7 +52,6 @@ export default function Conteudo() {
                   <time dateTime={date} style={{ fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
                     {formatDateBR(date)}
                   </time>
-                  {FEATURE_COMMENTS_ENABLED && <RatingsSummary slug={slug} />}
                   <ShareButtons slug={slug} title={title} compact />
                 </div>
               </article>
