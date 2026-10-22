@@ -1044,7 +1044,7 @@ hr.divider {
 }
 
 /* ==========================================================================
-   Interação: estrelas + comentários
+   Interação: comentários
    ========================================================================== */
 
 .interaction-block {
@@ -1066,57 +1066,6 @@ hr.divider {
   letter-spacing: -0.02em;
   color: var(--foreground);
   margin: 0;
-}
-
-.stars-summary {
-  font-size: 0.875rem;
-  font-weight: 700;
-  opacity: 0.7;
-  margin: 0;
-}
-.stars-summary strong {
-  color: var(--accent);
-}
-
-.stars-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.star-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 44px;
-  height: 44px;
-  min-height: 44px;
-  padding: 0;
-  border: 1px solid rgba(56, 26, 20, 0.18);
-  border-radius: 9999px;
-  background: transparent;
-  color: rgba(56, 26, 20, 0.35);
-  cursor: pointer;
-  transition: color var(--motion-fast) ease, border-color var(--motion-fast) ease, background-color var(--motion-fast) ease;
-}
-.star-btn .star-icon {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-.star-btn.is-on {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-.star-btn:hover:not(:disabled), .star-btn:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-.star-btn:disabled {
-  cursor: default;
-  opacity: 0.7;
 }
 
 .widget-note {
@@ -1256,35 +1205,6 @@ hr.divider {
 .comment-submit:disabled {
   opacity: 0.65;
   cursor: default;
-}
-
-/* Resumo de nota na listagem */
-
-.rating-summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.rating-summary__stars {
-  display: inline-flex;
-  gap: 1px;
-  color: var(--accent);
-}
-.rating-summary__stars .star-icon {
-  width: 14px;
-  height: 14px;
-  display: block;
-}
-.rating-summary__stars .star-icon:not(.is-filled) {
-  color: rgba(56, 26, 20, 0.3);
-}
-
-.rating-summary__num {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--foreground);
-  opacity: 0.65;
 }
 
 /* Bio do autor */

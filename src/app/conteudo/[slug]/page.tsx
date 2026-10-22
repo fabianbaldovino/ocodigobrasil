@@ -1,7 +1,6 @@
 import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
 import ShareButtons from '@/components/ShareButtons';
-import Stars from '@/components/Stars';
 import Comments from '@/components/Comments';
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
@@ -109,12 +108,7 @@ export default async function Post({ params }: Props) {
           style={{ width: '100%' }}
         />
 
-        {FEATURE_COMMENTS_ENABLED && (
-          <>
-            <Stars slug={postData.slug} />
-            <Comments slug={postData.slug} />
-          </>
-        )}
+        {FEATURE_COMMENTS_ENABLED && <Comments slug={postData.slug} />}
 
         {relatedPosts.length > 0 && (
           <section aria-labelledby="leia-tambem-heading" style={{ marginTop: '4rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>

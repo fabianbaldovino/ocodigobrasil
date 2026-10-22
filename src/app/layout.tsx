@@ -4,6 +4,7 @@ import { SITE_URL } from '@/lib/site';
 import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import Footer from '@/components/Footer';
+import Analytics from '@/components/Analytics';
 import './globals.css';
 
 const inter = Inter({
@@ -59,12 +60,9 @@ export default function RootLayout({
             <nav aria-label="Navegação principal" className="header-nav">
               <ActiveLink href="/" className="header-nav__link">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
-              <a
-                href="/#baixar"
-                className="header-nav__cta"
-              >
+              <Link href="/#baixar" className="header-nav__cta">
                 Baixar grátis
-              </a>
+              </Link>
             </nav>
           </div>
         </header>
@@ -74,6 +72,7 @@ export default function RootLayout({
         </div>
         
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
