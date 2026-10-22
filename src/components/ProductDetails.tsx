@@ -10,12 +10,11 @@ export default function ProductDetails() {
   const showPaginas = !isTodo(produto.paginas);
   const showTempo = !isTodo(produto.tempoDeLeitura);
   const showAcesso = !isTodo(produto.formaDeAcesso);
-  const showPreco = !isTodo(produto.preco);
   const showWhatsapp = !isTodo(produto.whatsapp);
 
   const hasAnyDetail = showFormato || showPaginas || showTempo || showAcesso;
   
-  if (!hasAnyDetail && !showPreco && !showWhatsapp) return null;
+  if (!hasAnyDetail && !showWhatsapp) return null;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', width: '100%', maxWidth: '800px', margin: '0 auto' }}>
@@ -33,24 +32,13 @@ export default function ProductDetails() {
         </section>
       )}
 
-      {showPreco && (
-        <section aria-labelledby="price-heading" style={{ background: 'var(--foreground)', color: 'var(--background)', padding: '3rem 2rem', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
-          {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
-          <h2 id="price-heading" style={{ fontSize: 'var(--fs-body)', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--surface-alt)', marginBottom: '1rem' }}>Investimento</h2>
-          <div style={{ fontSize: 'var(--fs-h1)', fontWeight: 900, marginBottom: '2rem' }}>{produto.preco}</div>
-          <a href="https://pay.hotmart.com/C107804167U" className="btn-hero" target="_blank" rel="noopener noreferrer" aria-label="Quero o manifesto: checkout seguro na Hotmart">
-            Quero o manifesto
-          </a>
-        </section>
-      )}
-
       {showWhatsapp && (
         <section aria-labelledby="whatsapp-heading" style={{ textAlign: 'center', padding: '2rem' }}>
           {isSample && <div className="sample-banner" style={{ background: 'var(--accent)', color: 'white', padding: '0.25rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '1rem', borderRadius: '4px' }}>EXEMPLO (somente prévia)</div>}
           <h2 id="whatsapp-heading" style={{ fontSize: 'var(--fs-lead)', marginBottom: '1rem' }}>Ficou com alguma dúvida?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Entre em contato direto comigo pelo WhatsApp.</p>
           <a 
-            href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('Olá Fabian, tenho interesse no manifesto O Código Brasil mas fiquei com uma dúvida.')}`}
+            href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('Olá Fabian, li o manifesto O Código Brasil e fiquei com uma dúvida.')}`}
             target="_blank" 
             rel="noopener noreferrer" 
             aria-label="Falar no WhatsApp (+55 51 99965-4160) com Fabian"

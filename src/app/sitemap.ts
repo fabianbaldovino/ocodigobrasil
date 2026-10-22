@@ -22,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/conteudo/`, lastModified: maxDate.toISOString().split('T')[0] },
     { url: `${SITE_URL}/privacidade/` },
     { url: `${SITE_URL}/termos/` },
-    { url: `${SITE_URL}/reembolso/` },
     ...postsMap,
   ];
 }

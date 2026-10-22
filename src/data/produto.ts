@@ -10,18 +10,16 @@ export interface ProdutoInfo {
   paginas: string;
   tempoDeLeitura: string;
   formaDeAcesso: string;
-  preco: string;
   whatsapp: string;
   email?: string;
   depoimentos: Depoimento[];
 }
 
 export const produto: ProdutoInfo = {
-  formato: "TODO_DADO: Formato do material (ex: PDF otimizado para leitura em tela)",
-  paginas: "TODO_DADO: Número de páginas",
-  tempoDeLeitura: "TODO_DADO: Tempo estimado de leitura",
-  formaDeAcesso: "TODO_DADO: Forma de acesso (ex: Download imediato via Hotmart)",
-  preco: "TODO_DADO: Preço do produto",
+  formato: "PDF",
+  paginas: "24 páginas",
+  tempoDeLeitura: "Cerca de 25 minutos",
+  formaDeAcesso: "Download gratuito e imediato, sem cadastro",
   whatsapp: "5551999654160",
   email: "fbpaciel@gmail.com",
   depoimentos: []
@@ -32,8 +30,6 @@ if (process.env.NEXT_PUBLIC_SHOW_SAMPLE === '1') {
   produto.formato = "PDF interativo (modo escuro e claro)";
   produto.paginas = "120 páginas de conteúdo condensado";
   produto.tempoDeLeitura = "2 horas de leitura fluida";
-  produto.formaDeAcesso = "Acesso imediato via Hotmart";
-  produto.preco = "R$ 97,00";
   produto.whatsapp = "5551999999999";
   produto.depoimentos = [
     {

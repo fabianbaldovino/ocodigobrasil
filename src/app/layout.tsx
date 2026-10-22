@@ -60,12 +60,10 @@ export default function RootLayout({
               <ActiveLink href="/" className="header-nav__link">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
               <a
-                href="https://pay.hotmart.com/C107804167U"
+                href="/#baixar"
                 className="header-nav__cta"
-                target="_blank"
-                rel="noopener noreferrer"
               >
-                Comprar
+                Baixar grátis
               </a>
             </nav>
           </div>

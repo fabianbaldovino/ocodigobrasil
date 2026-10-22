@@ -6,6 +6,7 @@ import { generateWebSite, generatePerson, generateOrganization, generateCreative
 import AuthorBio from "@/components/AuthorBio";
 import ProductDetails from "@/components/ProductDetails";
 import Testimonials from "@/components/Testimonials";
+import { MANIFESTO_PDF } from "@/lib/site";
 
 
 export default function Home() {
@@ -30,7 +31,7 @@ export default function Home() {
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              Manifesto de Neuromarketing
+              Manifesto Gratuito
             </div>
 
             <h1 className="text-huge">
@@ -63,19 +64,18 @@ export default function Home() {
 
             <div style={{ marginTop: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', width: '100%', maxWidth: '380px' }}>
               <a 
-                href="https://pay.hotmart.com/C107804167U" 
+                href={MANIFESTO_PDF} 
                 className="btn-hero"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Quero o manifesto: checkout seguro na Hotmart"
+                download
+                aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)"
               >
-                <span>Quero o manifesto</span>
+                <span>Baixar o manifesto grátis</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
               <p style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textAlign: 'center', margin: 0 }}>
-                🔒 Acesso Digital Imediato • 7 Dias de Garantia Incondicional
+                PDF gratuito • 24 páginas • Download imediato
               </p>
             </div>
           </div>
@@ -284,10 +284,10 @@ export default function Home() {
       <Testimonials />
 
       {/* Call to Action Final */}
-      <section id="comprar" className="section container" style={{ paddingTop: '2rem' }}>
+      <section id="baixar" className="section container" style={{ paddingTop: '2rem' }}>
         <div className="conversion-box">
           <div className="badge-luxury" style={{ marginBottom: '1.25rem' }}>
-            Acesso ao Documento Oficial
+            Download Gratuito
           </div>
 
           <h2 className="text-title" style={{ maxWidth: '650px', margin: '0 auto' }}>
@@ -295,18 +295,17 @@ export default function Home() {
           </h2>
 
           <p className="text-body" style={{ margin: '1.25rem auto 2.25rem', maxWidth: '640px', color: 'var(--text-muted)' }}>
-            Adquira o manifesto e aplique a tese que transforma a hostilidade da rua no conforto acolhedor da casa, convertendo empatia em faturamento sustentável.
+            Baixe o manifesto gratuitamente e aplique a tese que transforma a hostilidade da rua no conforto acolhedor da casa, convertendo empatia em faturamento sustentável.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', width: '100%', maxWidth: '380px' }}>
             <a 
-              href="https://pay.hotmart.com/C107804167U" 
+              href={MANIFESTO_PDF} 
               className="btn-hero"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Quero o manifesto: checkout seguro na Hotmart"
+              download
+              aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)"
             >
-              <span>Quero o manifesto</span>
+              <span>Baixar o manifesto grátis</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -314,11 +313,11 @@ export default function Home() {
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginTop: '0.25rem' }}>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>
-                🔒 Pagamento Criptografado
+                Sem cadastro
               </span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>•</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-faint)' }}>
-                7 Dias de Garantia
+                PDF, 24 páginas
               </span>
             </div>
           </div>

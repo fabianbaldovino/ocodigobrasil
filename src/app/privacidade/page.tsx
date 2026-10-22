@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
-  description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
+  description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e download do manifesto.',
   alternates: {
     canonical: `${SITE_URL}/privacidade/`,
   },
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     siteName: 'O Código Brasil',
     url: `${SITE_URL}/privacidade/`,
     title: 'Política de Privacidade | O Código Brasil',
-    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
+    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e download do manifesto.',
     images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Política de Privacidade | O Código Brasil',
-    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e pagamento pela Hotmart.',
+    description: 'Como o site O Código Brasil trata dados pessoais: registros de acesso, contato por e-mail ou WhatsApp e download do manifesto.',
     images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'],
   },
 };
@@ -41,12 +41,12 @@ export default function Privacidade() {
         <ul>
           <li><strong>Registros técnicos de acesso:</strong> o site é hospedado no Firebase Hosting (Google), que pode registrar dados técnicos de conexão, como endereço IP e tipo de navegador, conforme as políticas do Google.</li>
           <li><strong>Contato:</strong> se você nos escrever por e-mail ou clicar no botão de WhatsApp, usaremos as informações que você enviar (como nome, e-mail ou telefone) apenas para responder à sua mensagem. O WhatsApp é operado pela Meta, sob as políticas dela.</li>
-          <li><strong>Compra:</strong> o pagamento e a entrega do manifesto acontecem no ambiente da <strong>Hotmart</strong>, que atua como operadora de pagamento e coleta os dados necessários à compra. Nenhum dado bancário passa ou é armazenado em nossos servidores.</li>
+          <li><strong>Download do manifesto:</strong> o PDF é baixado diretamente do site, sem cadastro. Não pedimos nome, e-mail ou qualquer outro dado para liberar o material.</li>
         </ul>
 
         <h2>3. Finalidade e Compartilhamento</h2>
         <p>
-          Usamos os dados apenas para manter o site funcionando, responder a contatos e viabilizar a compra. Não vendemos seus dados pessoais. Os dados tratados por Google, Meta e Hotmart seguem as políticas de cada empresa e podem envolver transferência internacional de dados.
+          Usamos os dados apenas para manter o site funcionando e responder a contatos. Não vendemos seus dados pessoais. Os dados tratados por Google e Meta seguem as políticas de cada empresa e podem envolver transferência internacional de dados.
         </p>
 
         <h2>4. Direitos do Titular (LGPD)</h2>
@@ -70,7 +70,7 @@ export default function Privacidade() {
         </ul>
 
         <p style={{ marginTop: '3rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-          Última atualização: <strong>08 de outubro de 2026</strong>
+          Última atualização: <strong>22 de outubro de 2026</strong>
         </p>
       </div>
     </div>

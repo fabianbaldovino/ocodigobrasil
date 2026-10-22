@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_EMAIL } from "./site";
+import { SITE_URL, SITE_EMAIL, MANIFESTO_PDF } from "./site";
 
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const ORG_ID = `${SITE_URL}/#organization`;
@@ -59,6 +59,12 @@ export function generateCreativeWork(description: string) {
     "image": `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`,
     "url": SITE_URL,
     "inLanguage": "pt-BR",
+    "isAccessibleForFree": true,
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": `${SITE_URL}${MANIFESTO_PDF}`,
+      "encodingFormat": "application/pdf"
+    },
     "author": {
       "@id": PERSON_ID
     }

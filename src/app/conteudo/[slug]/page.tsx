@@ -6,7 +6,7 @@ import Comments from '@/components/Comments';
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
-import { SITE_URL, FEATURE_COMMENTS_ENABLED } from '@/lib/site';
+import { SITE_URL, FEATURE_COMMENTS_ENABLED, MANIFESTO_PDF } from '@/lib/site';
 import AuthorBio from '@/components/AuthorBio';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -146,11 +146,12 @@ export default async function Post({ params }: Props) {
             Aprofunde-se nestes conceitos e descubra o método exato para decodificar o comportamento do consumidor brasileiro e blindar a percepção de valor da sua marca.
           </p>
           <a 
-            href="https://pay.hotmart.com/C107804167U" 
+            href={MANIFESTO_PDF} 
             className="btn-hero" 
-            aria-label="Quero o manifesto: checkout seguro na Hotmart"
+            download
+            aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)"
           >
-            Quero o manifesto
+            Baixar o manifesto grátis
           </a>
         </div>
       </article>

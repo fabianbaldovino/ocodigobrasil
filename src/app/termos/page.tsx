@@ -38,7 +38,7 @@ export default function Termos() {
         
         <h2>2. Acesso ao Conteúdo Digital</h2>
         <p>
-          A aquisição do manifesto garante o acesso digital ao material nos termos estabelecidos no momento da compra. O processamento do pagamento e a entrega do acesso são operacionalizados pela plataforma terceira (Hotmart). O acesso ao material é de uso pessoal e intransferível.
+          O manifesto O Código Brasil é distribuído gratuitamente, em formato PDF, para download direto neste site. A gratuidade não transfere direitos sobre a obra: o compartilhamento do link oficial é bem-vindo, mas a venda, a alteração ou a republicação do material dependem de autorização prévia por escrito.
         </p>
 
         <h2>3. Propriedade Intelectual</h2>
