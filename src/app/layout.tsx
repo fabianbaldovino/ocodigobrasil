@@ -5,6 +5,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
+import ThemeToggle from '@/components/ThemeToggle';
 import './globals.css';
 
 const inter = Inter({
@@ -48,7 +49,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="pt-BR" data-theme="light" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('ocodigo_theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>
         <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo</a>
         <header className="site-header">
@@ -63,6 +71,7 @@ export default function RootLayout({
               <Link href="/#baixar" className="header-nav__cta">
                 Baixar grátis
               </Link>
+              <ThemeToggle />
             </nav>
           </div>
         </header>

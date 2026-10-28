@@ -27,13 +27,6 @@ export default function Home() {
       <section className="section container hero-wrapper">
         <div className="hero-grid">
           <div className="hero-header">
-            <div className="badge-luxury" style={{ marginBottom: '1.25rem' }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-              Manifesto Gratuito
-            </div>
-
             <h1 className="text-huge">
               <span>O CÓDIGO</span>{' '}<br />
               <span className="logo-accent">BRASIL</span>
@@ -84,44 +77,39 @@ export default function Home() {
 
       {/* The Thesis / Vision Section */}
       <section id="tese" className="section container">
-        <div className="card-surface">
-          <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-            <div className="badge-luxury" style={{ marginBottom: '1rem' }}>
-              Diagnóstico Cultural
-            </div>
-            <h2 className="text-title" style={{ margin: '0 auto 1.25rem' }}>
-              Por Que Você Está Perdendo Vendas?
-            </h2>
-            <p className="text-body" style={{ margin: '0 auto', fontSize: '1.125rem' }}>
-              Você já percebeu que ter o produto tecnicamente superior ou o menor preço muitas vezes <strong>não garante a venda no Brasil</strong>?
-            </p>
-            <p className="text-body" style={{ margin: '1rem auto 0', color: 'var(--text-muted)' }}>
-              Para a nossa reação primária, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
+        <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 className="text-title" style={{ margin: '0 auto 1.25rem' }}>
+            Por Que Você Está Perdendo Vendas?
+          </h2>
+          <p className="text-body" style={{ margin: '0 auto', fontSize: '1.125rem' }}>
+            Você já percebeu que ter o produto tecnicamente superior ou o menor preço muitas vezes <strong>não garante a venda no Brasil</strong>?
+          </p>
+          <p className="text-body" style={{ margin: '1rem auto 0', color: 'var(--text-muted)' }}>
+            Para a nossa reação primária, o ambiente de consumo se divide em dois universos inconciliáveis: a <strong>RUA</strong> (a frieza, a burocracia e o medo de ser enganado) e a <strong>CASA</strong> (o afeto, a proximidade e a segurança).
+          </p>
+        </div>
+
+        <div className="casa-rua-grid">
+          <div className="dual-card dual-card--rua">
+            <span className="dual-card__tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              A Rua (O Erro Comum)
+            </span>
+            <h3 className="dual-card__title">Sistemas Frios e Impessoais</h3>
+            <p className="dual-card__desc">
+              Marketing baseado em manuais importados, vocabulário complexo, menus burocráticos e respostas robotizadas. O cliente sente hostilidade digital e abandona a compra com receio de ser desamparado.
             </p>
           </div>
 
-          <div className="casa-rua-grid">
-            <div className="dual-card dual-card--rua">
-              <span className="dual-card__tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                A Rua (O Erro Comum)
-              </span>
-              <h3 className="dual-card__title">Sistemas Frios e Impessoais</h3>
-              <p className="dual-card__desc">
-                Marketing baseado em manuais importados, vocabulário complexo, menus burocráticos e respostas robotizadas. O cliente sente hostilidade digital e abandona a compra com receio de ser desamparado.
-              </p>
-            </div>
-
-            <div className="dual-card dual-card--casa">
-              <span className="dual-card__tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                A Casa (O Nosso Método)
-              </span>
-              <h3 className="dual-card__title">O Porto Seguro Emocional</h3>
-              <p className="dual-card__desc">
-                A marca atua como fiadora e protetora (&quot;o padrinho&quot;). Linguagem acolhedora, clareza absoluta, pontes humanas pelo WhatsApp e a certeza inegociável de que o cliente jamais estará sozinho.
-              </p>
-            </div>
+          <div className="dual-card dual-card--casa">
+            <span className="dual-card__tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              A Casa (O Nosso Método)
+            </span>
+            <h3 className="dual-card__title">O Porto Seguro Emocional</h3>
+            <p className="dual-card__desc">
+              A marca atua como fiadora e protetora (&quot;o padrinho&quot;). Linguagem acolhedora, clareza absoluta, pontes humanas pelo WhatsApp e a certeza inegociável de que o cliente jamais estará sozinho.
+            </p>
           </div>
         </div>
       </section>
@@ -132,12 +120,13 @@ export default function Home() {
           
           {/* Foto de Autoridade */}
           <div className="media-card">
-            <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino">
+            <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino (abre em nova aba)">
               <Image 
                 src="/fabian_baldovino_porto_alegre_Rio_grande_do_sul_2.webp" 
                 alt="Fabian Baldovino — Autor de O Código Brasil" 
                 width={1000} 
                 height={1000} 
+                sizes="(max-width: 768px) 100vw, 500px"
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
               />
             </a>
@@ -149,9 +138,6 @@ export default function Home() {
           {/* Bio e Marcas */}
           <div className="flex-col gap-md">
             <div>
-              <div className="badge-luxury" style={{ marginBottom: '0.75rem' }}>
-                Autoridade & Prática
-              </div>
               <h2 className="text-title" style={{ margin: 0 }}>Fabian Baldovino</h2>
               <p style={{ margin: '0.35rem 0 0', color: 'var(--accent)', fontWeight: 700, fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Brand Filmmaker em Porto Alegre
@@ -212,9 +198,6 @@ export default function Home() {
       {/* Fundamental Principles */}
       <section id="manifesto" className="section container">
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3rem' }}>
-          <div className="badge-luxury" style={{ marginBottom: '1rem' }}>
-            Os 4 Pilares do Método
-          </div>
           <h2 className="text-title" style={{ margin: 0 }}>O Que Você Vai Descobrir</h2>
           <p className="text-body" style={{ margin: '0.75rem auto 0', color: 'var(--text-muted)' }}>
             Princípios práticos para remodelar a comunicação e o posicionamento da sua empresa no mercado brasileiro.
@@ -260,9 +243,6 @@ export default function Home() {
       <section id="faq" className="section container">
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <div className="badge-luxury" style={{ marginBottom: '0.75rem' }}>
-              Transparência
-            </div>
             <h2 className="text-title" style={{ margin: 0 }}>Perguntas Frequentes</h2>
           </div>
 
@@ -286,10 +266,6 @@ export default function Home() {
       {/* Call to Action Final */}
       <section id="baixar" className="section container" style={{ paddingTop: '2rem' }}>
         <div className="conversion-box">
-          <div className="badge-luxury" style={{ marginBottom: '1.25rem' }}>
-            Download Gratuito
-          </div>
-
           <h2 className="text-title" style={{ maxWidth: '650px', margin: '0 auto' }}>
             Entenda o Código do Consumo Brasileiro
           </h2>

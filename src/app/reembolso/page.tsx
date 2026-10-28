@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/reembolso/`,
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',

@@ -88,6 +88,8 @@ export default function Comments({ slug }: { slug: string }) {
             maxLength={60}
             required
             autoComplete="name"
+            aria-invalid={state === 'error' && !name.trim() ? 'true' : undefined}
+            aria-describedby={state === 'error' ? `comment-status-${slug}` : undefined}
           />
         </div>
         <div className="comment-field">
@@ -100,6 +102,8 @@ export default function Comments({ slug }: { slug: string }) {
             rows={4}
             maxLength={1000}
             required
+            aria-invalid={state === 'error' && !text.trim() ? 'true' : undefined}
+            aria-describedby={state === 'error' ? `comment-status-${slug}` : undefined}
           />
         </div>
         <div className="comment-hp" aria-hidden="true">
@@ -119,9 +123,9 @@ export default function Comments({ slug }: { slug: string }) {
             {state === 'sending' ? 'Enviando…' : 'Enviar comentário'}
           </button>
           <p className="widget-note" style={{ fontSize: '0.75rem', marginTop: '0.75rem' }}>
-            Ao enviar, você concorda com o tratamento do seu nome e comentário conforme a <a href="/privacidade/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Política de Privacidade</a>.
+            Ao enviar, você concorda com o tratamento do seu nome e comentário conforme a <a href="/privacidade/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Política de Privacidade (abre em nova aba)</a>.
           </p>
-          <p className="widget-note" role="status">
+          <p id={`comment-status-${slug}`} className="widget-note" role="status">
             {state === 'sent' && 'Comentário enviado! Ele será publicado após moderação.'}
             {state === 'error' && errorMessage}
           </p>

@@ -46,3 +46,10 @@ yarn-error.log*
 next-env.d.ts
 
 .firebase/
+
+# local agent tooling and binaries
+.agent/
+.github/agents/
+.github/hooks/
+.github/skills/
+*.exe

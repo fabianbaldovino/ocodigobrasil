@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Cloud Functions (CommonJS Node, separado do app Next):
     "functions/**",
+    // Vendor agent and skills scripts
+    ".agent/**",
+    ".github/**",
   ]),
 ]);
 
