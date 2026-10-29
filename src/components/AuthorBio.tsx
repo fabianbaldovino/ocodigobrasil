@@ -18,7 +18,7 @@ export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: Aut
     <aside aria-label="Sobre o autor" className="author-bio container">
       {showPhoto && (
         <Image
-          src="/fabian_baldovino_brand_filmmaker_porto_alegre_rs.webp"
+          src="/fabian_baldovino_retrato_brand_filmmaker_porto_alegre.webp"
           alt={AUTHOR_NAME}
           width={120}
           height={120}

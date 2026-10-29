@@ -122,7 +122,7 @@ export default function Home() {
           <div className="media-card">
             <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }} aria-label="Saiba mais sobre Fabian Baldovino (abre em nova aba)">
               <Image 
-                src="/fabian_baldovino_brand_filmmaker_porto_alegre_rs.webp" 
+                src="/fabian_baldovino_retrato_brand_filmmaker_porto_alegre.webp" 
                 alt="Fabian Baldovino — Autor de O Código Brasil" 
                 width={1000} 
                 height={1000} 
