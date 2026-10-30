@@ -321,8 +321,8 @@ a {
 }
 
 .header-nav__cta {
-  background-color: var(--accent-btn, var(--accent));
-  color: #ffffff !important;
+  background-color: #ffc94a;
+  color: #181b26 !important;
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -333,11 +333,12 @@ a {
   align-items: center;
   justify-content: center;
   min-height: 34px;
+  white-space: nowrap;
   transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, filter var(--motion-fast) ease;
 }
 .header-nav__cta:hover, .header-nav__cta:focus-visible {
-  filter: brightness(1.1);
-  box-shadow: 0 4px 12px rgba(56, 26, 20, 0.16);
+  filter: brightness(1.06);
+  box-shadow: 0 4px 12px rgba(24, 27, 38, 0.2);
   text-decoration: none;
   transform: translateY(-1px);
 }
@@ -1372,26 +1373,27 @@ hr.divider {
 
 @media (max-width: 640px) {
   .header-inner {
-    height: auto;
-    flex-wrap: wrap;
-    padding-top: 0.35rem;
+    height: 56px;
+    flex-wrap: nowrap;
+    padding-top: 0;
     padding-bottom: 0;
   }
 
   .header-logo {
     min-height: 44px;
     font-size: 0.9375rem;
-    padding: 0.25rem 0;
+    padding: 0;
   }
 
   .header-nav {
-    order: 2;
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    gap: 0.25rem;
+    display: flex;
     align-items: center;
-    column-gap: 0.5rem;
-    border-top: 1px solid rgba(56, 26, 20, 0.06);
+  }
+
+  /* o link "Manifesto" é a própria página inicial: no celular fica só o logo */
+  .header-nav .header-nav__link--home {
+    display: none;
   }
 
   .header-nav__link {
@@ -1400,14 +1402,13 @@ hr.divider {
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
-    padding: 0.5rem 0.35rem;
+    padding: 0.5rem 0.4rem;
   }
 
   .header-nav__cta {
-    justify-self: end;
     min-height: 44px;
-    font-size: 0.6875rem;
-    padding: 0.5rem 1.1rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
   }
 
   .share-bar {
@@ -1594,3 +1595,21 @@ hr.divider {
 .author-bio__text { margin: 0 0 1rem; color: var(--text-muted); }
 .author-bio__link { font-weight: 700; text-decoration: underline; color: var(--foreground); }
 .author-bio__link:hover, .author-bio__link:focus-visible { text-decoration-thickness: 3px; }
+
+/* telas estreitas: o botão do cabeçalho fica só "Baixar" para caber numa linha */
+@media (max-width: 460px) {
+  .header-nav__cta-extra {
+    display: none;
+  }
+}
+
+.header-nav__cta-extra {
+  margin-left: 0.3em;
+}
+
+/* telas muito estreitas (≈320px): só logo, botão e tema */
+@media (max-width: 340px) {
+  .header-nav .header-nav__link {
+    display: none;
+  }
+}
