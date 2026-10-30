@@ -66,10 +66,10 @@ export default function RootLayout({
               <span className="logo-accent">BRASIL</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
-              <ActiveLink href="/" className="header-nav__link">Manifesto</ActiveLink>
+              <ActiveLink href="/" className="header-nav__link header-nav__link--home">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
               <Link href="/#baixar" className="header-nav__cta">
-                Baixar grátis
+                Baixar{' '}<span className="header-nav__cta-extra">grátis</span>
               </Link>
               <ThemeToggle />
             </nav>
