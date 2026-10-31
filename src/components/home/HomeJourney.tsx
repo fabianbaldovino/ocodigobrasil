@@ -43,7 +43,7 @@ const CHAPTERS: Chapter[] = [
     alt: 'Rua brasileira à noite, chuva, asfalto molhado e luz de poste, pessoas passando de guarda-chuva',
     priority: true,
     steps: [
-      <h1 key="a">O marketing no Brasil está errado.</h1>,
+      <h1 key="a">O marketing no Brasil esqueceu do brasileiro.</h1>,
       <div key="b">
         <p className="cb-big">
           Nós não compramos por lógica.<br />

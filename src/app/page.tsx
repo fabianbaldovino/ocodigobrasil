@@ -22,7 +22,7 @@ const archivo = Archivo({
 });
 
 export default function Home() {
-  const metaDescription = "O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.";
+  const metaDescription = "O marketing no Brasil esqueceu do brasileiro. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor.";
   const jsonLdData = buildGraph([
     generateWebSite(),
     generateOrganization(),
