@@ -102,7 +102,7 @@ components:
     padding: "0.75rem 1rem"
   bolha-rua:
     backgroundColor: "{colors.cinza-guiche}"
-    textColor: "#9aa3b0"
+    textColor: "{colors.papel-2}"
     rounded: "0"
     padding: "0.75rem 1rem"
 ---
@@ -210,7 +210,10 @@ Discretos até a Casa.
 Bolhas que encenam o método dentro da travessia. **Casa:** bolha papel com cauda à esquerda e bolha "minha" âmbar-claro (`#ffe38a`) à direita. **Rua:** caixa cinza-guichê reta, para protocolo e "Erro crítico" (vermelho-salmão `#ff9c92` em caixa-alta).
 
 ### Navigation
-Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escuro). A marca é uma placa em Archivo condensada, caixa-alta e espaçada, com "BRASIL" em âmbar queimado. Os links (Manifesto, Artigos, Diagnóstico) usam a mesma placa e ganham um sublinhado âmbar no hover e na página ativa. No celular fica numa linha só: "Manifesto" some até 640px, "Diagnóstico" até 460px e todos os links até 400px, sobrando marca, CTA e tema. Um botão flutuante "Ir ao convite ↓" aparece durante a travessia.
+Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escuro). A marca é uma placa em Archivo condensada, caixa-alta e espaçada, com "BRASIL" em âmbar queimado. Os links (Manifesto, Artigos, Diagnóstico) usam a mesma placa e ganham um sublinhado âmbar no hover e na página ativa. No celular fica numa linha só: "Manifesto" some até 640px, "Diagnóstico" até 460px e todos os links até 400px, sobrando marca, CTA e tema.
+
+### Marcador e saídas da travessia
+Só no meio da travessia (depois da abertura, antes do convite). Um fio âmbar de 2px sob o cabeçalho mostra quanto já foi percorrido, e uma pílula translúcida no canto superior esquerdo nomeia o capítulo ("Pilar 2 de 4 · O Efeito WhatsApp"). No canto inferior direito, duas pílulas: "Baixar o PDF ↓" (rola até o convite) e "Falar com Fabian" (WhatsApp, com contorno âmbar).
 
 ### Footer
 A última luz da Casa (`#fff1c4`; noite da Rua no tema escuro). Três colunas a partir de 900px: marca e frase; a conversa em primeiro plano ("Fale com Fabian no WhatsApp" em Newsreader com sublinhado âmbar, número em algarismos tabulares e a nota da conversa gratuita); links em placa e o copyright. No celular tudo empilha alinhado à esquerda. Na home o rodapé encosta direto na última seção creme.

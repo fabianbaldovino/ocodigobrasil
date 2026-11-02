@@ -14,6 +14,8 @@ import { linkWhatsapp } from '@/data/produto';
 type Chapter = {
   id: string;
   label: string;
+  /** texto do marcador de progresso enquanto o capítulo está na tela (sem marcador na abertura e no convite) */
+  marcador?: string;
   img: string;
   alt: string;
   hook?: 'ms' | 'cortina';
@@ -60,6 +62,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap1',
     label: 'O diagnóstico',
+    marcador: 'O diagnóstico',
     img: '1',
     alt: 'Sala de espera com painel de senha 247, guichê de vidro e cadeiras de plástico azuis',
     steps: [
@@ -71,6 +74,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap2',
     label: 'A Rua e a Casa',
+    marcador: 'A Rua e a Casa',
     img: '2a',
     alt: 'Portão de grade fechado de uma casa brasileira à noite',
     hook: 'cortina',
@@ -92,6 +96,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap3',
     label: 'A Reação Primária',
+    marcador: 'A Reação Primária',
     img: '3',
     alt: 'Retrato de uma mulher com o olhar firme de quem acabou de decidir',
     hook: 'ms',
@@ -106,6 +111,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap5',
     label: 'Pilar 1: O Fim da Frieza',
+    marcador: 'Pilar 1 de 4 · O Fim da Frieza',
     img: '5',
     alt: 'Duas mãos ao redor de uma xícara branca com vapor',
     steps: [
@@ -117,6 +123,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap6',
     label: 'Pilar 2: O Efeito WhatsApp',
+    marcador: 'Pilar 2 de 4 · O Efeito WhatsApp',
     img: '6',
     alt: 'Celular sobre a mesa branca da cozinha, tela acesa com uma conversa',
     steps: [
@@ -143,6 +150,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap7',
     label: 'Pilar 3: A Marca Padrinho',
+    marcador: 'Pilar 3 de 4 · A Marca Padrinho',
     img: '7',
     alt: 'Um adulto ao lado de uma criança de capacete, segurando o banco da bicicleta',
     steps: [
@@ -154,6 +162,7 @@ const CHAPTERS: Chapter[] = [
   {
     id: 'cap8',
     label: 'Pilar 4: O Design de Confiança',
+    marcador: 'Pilar 4 de 4 · O Design de Confiança',
     img: '8',
     alt: 'Soleira de uma casa com a porta aberta e luz dourada saindo de dentro',
     steps: [
@@ -206,8 +215,11 @@ export default function HomeJourney() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const caps = Array.from(root.querySelectorAll<HTMLElement>('.cb-cap'));
     const lastCap = caps[caps.length - 1];
+    const saidas = root.querySelector<HTMLElement>('.cb-saidas');
     const pular = root.querySelector<HTMLAnchorElement>('.cb-pular');
-    const ms = root.querySelector<HTMLElement>('[data-role="ms"]');
+    const progresso = root.querySelector<HTMLElement>('.cb-progresso');
+    const rotulo = root.querySelector<HTMLElement>('[data-role="rotulo"]');
+    const ms =root.querySelector<HTMLElement>('[data-role="ms"]');
     const cortina = root.querySelector<HTMLElement>('[data-role="cortina"]');
     const fio = root.querySelector<HTMLElement>('[data-role="fio"]');
     const header = document.querySelector<HTMLElement>('.site-header');
@@ -217,11 +229,30 @@ export default function HomeJourney() {
     setHeader();
     if (!reduce) doc.classList.add('cb-snap');
 
-    const showPular = () => {
-      if (!pular || !lastCap) return;
+    // quanto da travessia já foi percorrido (0 na abertura, 1 no convite)
+    const percorrido = () => {
+      const lastTop = lastCap.getBoundingClientRect().top + window.scrollY;
+      return clamp(window.scrollY / Math.max(1, lastTop + lastCap.offsetHeight - window.innerHeight));
+    };
+
+    // marcador de capítulo, fio de progresso e as duas saídas (PDF ou conversa): só no meio da travessia
+    let rotuloAtual = '';
+    const atualizarNav = () => {
+      if (!lastCap) return;
+      const hh = header ? header.offsetHeight : 0;
+      const meio = hh + (window.innerHeight - hh) / 2;
+      const atual = caps.find((c) => {
+        const r = c.getBoundingClientRect();
+        return r.top <= meio && r.bottom > meio;
+      });
+      const texto = atual?.dataset.marcador ?? '';
+      if (rotulo && texto && texto !== rotuloAtual) { rotulo.textContent = texto; rotuloAtual = texto; }
       const depois = window.scrollY > window.innerHeight * 1.2;
       const antes = lastCap.getBoundingClientRect().top > window.innerHeight * 0.5;
-      pular.classList.toggle('cb-on', depois && antes);
+      const meioDaTravessia = depois && antes;
+      saidas?.classList.toggle('cb-on', meioDaTravessia);
+      progresso?.classList.toggle('cb-on', meioDaTravessia && texto !== '');
+      progresso?.style.setProperty('--g', percorrido().toFixed(4));
     };
 
     let ticking = false;
@@ -254,10 +285,9 @@ export default function HomeJourney() {
         void ci;
       });
       // temperatura geral da página: do azul da Rua ao âmbar da Casa
-      const lastTop = lastCap.getBoundingClientRect().top + window.scrollY;
-      const g = clamp(window.scrollY / Math.max(1, lastTop + lastCap.offsetHeight - window.innerHeight));
+      const g = percorrido();
       home?.style.setProperty('--warm', (g * g).toFixed(3));
-      showPular();
+      atualizarNav();
     };
     const onScroll = () => {
       if (!ticking) { ticking = true; requestAnimationFrame(frame); }
@@ -274,7 +304,8 @@ export default function HomeJourney() {
       // sem animação: tudo visível, uma cena por vez, sem câmera presa
       if (ms) ms.textContent = '50';
       if (cortina) cortina.style.setProperty('--c', '1');
-      window.addEventListener('scroll', showPular, { passive: true });
+      window.addEventListener('scroll', atualizarNav, { passive: true });
+      atualizarNav();
     } else {
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onResize);
@@ -285,7 +316,7 @@ export default function HomeJourney() {
       doc.classList.remove('cb-snap');
       doc.style.removeProperty('--cb-hh');
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('scroll', showPular);
+      window.removeEventListener('scroll', atualizarNav);
       window.removeEventListener('resize', onResize);
       pular?.removeEventListener('click', onPularClick);
     };
@@ -294,9 +325,18 @@ export default function HomeJourney() {
   return (
     <div className="cb-journey" ref={rootRef}>
       <div className="cb-veu" aria-hidden="true" />
-      <a className="cb-pular" href="#baixar" aria-label="Pular para o convite e baixar o manifesto">
-        Ir ao convite <span aria-hidden="true">↓</span>
-      </a>
+      <div className="cb-progresso" aria-hidden="true">
+        <span className="cb-progresso-fio" />
+        <span className="cb-progresso-rotulo" data-role="rotulo" />
+      </div>
+      <nav className="cb-saidas" aria-label="Atalhos da travessia">
+        <a className="cb-pular" href="#baixar" aria-label="Pular para o convite e baixar o manifesto">
+          Baixar o PDF <span aria-hidden="true">↓</span>
+        </a>
+        <a className="cb-pular cb-pular-conversa" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+          Falar com Fabian<span className="sr-only"> no WhatsApp (abre em nova aba)</span>
+        </a>
+      </nav>
 
       {CHAPTERS.map((c) => {
         const n = c.steps.length;
@@ -307,6 +347,7 @@ export default function HomeJourney() {
             id={c.id === 'baixar' ? 'baixar' : c.id}
             className={`cb-cap ${c.id === 'cap0' ? '' : 'cb-dim'}`}
             data-hook={c.hook}
+            data-marcador={c.marcador}
             style={{ height: stageHeight(n) }}
             aria-label={c.label}
           >

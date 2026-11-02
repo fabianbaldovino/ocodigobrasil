@@ -89,7 +89,7 @@
       "refersTo": "bolha-casa",
       "description": "Bolhas que encenam o método: guichê reto contra conversa com nome.",
       "html": "<div class=\"ds-noite ds-chat\"><div class=\"ds-bolha ds-form\">Formulário · Protocolo nº 48213</div><div class=\"ds-bolha\">digitando…</div><div class=\"ds-bolha ds-eu\">Oi! Aqui é o João. Já separei o seu pedido 🙂</div></div>",
-      "css": ".ds-noite{background:#0d141c;padding:32px}.ds-chat{display:grid;gap:10px;justify-items:start;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:90%;font-size:1.0625rem;max-width:30ch}.ds-bolha{background:rgba(245,243,238,.94);color:#181b26;padding:.75rem 1rem;border-radius:16px 16px 16px 4px}.ds-eu{background:#ffe38a;border-radius:16px 16px 4px 16px;justify-self:end}.ds-form{background:#3b4350;color:#9aa3b0;border-radius:0}"
+      "css": ".ds-noite{background:#0d141c;padding:32px}.ds-chat{display:grid;gap:10px;justify-items:start;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:90%;font-size:1.0625rem;max-width:30ch}.ds-bolha{background:rgba(245,243,238,.94);color:#181b26;padding:.75rem 1rem;border-radius:16px 16px 16px 4px}.ds-eu{background:#ffe38a;border-radius:16px 16px 4px 16px;justify-self:end}.ds-form{background:#3b4350;color:#b8bcc6;border-radius:0}"
     }
   ],
   "narrative": {

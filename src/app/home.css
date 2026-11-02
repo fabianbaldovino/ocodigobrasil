@@ -102,7 +102,7 @@
 .cb-home .cb-chat{display:grid;gap:10px;justify-items:start;font-family:var(--sans);font-stretch:90%;font-size:clamp(16px,2.4vw,22px);text-align:left;max-width:30ch}
 .cb-home .cb-bolha{background:rgba(245,243,238,.94);color:var(--tinta);padding:12px 16px;border-radius:16px 16px 16px 4px;text-shadow:none}
 .cb-home .cb-bolha.cb-eu{background:#ffe38a;border-radius:16px 16px 4px 16px;justify-self:end}
-.cb-home .cb-bolha.cb-form{background:#3b4350;color:#9aa3b0;border-radius:0}
+.cb-home .cb-bolha.cb-form{background:#3b4350;color:var(--papel-2);border-radius:0}
 .cb-home .cb-step p.cb-big + .cb-chat{margin-top:20px}
 .cb-home .cb-bolha.cb-erro{background:#3b4350;color:#ff9c92;border-radius:0;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .cb-home .cb-btnx.cb-quente{background:var(--ambar);color:var(--tinta);border-radius:999px}
@@ -128,11 +128,22 @@
 .cb-home .cb-fim summary{cursor:pointer;font-weight:600;font-size:18px}
 .cb-home .cb-fim details p{margin:10px 0 0}
 .cb-home .cb-nota{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:#5a6070}
-.cb-home .cb-pular{position:fixed;z-index:20;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));font-family:var(--sans);font-stretch:88%;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--papel);background:rgba(13,20,28,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(245,243,238,.35);border-radius:999px;padding:9px 14px;text-decoration:none;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .5s,transform .5s}
-.cb-home .cb-pular.cb-on{opacity:.9;pointer-events:auto;transform:none}
+/* saídas da travessia: o PDF ou a conversa, sem precisar rolar até o fim */
+.cb-home .cb-saidas{position:fixed;z-index:20;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;max-width:calc(100vw - 28px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.cb-home .cb-saidas.cb-on{opacity:1;pointer-events:auto;transform:none}
+.cb-home .cb-pular{display:inline-flex;align-items:center;gap:.4em;min-height:44px;font-family:var(--sans);font-stretch:88%;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--papel);background:rgba(13,20,28,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(245,243,238,.35);border-radius:999px;padding:0 16px;text-decoration:none;transition:border-color .2s}
+.cb-home .cb-pular:hover{border-color:var(--papel)}
+.cb-home .cb-pular.cb-pular-conversa{border-color:var(--ambar)}
+.cb-home .cb-pular.cb-pular-conversa:hover{border-color:var(--papel)}
 .cb-home .cb-pular:focus-visible{outline:2px solid var(--papel);outline-offset:3px}
+
+/* marcador de progresso: fio âmbar sob o cabeçalho e o nome do capítulo */
+.cb-home .cb-progresso{position:fixed;z-index:20;left:0;right:0;top:var(--cb-hh,0px);height:0;opacity:0;pointer-events:none;transition:opacity .5s}
+.cb-home .cb-progresso.cb-on{opacity:1}
+.cb-home .cb-progresso-fio{position:absolute;left:0;top:0;width:100%;height:2px;background:var(--ambar);transform-origin:left;transform:scaleX(var(--g,0))}
+.cb-home .cb-progresso-rotulo{position:absolute;top:14px;left:max(14px,env(safe-area-inset-left,0px));max-width:calc(100vw - 28px);font-family:var(--sans);font-stretch:88%;font-weight:600;font-size:12px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:var(--papel);background:rgba(13,20,28,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:999px;padding:8px 14px}
 @media (prefers-reduced-motion: reduce){
-.cb-home .cb-pular{transition:none}
+.cb-home .cb-saidas,.cb-home .cb-progresso,.cb-home .cb-pular{transition:none}
 }
 .cb-home .cb-snap{position:absolute;left:0;width:1px;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
 html.cb-snap{scroll-snap-type:y mandatory}
@@ -270,7 +281,8 @@ html.cb-snap{scroll-snap-type:none}
 .cb-home .cb-journey{background:var(--rua)}
 .cb-home .cb-stage{top:var(--cb-hh,0px);height:calc(100svh - var(--cb-hh,0px))}
 .cb-home .cb-snap{height:calc(100svh - var(--cb-hh,0px))}
-html.cb-snap{scroll-padding-top:var(--cb-hh,0px)}
+/* âncoras (#diagnostico, #faq…) param abaixo do cabeçalho fixo, com ou sem movimento reduzido */
+html:has(.cb-home){scroll-padding-top:var(--cb-hh,64px)}
 @media (prefers-reduced-motion: reduce){
   .cb-home .cb-cap{height:auto !important}
   .cb-home .cb-stage{position:relative;top:0;height:auto;min-height:calc(100svh - var(--cb-hh,0px))}
