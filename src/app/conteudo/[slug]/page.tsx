@@ -3,9 +3,11 @@ import { formatDateBR } from '@/lib/format';
 import ShareButtons from '@/components/ShareButtons';
 import Comments from '@/components/Comments';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
 import { buildGraph, generateArticle, generatePerson, generateOrganization } from '@/lib/jsonld';
 import { SITE_URL, FEATURE_COMMENTS_ENABLED, MANIFESTO_PDF } from '@/lib/site';
+import { linkWhatsapp, produto } from '@/data/produto';
 import AuthorBio from '@/components/AuthorBio';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const postData = await getPostData(resolvedParams.slug);
   const canonicalPath = `/conteudo/${postData.slug}/`;
-  
+
   const finalTitle = postData.metaTitle || postData.title;
   const finalDesc = postData.metaDescription || postData.description;
   const shareTitle = postData.metaTitleAbsolute ? finalTitle : `${finalTitle} | O Código Brasil`;
@@ -63,7 +65,7 @@ export default async function Post({ params }: Props) {
   const finalDesc = postData.metaDescription || postData.description;
 
   const ogImageUrl = `${SITE_URL}/capa_manifesto_o_codigo_brasil_fabian_baldovino.png`;
-  
+
   const jsonLdData = buildGraph([
     generatePerson(),
     generateOrganization(),
@@ -78,81 +80,82 @@ export default async function Post({ params }: Props) {
   ]);
 
   return (
-    <main>
+    <main className="cb-artigo">
       <JsonLd data={jsonLdData} />
-      <article className="section container flex-col" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <article className="cb-a-coluna">
         <Breadcrumbs
           items={[
             { name: 'O Código Brasil', url: SITE_URL },
-            { name: 'Conteúdo', url: `${SITE_URL}/conteudo/` },
+            { name: 'Artigos', url: `${SITE_URL}/conteudo/` },
             { name: postData.title, url: `${SITE_URL}/conteudo/${postData.slug}/` },
           ]}
         />
-        <header style={{ marginBottom: '4rem', borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '3rem' }}>
-          <h1 className="text-title" style={{ marginBottom: '1.5rem', color: 'var(--foreground)' }}>{postData.title}</h1>
-          <p className="text-subtitle" style={{ opacity: 0.7, marginBottom: '2.5rem', fontFamily: 'Inter, sans-serif', fontWeight: 400, maxWidth: '800px', lineHeight: '1.5' }}>
-            {postData.description}
-          </p>
-          <div style={{ display: 'flex', gap: '2rem', fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
+        <header className="cb-a-topo">
+          <h1 className="cb-a-titulo">{postData.title}</h1>
+          <p className="cb-a-linha-fina">{postData.description}</p>
+          <p className="cb-a-meta">
             <time dateTime={postData.date}>{formatDateBR(postData.date)}</time>
-            <span>POR <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'inherit' }}>FABIAN BALDOVINO</a></span>
-          </div>
-          <div style={{ marginTop: '2rem' }}>
-            <ShareButtons slug={postData.slug} title={postData.title} />
-          </div>
+            <span>Por <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer">Fabian Baldovino</a></span>
+          </p>
+          <ShareButtons slug={postData.slug} title={postData.title} />
         </header>
 
-        <div 
-          className="markdown-content text-body"
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
-          style={{ width: '100%' }}
+        <div
+          className="markdown-content"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
+
+        <div className="cb-a-compartilhar">
+          <ShareButtons slug={postData.slug} title={postData.title} />
+        </div>
 
         {FEATURE_COMMENTS_ENABLED && <Comments slug={postData.slug} />}
 
-        {relatedPosts.length > 0 && (
-          <section aria-labelledby="leia-tambem-heading" style={{ marginTop: '4rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-            <h2 id="leia-tambem-heading" style={{ fontSize: 'var(--fs-h2)', marginBottom: '2rem', color: 'var(--foreground)' }}>Leia Também</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              {relatedPosts.map(({ slug, title, description, date }) => (
-                <article key={slug} style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '1.5rem' }}>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '0.5rem' }}>
-                    <a href={`/conteudo/${slug}/`} style={{ color: 'var(--foreground)', textDecoration: 'none' }}>{title}</a>
-                  </h3>
-                  <p className="text-body" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>{description}</p>
-                  <time dateTime={date} style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700 }}>
-                    {formatDateBR(date)}
-                  </time>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-          <div style={{ marginBottom: '3rem' }}>
-            <ShareButtons slug={postData.slug} title={postData.title} compact />
-          </div>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '1rem', color: 'var(--foreground)' }}>
-            O Manifesto
-          </h2>
-          <p style={{ fontSize: '1.125rem', opacity: 0.7, maxWidth: '600px', marginBottom: '2.5rem' }}>
-            Aprofunde-se nestes conceitos e descubra o método exato para decodificar o comportamento do consumidor brasileiro e blindar a percepção de valor da sua marca.
+        <section className="cb-a-convite" aria-labelledby="convite-heading">
+          <h2 id="convite-heading">Quer ver a sua marca pelo lado da <em>Casa</em>?</h2>
+          <p>
+            Converse com Fabian sobre o seu negócio. A primeira conversa é gratuita e sem compromisso:
+            você fala direto com ele, sem robô, e ele lê a sua marca com o método Casa × Rua.
           </p>
-          <a 
-            href={MANIFESTO_PDF} 
-            className="btn-hero" 
-            download
-            aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)"
-          >
-            Baixar o manifesto grátis
-          </a>
-        </div>
+          <div className="cb-a-acoes">
+            <a className="cb-a-btn cb-a-btn--casa" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+              Conversar com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
+            </a>
+            <a
+              className="cb-a-btn"
+              href={MANIFESTO_PDF}
+              download
+              aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)"
+            >
+              Baixar o manifesto grátis (PDF)
+            </a>
+          </div>
+          <p className="cb-a-nota">
+            O manifesto tem {produto.paginas}, {produto.tempoDeLeitura.toLowerCase()} de leitura, e baixa sem cadastro.
+          </p>
+        </section>
       </article>
 
-      <div style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+      <div className="cb-a-coluna">
         <AuthorBio />
       </div>
+
+      {relatedPosts.length > 0 && (
+        <section className="cb-a-leia" aria-labelledby="leia-tambem-heading">
+          <div className="cb-a-largo">
+            <h2 id="leia-tambem-heading">Leia também</h2>
+            <div className="cb-a-cards">
+              {relatedPosts.map(({ slug, title, description }) => (
+                <Link key={slug} href={`/conteudo/${slug}/`} className="cb-a-card">
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <span>Ler o artigo <span aria-hidden="true">→</span></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

@@ -36,20 +36,18 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <nav aria-label="Trilha de navegação" className="breadcrumbs" style={{ marginBottom: '2rem' }}>
-        <ol style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '0.5rem', flexWrap: 'wrap', fontSize: 'var(--fs-sm)' }}>
+      <nav aria-label="Trilha de navegação" className="breadcrumbs">
+        <ol>
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
-              <li key={item.url} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <li key={item.url}>
                 {isLast ? (
-                  <span aria-current="page" style={{ color: 'var(--text-muted)' }}>{item.name}</span>
+                  <span aria-current="page">{item.name}</span>
                 ) : (
                   <>
-                    <Link href={toRelative(item.url)} style={{ color: 'var(--accent-text)', textDecoration: 'none' }}>
-                      {item.name}
-                    </Link>
-                    <span style={{ color: 'var(--text-faint)' }} aria-hidden="true">/</span>
+                    <Link href={toRelative(item.url)}>{item.name}</Link>
+                    <span className="breadcrumbs__sep" aria-hidden="true">/</span>
                   </>
                 )}
               </li>

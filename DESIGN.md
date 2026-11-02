@@ -117,7 +117,7 @@ Toda tela anda da Rua para a Casa. A Rua é noite azulada, asfalto molhado, guic
 
 O tom é **cinematográfico e quente**: fotografia de cinema em tela cheia, grão de película, uma frase por vez, muito silêncio em volta. A densidade é baixa de propósito: um corte por ideia. Depois da travessia, a página "entra em casa": fundo creme, cards brancos, leitura calma.
 
-A identidade oficial é a da home nova (`src/app/home.css`, escopo `.cb-home`), e o cabeçalho e o rodapé já seguem ela. O miolo das outras páginas (artigos e páginas legais) ainda usa o visual anterior, marfim/mogno/vermelho-pimenta com Playfair Display + Inter (`src/app/globals.css`). Isso é dívida de migração, não uma segunda identidade: trabalho novo nessas páginas deve caminhar para este sistema.
+A identidade oficial é a da home nova (`src/app/home.css`, escopo `.cb-home`). O cabeçalho, o rodapé, os artigos e a listagem de artigos já seguem ela (artigos no escopo `.cb-artigo` em `src/app/globals.css`). Só o miolo das páginas legais (termos, privacidade, reembolso) ainda usa o visual anterior, marfim/mogno/vermelho-pimenta com Playfair Display + Inter. Isso é dívida de migração, não uma segunda identidade: trabalho novo nessas páginas deve caminhar para este sistema.
 
 **Key Characteristics:**
 - Fotografia de cinema em tela cheia (16:9 no desktop, 9:16 no celular) com grão e texto sobreposto.
@@ -215,6 +215,9 @@ Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escu
 ### Marcador e saídas da travessia
 Só no meio da travessia (depois da abertura, antes do convite). Um fio âmbar de 2px sob o cabeçalho mostra quanto já foi percorrido, e uma pílula translúcida no canto superior esquerdo nomeia o capítulo ("Pilar 2 de 4 · O Efeito WhatsApp"). No canto inferior direito, duas pílulas: "Baixar o PDF ↓" (rola até o convite) e "Falar com Fabian" (WhatsApp, com contorno âmbar).
 
+### Artigos
+Coluna de 42rem sobre o creme da Casa (noite da Rua no tema escuro, com texto papel e âmbar no lugar do âmbar queimado). Título em Newsreader 500 no tamanho Title, linha fina em tinta suave, data e autor em placa Archivo. Corpo em Newsreader de 1,125 a 1,25rem com entrelinha 1,65; intertítulos em Newsreader 500; links sublinhados em âmbar queimado; citação em itálico com o fio âmbar de 2px à esquerda. No fim, um card da Casa com dois caminhos: "Conversar com Fabian no WhatsApp" (botão da Casa, âmbar sólido) e "Baixar o manifesto grátis (PDF)" (contorno fino), com a nota de que a primeira conversa é gratuita e sem compromisso. Depois vêm a bio do autor e "Leia também" com os mesmos cards de artigo da home. A listagem `/conteudo/` usa esses cards em grade automática (uma coluna no celular, até três no desktop).
+
 ### Footer
 A última luz da Casa (`#fff1c4`; noite da Rua no tema escuro). Três colunas a partir de 900px: marca e frase; a conversa em primeiro plano ("Fale com Fabian no WhatsApp" em Newsreader com sublinhado âmbar, número em algarismos tabulares e a nota da conversa gratuita); links em placa e o copyright. No celular tudo empilha alinhado à esquerda. Na home o rodapé encosta direto na última seção creme.
 
@@ -225,7 +228,7 @@ A última luz da Casa (`#fff1c4`; noite da Rua no tema escuro). Três colunas a 
 - **Do** guardar o âmbar sólido para a ação da Casa (convite, CTA do cabeçalho) e usar itálico âmbar para a ênfase na fala.
 - **Do** encenar a Rua com cinza-guichê, cantos retos e Archivo em caixa-alta, e a Casa com creme, curvas e Newsreader.
 - **Do** manter tudo legível como texto real no HTML e garantir uma versão estática e completa com `prefers-reduced-motion`.
-- **Do** migrar artigos e páginas legais para Newsreader/Archivo e para a paleta Casa quando forem tocados.
+- **Do** migrar as páginas legais para Newsreader/Archivo e para a paleta Casa quando forem tocadas, reaproveitando o escopo `.cb-artigo`.
 
 ### Don't:
 - **Don't** parecer landing de infoproduto: nada de contador regressivo, seta piscando, selo falso ou "últimas vagas".

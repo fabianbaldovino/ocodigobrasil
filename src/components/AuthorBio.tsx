@@ -37,10 +37,10 @@ export default function AuthorBio({ text = DEFAULT_TEXT, showPhoto = true }: Aut
         >
           Conheça o trabalho de Fabian Baldovino<span className="sr-only"> (abre em nova aba)</span>
         </a>
-        <p style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>LinkedIn</a> &middot; <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>Instagram</a> &middot; <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline' }}>YouTube</a>
+        <p className="author-bio__redes">
+          <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> &middot; <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer">Instagram</a> &middot; <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer">YouTube</a>
           <br />
-          Portfólio: <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Fabian Baldovino</a> &middot; <a href={LOCAL_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Produtora de vídeo em Porto Alegre</a>
+          Portfólio: <a href="https://www.fabian.art.br" target="_blank" rel="noopener noreferrer">Fabian Baldovino</a> &middot; <a href={LOCAL_URL} target="_blank" rel="noopener noreferrer">Produtora de vídeo em Porto Alegre</a>
         </p>
       </div>
     </aside>

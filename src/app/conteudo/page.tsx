@@ -1,7 +1,6 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { formatDateBR } from '@/lib/format';
 import Link from 'next/link';
-import ShareButtons from '@/components/ShareButtons';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,36 +28,32 @@ export default function Conteudo() {
   const allPostsData = getSortedPostsData();
 
   return (
-    <main>
-      <section className="section container flex-col">
-        <h1 className="text-title" style={{ color: 'var(--accent)' }}>CONTEÚDO E ARTIGOS</h1>
-        <p className="text-body" style={{ marginTop: '1rem', maxWidth: '800px' }}>
-          Estudos, análises de mercado e a decodificação da reação primária brasileira.
-        </p>
-      </section>
+    <main className="cb-artigo">
+      <div className="cb-a-largo">
+        <header className="cb-a-topo cb-a-topo--lista">
+          <h1 className="cb-a-titulo">Artigos</h1>
+          <p className="cb-a-linha-fina">
+            Por que o brasileiro compra de quem o faz se sentir em <em>casa</em>: análises de marcas e do comportamento do consumidor, pelo método O Código Brasil.
+          </p>
+        </header>
 
-      <section className="container" style={{ paddingBottom: '8rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-          {allPostsData.length === 0 ? (
-            <p className="text-body">Nenhum artigo publicado ainda.</p>
-          ) : (
-            allPostsData.map(({ slug, title, description, date }) => (
-              <article key={slug} className="post-card" style={{ borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '2rem' }}>
-                <h2 className="post-card__title" style={{ fontSize: '2rem', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                  <Link href={`/conteudo/${slug}/`}>{title}</Link>
-                </h2>
-                <p className="text-body" style={{ marginBottom: '1rem' }}>{description}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
-                  <time dateTime={date} style={{ fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 700 }}>
-                    {formatDateBR(date)}
-                  </time>
-                  <ShareButtons slug={slug} title={title} compact />
-                </div>
-              </article>
-            ))
-          )}
-        </div>
-      </section>
+        {allPostsData.length === 0 ? (
+          <p className="cb-a-vazio">Nenhum artigo publicado ainda.</p>
+        ) : (
+          <ul className="cb-a-lista">
+            {allPostsData.map(({ slug, title, description, date }) => (
+              <li key={slug}>
+                <Link href={`/conteudo/${slug}/`} className="cb-a-card">
+                  <h2>{title}</h2>
+                  <p>{description}</p>
+                  <time dateTime={date}>{formatDateBR(date)}</time>
+                  <span>Ler o artigo <span aria-hidden="true">→</span></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </main>
   );
 }
