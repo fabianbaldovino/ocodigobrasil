@@ -25,18 +25,18 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: 'O Código Brasil: manifesto sobre como o brasileiro compra', template: '%s | O Código Brasil' },
-  description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
+  description: 'O marketing no Brasil esqueceu do brasileiro. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor.',
   openGraph: {
     type: 'website', locale: 'pt_BR', url: SITE_URL,
     siteName: 'O Código Brasil',
     title: 'O Código Brasil: manifesto sobre como o brasileiro compra',
-    description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
+    description: 'O marketing no Brasil esqueceu do brasileiro. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor.',
     images: [{ url: '/capa_manifesto_o_codigo_brasil_fabian_baldovino.png', width: 1200, height: 630, alt: 'Capa do manifesto O Código Brasil, de Fabian Baldovino' }],
   },
   twitter: { 
     card: 'summary_large_image', 
     title: 'O Código Brasil: manifesto sobre como o brasileiro compra', 
-    description: 'O marketing no Brasil está errado. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor brasileiro.',
+    description: 'O marketing no Brasil esqueceu do brasileiro. Nós consumimos por pertencimento, não por lógica. Leia o manifesto sobre a reação primária do consumidor.',
     images: ['/capa_manifesto_o_codigo_brasil_fabian_baldovino.png'] 
   },
   robots: { index: true, follow: true },
@@ -66,10 +66,10 @@ export default function RootLayout({
               <span className="logo-accent">BRASIL</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
-              <ActiveLink href="/" className="header-nav__link">Manifesto</ActiveLink>
+              <ActiveLink href="/" className="header-nav__link header-nav__link--home">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
               <Link href="/#baixar" className="header-nav__cta">
-                Baixar grátis
+                Baixar{' '}<span className="header-nav__cta-extra">grátis</span>
               </Link>
               <ThemeToggle />
             </nav>
