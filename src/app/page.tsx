@@ -183,7 +183,7 @@ export default function Home() {
               <div key={client.name} className="brand-item">
                 <Image 
                   src={client.src} 
-                  alt={`${client.name}: Empresa atendida pela metodologia O Código Brasil`} 
+                  alt={`${client.name}: cliente de produção audiovisual de Fabian Baldovino`}
                   width={200}
                   height={100}
                   style={{ '--logo-scale': client.scale || 1 } as React.CSSProperties}

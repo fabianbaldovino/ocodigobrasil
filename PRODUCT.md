@@ -50,8 +50,7 @@ O Código Brasil é a porta de entrada: é a marca do site, do manifesto e do m�
 ## Evidence on Hand
 
 - **Trajetória do autor, verificável:** projeto Curta nas Escolas (2011), noticiado por Correio do Povo, Jornal da Capital, Prefeitura de Porto Alegre e Câmara Municipal de Porto Alegre; palestra na UFRGS; matérias em `bio/` (incluindo Carta Capital e Zero Hora). Edição de três programas de TV em afiliada da Rede Globo; filmes de marca como a série *Ele não vai embora* (Termolar) e campanhas para Wedy Nutrition e Ristorante Fontana.
-- **Logos em `public/marcas/`** (Copelmi, Termolar, PUC RS, Quick House, Fábrica de Suplementos, Kolosh, Seival Sul Mineração, Prefeitura de Canoas, Mercato, Wedy Nutrition, BPM Society, Vita Minimalista) são **clientes do trabalho audiovisual** de Fabian. Não podem ser apresentadas como clientes da consultoria nem da metodologia O Código Brasil. O alt atual em `src/app/page.tsx` ("Empresa atendida pela metodologia O Código Brasil") contradiz isso e precisa ser corrigido.
-- **Artigos publicados** em `content/artigos/` (Havaianas, Nubank, Carmed Fini, CrossFit, festa, política e eleições 2026, mini dicionário, "como a Rua destrói suas vendas").
+- **Logos em `public/marcas/`** (Copelmi, Termolar, PUC RS, Quick House, Fábrica de Suplementos, Kolosh, Seival Sul Mineração, Prefeitura de Canoas, Mercato, Wedy Nutrition, BPM Society, Vita Minimalista) são **clientes do trabalho audiovisual** de Fabian. Não podem ser apresentadas como clientes da consultoria nem da metodologia O Código Brasil.- **Artigos publicados** em `content/artigos/` (Havaianas, Nubank, Carmed Fini, CrossFit, festa, política e eleições 2026, mini dicionário, "como a Rua destrói suas vendas").
 - **Ausências que não podem ser inventadas:** depoimentos (lista vazia de propósito), cases de resultado da consultoria, números de clientes ou de faturamento, preço da consultoria, imprensa sobre o livro.
 
 ## Product Principles
