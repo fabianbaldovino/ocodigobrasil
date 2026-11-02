@@ -114,8 +114,8 @@
 .cb-home .cb-saidas,.cb-home .cb-progresso,.cb-home .cb-pular{transition:none}
 }
 .cb-home .cb-snap{position:absolute;left:0;width:1px;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
+/* o snap vale só durante a travessia (o JS tira a classe depois do convite); as seções creme e o rodapé rolam livres */
 html.cb-snap{scroll-snap-type:y mandatory}
-.cb-home .cb-fim{scroll-snap-align:start}
 @media (prefers-reduced-motion: reduce){
 html.cb-snap{scroll-snap-type:none}
 }
@@ -238,6 +238,24 @@ html.cb-snap{scroll-snap-type:none}
 
 @media (prefers-reduced-motion: reduce){
 .cb-home .cb-e-mais,.cb-home .cb-e-mais::before,.cb-home .cb-e-mais::after,.cb-home .cb-porta{transition:none}
+}
+
+/* ===== Convite final: a conversa em primeiro plano, o PDF como alternativa ===== */
+.cb-home .cb-acoes.cb-acoes-convite{flex-direction:column;gap:var(--s2)}
+.cb-home .cb-convite-nota{margin:0;max-width:34ch;font-size:1.0625rem;line-height:1.45;color:var(--papel)}
+.cb-home .cb-convite-pdf{font-family:var(--sans);font-stretch:90%;font-weight:600;font-size:.9375rem;letter-spacing:.02em;color:var(--papel);
+  text-decoration:underline;text-decoration-color:rgba(245,243,238,.5);text-decoration-thickness:1px;text-underline-offset:.35em;min-height:44px;display:inline-flex;align-items:center;transition:text-decoration-color .2s ease}
+.cb-home .cb-convite-pdf:hover{text-decoration-color:var(--papel)}
+
+/* o texto da cena fica livre das pílulas fixas (marcador no topo, saídas embaixo) */
+.cb-home .cb-texto{padding-top:64px;padding-bottom:84px}
+/* sem movimento o texto rola livre por baixo das pílulas: fica só o fio de progresso */
+@media (prefers-reduced-motion: reduce){
+.cb-home .cb-progresso-rotulo{display:none}
+}
+@media (max-width:700px){
+/* no celular o gesto forte pode passar mais de uma fase: o snap guia, não prende */
+.cb-home .cb-snap{scroll-snap-stop:normal}
 }
 
 /* ===== Superfícies do navegador e estados ===== */

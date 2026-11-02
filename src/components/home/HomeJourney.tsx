@@ -68,7 +68,12 @@ const CHAPTERS: Chapter[] = [
     steps: [
       <h2 key="a">Por que o produto melhor perde?</h2>,
       <p key="b" className="cb-big">Melhor produto.<br />Menor preço.</p>,
-      <p key="c" className="cb-big"><em>E mesmo assim, não vende.</em></p>,
+      <div key="c">
+        <p className="cb-big"><em>E mesmo assim, não vende.</em></p>
+        <a className="cb-porta" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+          Isso acontece com a sua marca? A primeira conversa com Fabian é gratuita<span className="sr-only"> (WhatsApp, abre em nova aba)</span>
+        </a>
+      </div>,
     ],
   },
   {
@@ -183,17 +188,16 @@ const CHAPTERS: Chapter[] = [
     img: '9',
     alt: 'Família e amigos rindo ao redor de uma mesa posta com toalha branca',
     steps: [
-      <h2 key="a">A casa é sua.<br />Baixe o manifesto.</h2>,
+      <h2 key="a">A casa é sua.</h2>,
       <div key="b">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="cb-capa" src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.webp" alt="Capa do manifesto O Código Brasil" loading="lazy" decoding="async" />
-        <p className="cb-big">O mapa para transformar a frieza da Rua na segurança da Casa.</p>
-        <div className="cb-acoes">
-          <a className="cb-btn cb-grande" href={MANIFESTO_PDF} download aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)">
-            Baixar o manifesto (PDF)
+        <p className="cb-big">Vamos abrir a <em>da sua marca?</em></p>
+        <div className="cb-acoes cb-acoes-convite">
+          <a className="cb-btn cb-grande" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+            Conversar com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
           </a>
-          <a className="cb-btn" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
-            Ou converse com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
+          <p className="cb-convite-nota">A primeira conversa é gratuita e sem compromisso, por mensagens no WhatsApp.</p>
+          <a className="cb-convite-pdf" href={MANIFESTO_PDF} download aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)">
+            ou leve o manifesto primeiro, grátis (PDF)
           </a>
         </div>
       </div>,
@@ -227,7 +231,7 @@ export default function HomeJourney() {
     // altura do cabeçalho fixo do site: as imagens ocupam o resto da tela
     const setHeader = () => doc.style.setProperty('--cb-hh', `${header ? header.offsetHeight : 0}px`);
     setHeader();
-    if (!reduce) doc.classList.add('cb-snap');
+    // a classe cb-snap (scroll-snap da travessia) é ligada e desligada pelo frame() conforme a posição
 
     // quanto da travessia já foi percorrido (0 na abertura, 1 no convite)
     const percorrido = () => {
@@ -250,7 +254,8 @@ export default function HomeJourney() {
       const depois = window.scrollY > window.innerHeight * 1.2;
       const antes = lastCap.getBoundingClientRect().top > window.innerHeight * 0.5;
       const meioDaTravessia = depois && antes;
-      saidas?.classList.toggle('cb-on', meioDaTravessia);
+      // as saídas (PDF ou conversa) valem desde a abertura até o convite
+      saidas?.classList.toggle('cb-on', antes);
       progresso?.classList.toggle('cb-on', meioDaTravessia && texto !== '');
       progresso?.style.setProperty('--g', percorrido().toFixed(4));
     };
@@ -260,6 +265,10 @@ export default function HomeJourney() {
       ticking = false;
       const hh = header ? header.offsetHeight : 0;
       const stageH = window.innerHeight - hh;
+      // o snap só vale enquanto a travessia ocupa a tela: depois do convite a página rola livre,
+      // senão o navegador puxa de volta para a última fase (o "estilingue" no celular)
+      const naTravessia = lastCap.getBoundingClientRect().bottom > window.innerHeight - 2;
+      if (naTravessia !== doc.classList.contains('cb-snap')) doc.classList.toggle('cb-snap', naTravessia);
       caps.forEach((cap, ci) => {
         const rc = cap.getBoundingClientRect();
         const total = cap.offsetHeight - stageH;

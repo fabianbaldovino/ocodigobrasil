@@ -84,9 +84,8 @@ export default function RootLayout({
             <nav aria-label="Navegação principal" className="header-nav">
               <ActiveLink href="/" className="header-nav__link header-nav__link--home">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
-              <Link href="/#diagnostico" className="header-nav__link header-nav__link--diag">Diagnóstico</Link>
-              <Link href="/#baixar" className="header-nav__cta">
-                Baixar{' '}<span className="header-nav__cta-extra">grátis</span>
+              <Link href="/#diagnostico" className="header-nav__cta">
+                Conversar<span className="header-nav__cta-extra">com Fabian</span>
               </Link>
               <ThemeToggle />
             </nav>

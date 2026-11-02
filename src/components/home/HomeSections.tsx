@@ -94,7 +94,7 @@ export default function HomeSections() {
               <a className="cb-btn cb-grande" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
                 Conversar com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
               </a>
-              <p className="cb-diag-nota">A primeira conversa é gratuita e sem compromisso. Você fala direto comigo, sem robô.</p>
+              <p className="cb-diag-nota">A primeira conversa é gratuita e sem compromisso, por mensagens no WhatsApp. Você fala direto comigo, sem robô.</p>
             </div>
           </div>
 

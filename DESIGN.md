@@ -188,15 +188,17 @@ Profundidade vem da fotografia e da luz, não de sombras de interface. Os planos
 
 ## Shapes
 
-A forma conta a história. A Rua é quase reta: botões com 2px de raio, formulário e erro com canto zero. A Casa arredonda: cards com 14px, FAQ com 12px, ladrilhos de logo com 10px, bolhas de conversa com 16px e o canto do remetente fechado em 4px, CTA do cabeçalho e "Ir ao convite" em pílula, foto do autor em círculo. A transição entre os dois é literal na cortina do capítulo 2: um fio de luz âmbar abre a Casa sobre a Rua (horizontal no desktop, vertical no celular).
+A forma conta a história. A Rua é quase reta: botões com 2px de raio, formulário e erro com canto zero. A Casa arredonda: cards com 14px, FAQ com 12px, ladrilhos de logo com 10px, bolhas de conversa com 16px e o canto do remetente fechado em 4px, pílulas de progresso e de saída da travessia, foto do autor em círculo. A transição entre os dois é literal na cortina do capítulo 2: um fio de luz âmbar abre a Casa sobre a Rua (horizontal no desktop, vertical no celular).
 
 ## Components
 
 ### Buttons
 Discretos até a Casa.
 - **Botão da Rua** (`button-rua`): contorno fino de papel a 50%, fundo noite translúcido, label condensada. Usado no download dentro da travessia: presente, mas sem gritar.
-- **Botão da Casa** (`button-casa`): âmbar sólido com texto noite, maior (18px 28px, 15px). Só no convite final "Baixar o manifesto".
-- **CTA do cabeçalho** (`header-cta`): âmbar com texto tinta e o mesmo canto de 2px do botão da Casa, "Baixar grátis" ("Baixar" em telas estreitas).
+- **Botão da Casa** (`button-casa`): âmbar sólido com texto noite, maior (18px 28px, 15px). É sempre a conversa: "Conversar com Fabian no WhatsApp" no convite final e no Diagnóstico. O PDF aparece como link sublinhado logo abaixo ("ou leve o manifesto primeiro, grátis").
+- **CTA do cabeçalho** (`header-cta`): âmbar com texto tinta e o mesmo canto de 2px do botão da Casa, "Conversar com Fabian" ("Conversar" em telas estreitas), levando ao Diagnóstico.
+
+**The Âmbar É a Conversa Rule.** Todo âmbar sólido leva à conversa com Fabian. O manifesto é a ponte, nunca o botão principal.
 - **Foco:** contorno de 2px na cor papel, com afastamento de 3px.
 
 ### Cards / Containers
@@ -210,10 +212,10 @@ Discretos até a Casa.
 Bolhas que encenam o método dentro da travessia. **Casa:** bolha papel com cauda à esquerda e bolha "minha" âmbar-claro (`#ffe38a`) à direita. **Rua:** caixa cinza-guichê reta, para protocolo e "Erro crítico" (vermelho-salmão `#ff9c92` em caixa-alta).
 
 ### Navigation
-Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escuro). A marca é uma placa em Archivo condensada, caixa-alta e espaçada, com "BRASIL" em âmbar queimado. Os links (Manifesto, Artigos, Diagnóstico) usam a mesma placa e ganham um sublinhado âmbar no hover e na página ativa. No celular fica numa linha só: "Manifesto" some até 640px, "Diagnóstico" até 460px e todos os links até 400px, sobrando marca, CTA e tema.
+Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escuro). A marca é uma placa em Archivo condensada, caixa-alta e espaçada, com "BRASIL" em âmbar queimado. Os links (Manifesto, Artigos) usam a mesma placa e ganham um sublinhado âmbar no hover e na página ativa. No celular fica numa linha só: "Manifesto" some até 640px e todos os links até 400px, sobrando marca, CTA da conversa e tema.
 
 ### Marcador e saídas da travessia
-Só no meio da travessia (depois da abertura, antes do convite). Um fio âmbar de 2px sob o cabeçalho mostra quanto já foi percorrido, e uma pílula translúcida no canto superior esquerdo nomeia o capítulo ("Pilar 2 de 4 · O Efeito WhatsApp"). No canto inferior direito, duas pílulas: "Baixar o PDF ↓" (rola até o convite) e "Falar com Fabian" (WhatsApp, com contorno âmbar).
+O marcador aparece só no meio da travessia (depois da abertura, antes do convite): um fio âmbar de 2px sob o cabeçalho mostra quanto já foi percorrido, e uma pílula translúcida no canto superior esquerdo nomeia o capítulo ("Pilar 2 de 4 · O Efeito WhatsApp"); com movimento reduzido fica só o fio. As saídas valem desde a abertura até o convite, no canto inferior direito, em duas pílulas: "Baixar o PDF ↓" (rola até o convite) e "Falar com Fabian" (WhatsApp, com contorno âmbar).
 
 ### Artigos
 Coluna de 42rem sobre o creme da Casa (noite da Rua no tema escuro, com texto papel e âmbar no lugar do âmbar queimado). Título em Newsreader 500 no tamanho Title, linha fina em tinta suave, data e autor em placa Archivo. Corpo em Newsreader de 1,125 a 1,25rem com entrelinha 1,65; intertítulos em Newsreader 500; links sublinhados em âmbar queimado; citação em itálico com o fio âmbar de 2px à esquerda. No fim, um card da Casa com dois caminhos: "Conversar com Fabian no WhatsApp" (botão da Casa, âmbar sólido) e "Baixar o manifesto grátis (PDF)" (contorno fino), com a nota de que a primeira conversa é gratuita e sem compromisso. Depois vêm a bio do autor e "Leia também" com os mesmos cards de artigo da home. A listagem `/conteudo/` usa esses cards em grade automática (uma coluna no celular, até três no desktop).
@@ -225,7 +227,7 @@ A última luz da Casa (`#fff1c4`; noite da Rua no tema escuro). Três colunas a 
 
 ### Do:
 - **Do** tratar cada capítulo como um plano de cinema: foto real em tela cheia (versões 16:9 e 9:16), grão, uma frase por fase.
-- **Do** guardar o âmbar sólido para a ação da Casa (convite, CTA do cabeçalho) e usar itálico âmbar para a ênfase na fala.
+- **Do** guardar o âmbar sólido para a conversa com Fabian (convite, Diagnóstico, CTA do cabeçalho) e usar itálico âmbar para a ênfase na fala.
 - **Do** encenar a Rua com cinza-guichê, cantos retos e Archivo em caixa-alta, e a Casa com creme, curvas e Newsreader.
 - **Do** manter tudo legível como texto real no HTML e garantir uma versão estática e completa com `prefers-reduced-motion`.
 - **Do** migrar as páginas legais para Newsreader/Archivo e para a paleta Casa quando forem tocadas, reaproveitando o escopo `.cb-artigo`.

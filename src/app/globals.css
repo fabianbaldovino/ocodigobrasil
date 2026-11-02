@@ -1892,7 +1892,7 @@ hr.divider {
   }
 }
 
-/* telas estreitas: o botão do cabeçalho fica só "Baixar" para caber numa linha */
+/* telas estreitas: o botão do cabeçalho fica só "Conversar" para caber numa linha */
 @media (max-width: 460px) {
   .header-nav__cta-extra {
     display: none;
@@ -1901,13 +1901,6 @@ hr.divider {
 
 .header-nav__cta-extra {
   margin-left: 0.3em;
-}
-
-/* "Diagnóstico" sai do cabeçalho no celular: a home já leva até ele */
-@media (max-width: 460px) {
-  .header-nav .header-nav__link--diag {
-    display: none;
-  }
 }
 
 /* celular comum: a marca precisa de respiro antes do primeiro link */

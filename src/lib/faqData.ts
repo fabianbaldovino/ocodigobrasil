@@ -1,7 +1,7 @@
 export const faqData = [
   {
     question: "Como funciona a consultoria?",
-    answer: "Começa com uma conversa gratuita e sem compromisso pelo WhatsApp, direto com Fabian, para entender o seu negócio. Depois vem a proposta, com o Diagnóstico Casa × Rua, o Dossiê Estratégico e o Estúdio de Peças."
+    answer: "Começa com uma conversa gratuita e sem compromisso, por mensagens no WhatsApp, direto com Fabian, para entender o seu negócio. Depois vem a proposta, com o Diagnóstico Casa × Rua, o Dossiê Estratégico e o Estúdio de Peças."
   },
   {
     question: "Isso se aplica a negócios físicos, indústrias e serviços?",

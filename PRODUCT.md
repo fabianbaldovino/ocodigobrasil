@@ -16,7 +16,7 @@ Profissionais de marketing, agências e estudantes também leem os artigos, mas 
 
 O site ocodigobrasil.com.br existe para vender a consultoria de marca de Fabian Baldovino sob a ótica do Código Brasil. O manifesto em PDF, gratuito, é só uma isca consistente: faz o empresário aprender o método (Casa × Rua, a marca "padrinho", o efeito WhatsApp, o design de confiança) e passar a confiar no autor.
 
-Sucesso = o empresário pede o Diagnóstico Estratégico pelo WhatsApp. O download do manifesto e a leitura dos artigos são etapas intermediárias, não o objetivo final.
+Sucesso = o empresário pede o Diagnóstico Casa × Rua pelo WhatsApp. O download do manifesto e a leitura dos artigos são etapas intermediárias, não o objetivo final.
 
 ## Positioning
 
@@ -37,7 +37,7 @@ O Código Brasil é a porta de entrada: é a marca do site, do manifesto e do m�
 ## Capabilities and Constraints
 
 - **Manifesto:** PDF gratuito, 24 páginas, cerca de 25 minutos de leitura, download imediato sem cadastro (`src/data/produto.ts`).
-- **Consultoria:** Diagnóstico & Auditoria Casa × Rua, Dossiê Estratégico & Tom de Voz e Estúdio de Peças & Roteiros, conduzidos diretamente por Fabian. Contato só pelo WhatsApp; sem preço publicado. A primeira conversa é gratuita e sem compromisso, para entender o negócio; depois vem a proposta.
+- **Consultoria:** Diagnóstico & Auditoria Casa × Rua, Dossiê Estratégico & Tom de Voz e Estúdio de Peças & Roteiros, conduzidos diretamente por Fabian. Contato só pelo WhatsApp; sem preço publicado. A primeira conversa é gratuita e sem compromisso, por mensagens no WhatsApp (sem hora marcada nem duração fixa), para entender o negócio; depois vem a proposta. O nome da oferta para o empresário é sempre **Diagnóstico Casa × Rua**.
 - **Não há produto pago.** Não existe livro à venda nem checkout na Hotmart. A página `/reembolso/` (garantia de 7 dias na Hotmart) e o rastreamento de `pay.hotmart.com` em `Analytics.tsx` são resquícios e não devem orientar trabalho novo.
 - Terminologia do método: Casa, Rua, reação primária, marca "padrinho", efeito WhatsApp, design de confiança, Sistema 1 × Sistema 2, imprint, cliente-herói, "dar um jeitinho" (verbo de Rapaille para o Brasil).
 - Dados de exemplo só aparecem com `NEXT_PUBLIC_SHOW_SAMPLE=1` e nunca vão para produção.

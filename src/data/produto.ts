@@ -26,7 +26,7 @@ export const produto: ProdutoInfo = {
 };
 
 // Link da conversa com Fabian, com a mensagem já escrita
-export const MENSAGEM_DIAGNOSTICO = 'Olá Fabian, li o manifesto O Código Brasil e gostaria de conversar sobre o Diagnóstico Cultural do Código das Américas para a minha empresa.';
+export const MENSAGEM_DIAGNOSTICO = 'Olá Fabian, vi o site O Código Brasil e quero conversar sobre o Diagnóstico Casa × Rua para a minha empresa.';
 
 export function linkWhatsapp(texto: string = MENSAGEM_DIAGNOSTICO) {
   return `https://wa.me/${produto.whatsapp}?text=${encodeURIComponent(texto)}`;
