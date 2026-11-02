@@ -1,8 +1,39 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { faqData } from '@/lib/faqData';
+import { linkWhatsapp } from '@/data/produto';
 
-/** Capítulos 10 e 11 da nova home: o Código na cultura, quem decodificou o Código e as perguntas frequentes. */
+/** Depois da travessia: o Diagnóstico com Fabian, a trajetória, as perguntas frequentes e o Código na cultura. */
+
+const ENTREGAS = [
+  {
+    titulo: 'Diagnóstico & Auditoria Casa × Rua',
+    texto: 'Leitura profunda da comunicação e da percepção pública da sua marca.',
+    itens: [
+      ['Pesquisa de reputação real', 'conflitos e dores em canais públicos (Reclame Aqui, redes) lidos como códigos culturais feridos.'],
+      ['Termômetro da comunicação', 'frase a frase, onde a sua narrativa soa fria (Rua) ou acolhedora (Casa).'],
+      ['Mapa da jornada', 'os pontos de atrito e hostilidade, da descoberta ao pós-venda.'],
+    ],
+  },
+  {
+    titulo: 'Dossiê Estratégico & Tom de Voz',
+    texto: 'A sua marca posicionada como porto seguro, com diretrizes narrativas claras.',
+    itens: [
+      ['Papel da marca e promessa', 'a empresa como fiadora do cliente: o padrinho.'],
+      ['Matriz "Diga / Evite"', 'o vocabulário que tira a burocracia e a desconfiança da sua fala.'],
+      ['Riscos e plano', 'apresentação executiva com prioridades de 30, 90 e 180 dias e cuidados de CONAR e CDC.'],
+    ],
+  },
+  {
+    titulo: 'Estúdio de Peças & Roteiros',
+    texto: 'Scripts e peças prontos para vendas, atendimento e marketing.',
+    itens: [
+      ['Vendas e WhatsApp', 'mensagens comerciais no tom da Casa, sem a frieza de script de robô.'],
+      ['Design do perdão no SAC', 'como acolher o cliente no erro e na reclamação, e transformar atrito em lealdade.'],
+      ['Vídeo e anúncios', 'fichas de produção audiovisual e variações de anúncio Fazer × Pertencer.'],
+    ],
+  },
+];
 
 const ARTIGOS = [
   { slug: 'o-case-havaianas', titulo: 'O Case Havaianas', texto: 'Como a borracha virou ouro hackeando o inconsciente brasileiro.' },
@@ -30,44 +61,73 @@ const MARCAS: { nome: string; src: string; escala: number; pal?: boolean }[] = [
 ];
 
 const BIO =
-  'Fabian Baldovino é uruguaio e vive em Porto Alegre (RS). Autodidata, estuda por conta própria Ciências Sociais, Filosofia e Pedagogia. ' +
-  'Começou na educação: em 2011 ajudou a criar o projeto Curta nas Escolas, em que alunos de escolas municipais produziram curtas-metragens, e foi palestrante na UFRGS. ' +
-  'Depois migrou para o audiovisual e dirigiu a edição de três programas de TV em uma emissora afiliada da Rede Globo. ' +
-  'Hoje é brand filmmaker e autor do manifesto O Código Brasil, que nasceu da vivência direta com o cotidiano do consumidor brasileiro.';
+  'Uruguaio, vive em Porto Alegre (RS). Começou na educação, passou pela TV e hoje faz filmes de marca; ' +
+  'O Código Brasil nasceu dessa vivência direta com o cotidiano do consumidor brasileiro.';
+
+const PROVAS = [
+  'Ajudou a criar o projeto Curta nas Escolas (2011), noticiado pelo Correio do Povo, pela Prefeitura e pela Câmara Municipal de Porto Alegre.',
+  'Palestrante na UFRGS.',
+  'Dirigiu a edição de três programas de TV em uma afiliada da Rede Globo e fez a série de filmes Ele não vai embora, para a Termolar.',
+];
 
 export default function HomeSections() {
   return (
     <>
-      <section className="cb-fim" id="cultura" aria-labelledby="cultura-titulo">
-        <div className="cb-w cb-wide">
-          <p className="cb-rot">O Código na cultura</p>
-          <h2 id="cultura-titulo">A mesma tese, em marcas e fenômenos que você conhece.</h2>
-          <div className="cb-cards">
-            {ARTIGOS.map((a) => (
-              <Link key={a.slug} className="cb-card" href={`/conteudo/${a.slug}/`}>
-                <h3>{a.titulo}</h3>
-                <p>{a.texto}</p>
-                <span>Ler o artigo →</span>
-              </Link>
-            ))}
+      <section className="cb-fim cb-diag" id="diagnostico" aria-labelledby="diagnostico-titulo">
+        <div className="cb-w cb-wide cb-diag-grid">
+          <div className="cb-diag-voz">
+            <h2 id="diagnostico-titulo">Diagnóstico Casa × Rua</h2>
+            <blockquote className="cb-diag-frase">
+              <p>
+                Eu olho a sua marca com os olhos do seu cliente e mostro onde ela soa Rua e onde ela já é <em>Casa</em>.
+                A primeira conversa é por minha conta.
+              </p>
+            </blockquote>
+            <div className="cb-autor">
+              <Image className="cb-foto" src="/home/fabian-480.webp" alt="Fabian Baldovino" width={112} height={112} />
+              <div>
+                <p className="cb-nome">Fabian Baldovino</p>
+                <p className="cb-papel">Consultor de marca · Autor do Código Brasil</p>
+              </div>
+            </div>
+            <div className="cb-diag-acao">
+              <a className="cb-btn cb-grande" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+                Conversar com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
+              </a>
+              <p className="cb-diag-nota">A primeira conversa é gratuita e sem compromisso. Você fala direto comigo, sem robô.</p>
+            </div>
           </div>
-          <p className="cb-dica" aria-hidden="true">Deslize para ver mais artigos <span>→</span></p>
+
+          <ul className="cb-entregas" aria-label="O que a consultoria entrega">
+            {ENTREGAS.map((e) => (
+              <li key={e.titulo}>
+                <details>
+                  <summary>
+                    <h3>{e.titulo}</h3>
+                    <span className="cb-e-texto">{e.texto}</span>
+                    <span className="cb-e-mais" aria-hidden="true" />
+                  </summary>
+                  <ul>
+                    {e.itens.map(([nome, desc]) => (
+                      <li key={nome}><strong>{nome}:</strong> {desc}</li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className="cb-fim cb-claro" id="autor" aria-labelledby="autor-titulo">
         <div className="cb-w cb-wide">
-          <p className="cb-rot">Quem decodificou o Código</p>
           <div className="cb-autor-grid">
             <div className="cb-a1">
-              <div className="cb-autor">
-                <Image className="cb-foto" src="/home/fabian-480.webp" alt="Fabian Baldovino" width={112} height={112} />
-                <div>
-                  <h2 id="autor-titulo">Fabian Baldovino</h2>
-                  <p className="cb-papel">Brand filmmaker · Autor do manifesto</p>
-                </div>
-              </div>
+              <h2 id="autor-titulo">A trajetória por trás do método</h2>
               <p>{BIO}</p>
+              <ul className="cb-provas">
+                {PROVAS.map((p) => <li key={p}>{p}</li>)}
+              </ul>
               <p className="cb-links">
                 <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer">Conheça o trabalho<span className="sr-only"> (abre em nova aba)</span></a>
                 {' · '}
@@ -77,7 +137,7 @@ export default function HomeSections() {
               </p>
             </div>
             <div className="cb-a2">
-              <p className="cb-rot cb-pequeno">Marcas e instituições conectadas</p>
+              <p className="cb-rot cb-pequeno">Marcas atendidas no audiovisual</p>
               <div className="cb-marcas">
                 {MARCAS.map((m) => (
                   <span key={m.nome} className="cb-m">
@@ -100,8 +160,7 @@ export default function HomeSections() {
 
       <section className="cb-fim cb-claro" id="faq" aria-labelledby="faq-titulo">
         <div className="cb-w cb-wide">
-          <p className="cb-rot">Perguntas frequentes</p>
-          <h2 id="faq-titulo">O que as pessoas perguntam antes de baixar.</h2>
+          <h2 id="faq-titulo">Antes de baixar ou de conversar.</h2>
           <div className="cb-faq">
             {faqData.map((f) => (
               <details key={f.question}>
@@ -110,6 +169,22 @@ export default function HomeSections() {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="cb-fim cb-claro" id="cultura" aria-labelledby="cultura-titulo">
+        <div className="cb-w cb-wide">
+          <h2 id="cultura-titulo">A mesma tese, em marcas e fenômenos que você conhece.</h2>
+          <div className="cb-cards">
+            {ARTIGOS.map((a) => (
+              <Link key={a.slug} className="cb-card" href={`/conteudo/${a.slug}/`}>
+                <h3>{a.titulo}</h3>
+                <p>{a.texto}</p>
+                <span>Ler o artigo →</span>
+              </Link>
+            ))}
+          </div>
+          <p className="cb-dica" aria-hidden="true">Deslize para ver mais artigos <span>→</span></p>
         </div>
       </section>
     </>

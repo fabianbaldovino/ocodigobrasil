@@ -1,5 +1,5 @@
 import React from 'react';
-import { produto } from '@/data/produto';
+import { produto, linkWhatsapp } from '@/data/produto';
 
 const isTodo = (value: string) => value.startsWith('TODO_DADO');
 
@@ -183,7 +183,7 @@ export default function ProductDetails() {
 
           <div className="consultoria-card__action">
             <a 
-              href={`https://wa.me/${produto.whatsapp}?text=${encodeURIComponent('Olá Fabian, li o manifesto O Código Brasil e gostaria de conversar sobre o Diagnóstico Cultural do Código das Américas para a minha empresa.')}`}
+              href={linkWhatsapp()}
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="Solicitar Diagnóstico Estratégico pelo WhatsApp com Fabian Baldovino (abre em nova aba)"

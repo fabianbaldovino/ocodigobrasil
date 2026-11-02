@@ -25,6 +25,13 @@ export const produto: ProdutoInfo = {
   depoimentos: []
 };
 
+// Link da conversa com Fabian, com a mensagem já escrita
+export const MENSAGEM_DIAGNOSTICO = 'Olá Fabian, li o manifesto O Código Brasil e gostaria de conversar sobre o Diagnóstico Cultural do Código das Américas para a minha empresa.';
+
+export function linkWhatsapp(texto: string = MENSAGEM_DIAGNOSTICO) {
+  return `https://wa.me/${produto.whatsapp}?text=${encodeURIComponent(texto)}`;
+}
+
 // Injeção de dados de exemplo para visualização prévia (guardada pela env var)
 if (process.env.NEXT_PUBLIC_SHOW_SAMPLE === '1') {
   produto.formato = "PDF interativo (modo escuro e claro)";

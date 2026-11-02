@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from 'react';
 import { MANIFESTO_PDF } from '@/lib/site';
+import { linkWhatsapp } from '@/data/produto';
 
 /**
  * A travessia da Rua para a Casa: capítulos 0 a 9 da nova home.
@@ -140,9 +141,14 @@ const CHAPTERS: Chapter[] = [
         <p className="cb-big">Na Casa, alguém responde.</p>
         <div className="cb-chat"><div className="cb-bolha">digitando…</div></div>
       </div>,
-      <div key="d" className="cb-chat">
-        <div className="cb-bolha">▶ ▁▂▃▅▃▂▁▂▄▂▁ 0:14</div>
-        <div className="cb-bolha cb-eu">Oi! Aqui é o João. Já separei o seu pedido 🙂</div>
+      <div key="d">
+        <div className="cb-chat">
+          <div className="cb-bolha">▶ ▁▂▃▅▃▂▁▂▄▂▁ 0:14</div>
+          <div className="cb-bolha cb-eu">Oi! Aqui é o João. Já separei o seu pedido 🙂</div>
+        </div>
+        <a className="cb-porta" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+          Quer isso na sua marca? Fale com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
+        </a>
       </div>,
     ],
   },
@@ -188,6 +194,9 @@ const CHAPTERS: Chapter[] = [
         <div className="cb-acoes">
           <a className="cb-btn cb-grande" href={MANIFESTO_PDF} download aria-label="Baixar o manifesto O Código Brasil gratuitamente (PDF)">
             Baixar o manifesto (PDF)
+          </a>
+          <a className="cb-btn" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+            Ou converse com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
           </a>
         </div>
       </div>,

@@ -215,6 +215,54 @@ html.cb-snap{scroll-snap-type:none}
 .cb-home .cb-card{box-sizing:border-box}
 .cb-home .cb-fim .cb-dica{font-size:var(--fs-label);line-height:1.4;max-width:none;white-space:nowrap}
 
+/* ===== Porta para a conversa (cap6) ===== */
+.cb-home .cb-porta{display:inline-block;margin-top:var(--s4);font-family:var(--sans);font-stretch:90%;font-weight:600;font-size:1.0625rem;letter-spacing:.02em;color:var(--papel);
+  text-decoration:underline;text-decoration-color:var(--ambar);text-decoration-thickness:2px;text-underline-offset:.4em;transition:color .2s ease}
+.cb-home .cb-porta:hover{color:var(--ambar)}
+.cb-home .cb-porta:focus-visible{outline:2px solid var(--papel);outline-offset:4px}
+
+/* ===== Diagnóstico Casa × Rua: a Casa abre a porta ===== */
+.cb-home .cb-diag-grid{display:grid;gap:var(--s5)}
+.cb-home .cb-diag-voz{display:grid;gap:var(--s3);align-content:start}
+.cb-home .cb-fim .cb-diag-frase{margin:0}
+.cb-home .cb-fim .cb-diag-frase p{font-size:clamp(1.5rem,1.1rem + 1.5vw,2.125rem);line-height:1.25;color:var(--tinta);max-width:24em;text-wrap:pretty}
+.cb-home .cb-diag-frase em{font-style:italic;color:#7a5d00}
+.cb-home .cb-fim .cb-nome{font-size:1.25rem;font-weight:600;line-height:1.2;color:var(--tinta)}
+.cb-home .cb-diag-acao{display:grid;gap:var(--s2);justify-items:start;margin-top:var(--s2)}
+.cb-home .cb-diag-acao .cb-btn.cb-grande{border-radius:2px;transition:filter .2s ease}
+.cb-home .cb-diag-acao .cb-btn.cb-grande:hover{filter:brightness(1.06)}
+.cb-home .cb-diag-acao .cb-btn:focus-visible{outline:2px solid var(--tinta);outline-offset:3px}
+.cb-home .cb-fim .cb-diag-nota{font-size:1rem;line-height:1.5}
+
+.cb-home .cb-entregas{list-style:none;margin:0;padding:0;border-top:1px solid rgba(24,27,38,.16)}
+.cb-home .cb-entregas > li{border-bottom:1px solid rgba(24,27,38,.16)}
+.cb-home .cb-fim .cb-entregas details{background:none;border:0;border-radius:0;padding:0}
+.cb-home .cb-fim .cb-entregas summary{list-style:none;display:grid;grid-template-columns:1fr auto;column-gap:var(--s3);row-gap:.35rem;padding:var(--s3) 0;font-size:inherit;font-weight:400}
+.cb-home .cb-entregas summary::-webkit-details-marker{display:none}
+.cb-home .cb-entregas summary:focus-visible{outline:2px solid var(--tinta);outline-offset:4px}
+.cb-home .cb-entregas h3{grid-column:1;font-size:1.375rem;font-weight:500;line-height:1.2}
+.cb-home .cb-e-texto{grid-column:1;font-size:1rem;line-height:1.5;color:#3a3f52}
+.cb-home .cb-e-mais{grid-column:2;grid-row:1 / 3;align-self:center;position:relative;width:2rem;height:2rem;border:1px solid rgba(24,27,38,.3);border-radius:50%;transition:background-color .2s ease,border-color .2s ease}
+.cb-home .cb-e-mais::before,
+.cb-home .cb-e-mais::after{content:"";position:absolute;left:50%;top:50%;width:.75rem;height:1.5px;background:var(--tinta);transform:translate(-50%,-50%);transition:transform .25s ease}
+.cb-home .cb-e-mais::after{transform:translate(-50%,-50%) rotate(90deg)}
+.cb-home .cb-entregas details[open] .cb-e-mais::after{transform:translate(-50%,-50%) rotate(0deg)}
+.cb-home .cb-entregas summary:hover .cb-e-mais{border-color:var(--tinta);background:#fff}
+.cb-home .cb-entregas details ul{margin:0 0 var(--s3);padding-left:1.1em;display:grid;gap:var(--s1);font-size:1rem;line-height:1.5;color:#3a3f52}
+.cb-home .cb-entregas details li::marker{color:#7a5d00}
+.cb-home .cb-entregas details strong{font-weight:600;color:var(--tinta)}
+@media (min-width:900px){
+.cb-home .cb-diag-grid{grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
+}
+
+/* trajetória: provas verificáveis */
+.cb-home .cb-provas{margin:0;padding-left:1.1em;display:grid;gap:var(--s1);font-size:var(--fs-small);line-height:1.5;color:#3a3f52;max-width:62ch}
+.cb-home .cb-provas li::marker{color:#7a5d00}
+
+@media (prefers-reduced-motion: reduce){
+.cb-home .cb-e-mais,.cb-home .cb-e-mais::before,.cb-home .cb-e-mais::after,.cb-home .cb-porta{transition:none}
+}
+
 /* ===== Adaptação ao site real ===== */
 /* o CSS global do site define fonte, cor e margem de títulos: aqui valem os da home */
 .cb-home :is(h1,h2,h3){font-family:var(--serif);color:inherit;letter-spacing:normal;font-weight:inherit;margin-bottom:0;scroll-margin-top:0}
