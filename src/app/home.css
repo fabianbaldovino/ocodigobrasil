@@ -37,34 +37,6 @@
 .cb-home .cb-seta{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--papel-2)}
 .cb-home .cb-seta span{display:inline-block;animation:cb-desce 2s ease-in-out infinite}
 @keyframes cb-desce{50%{transform:translateY(5px)}}
-.cb-home .cb-prov{position:absolute;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:3;max-width:min(360px,80vw);
-  font-family:var(--sans);font-stretch:80%;font-size:11px;line-height:1.35;letter-spacing:.04em;color:var(--papel-2);
-  border-left:2px solid var(--poste);padding:2px 0 2px 8px;background:none}
-.cb-home .cb-prov b{color:var(--papel);font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block;font-size:10px}
-.cb-home .cb-p-rua{background:
-  radial-gradient(ellipse 18% 30% at 72% 22%, rgba(224,138,60,.55), transparent 70%),
-  radial-gradient(ellipse 40% 18% at 70% 78%, rgba(224,138,60,.22), transparent 70%),
-  radial-gradient(ellipse 50% 40% at 20% 35%, rgba(70,110,150,.25), transparent 70%),
-  linear-gradient(180deg,#0a1119 0%,#121c27 55%,#1d2833 56%,#0c131b 100%)}
-.cb-home .cb-p-rua .cb-reflexo{position:absolute;left:66%;top:56%;width:8%;height:44%;background:linear-gradient(180deg,rgba(224,138,60,.35),transparent);filter:blur(10px)}
-.cb-home .cb-p-rua .cb-poste{position:absolute;left:71.6%;top:20%;width:3px;height:36%;background:#05090d}
-.cb-home .cb-p-senha{background:linear-gradient(180deg,#1a2028,#2b333c 60%,#4a5059 61%,#3a4048)}
-.cb-home .cb-painel{position:absolute;left:50%;top:22%;transform:translateX(-50%);width:min(560px,82vw);aspect-ratio:3/1.15;max-width:100%;
-  background:#050505;border:6px solid #23272d;box-shadow:0 0 60px rgba(255,40,30,.12);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.cb-home .cb-painel small{font-family:var(--sans);font-stretch:75%;letter-spacing:.3em;color:#ff3b2f;opacity:.75;font-size:clamp(10px,1.6vw,14px)}
-.cb-home .cb-painel strong{font-family:var(--sans);font-stretch:75%;font-weight:700;color:#ff3b2f;font-size:clamp(46px,11vw,120px);line-height:1;text-shadow:0 0 18px rgba(255,59,47,.7);font-variant-numeric:tabular-nums}
-.cb-home .cb-cadeiras{position:absolute;left:0;right:0;bottom:8%;height:14%;background:repeating-linear-gradient(90deg,transparent 0 3%,rgba(25,90,140,.55) 3% 10%,transparent 10% 12%);opacity:.7;filter:blur(1px)}
-.cb-home .cb-p-portao{background:
-  repeating-linear-gradient(90deg, transparent 0 46px, #0a0f14 46px 54px),
-  linear-gradient(180deg,transparent 0 12%, #0a0f14 12% 14%, transparent 14% 86%, #0a0f14 86% 88%, transparent 88%),
-  radial-gradient(ellipse 60% 50% at 50% 40%, #2a3846, #0c131b 75%)}
-.cb-home .cb-p-casa{background:
-  radial-gradient(ellipse 30% 55% at 50% 52%, rgba(255,246,210,1), rgba(255,214,90,.75) 40%, transparent 78%),
-  radial-gradient(ellipse 80% 80% at 50% 60%, #2a2f45, var(--sombra) 75%),
-  var(--sombra)}
-.cb-home .cb-p-casa .cb-porta{position:absolute;left:38%;top:16%;width:24%;height:74%;border:10px solid #0e1018;border-bottom:0;background:linear-gradient(90deg,rgba(255,248,220,.97),rgba(255,201,74,.55))}
-.cb-home .cb-p-casa .cb-folha{position:absolute;left:38%;top:16%;width:10%;height:74%;background:#20253a;transform-origin:left;transform:skewY(-6deg)}
-.cb-home .cb-p-casa .cb-vapor{position:absolute;left:54%;top:46%;width:4%;height:12%;background:radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.35),transparent 70%);filter:blur(6px)}
 .cb-home .cb-cortina{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--c,0) * 100%) 0 0)}
 .cb-home .cb-fio{position:absolute;top:0;bottom:0;width:2px;left:calc(var(--c,0) * 100%);background:var(--ambar);box-shadow:0 0 24px 6px rgba(255,201,74,.55);opacity:calc(1 - var(--done,0))}
 @media (max-width:700px){
@@ -76,7 +48,6 @@
   font-family:var(--sans);font-stretch:80%;font-size:12px;letter-spacing:.22em;text-transform:uppercase;z-index:2}
 .cb-home .cb-rotulos .cb-r{color:#9fb6cc}
 .cb-home .cb-rotulos .cb-c{color:var(--ambar)}
-.cb-home .cb-cap2 .cb-prov{bottom:calc(52px + env(safe-area-inset-bottom,0px))}
 .cb-home .cb-tese{font-weight:500;font-size:clamp(28px,5.6vw,52px);line-height:1.12;max-width:22ch}
 .cb-home .cb-tese cite{display:block;font-style:normal;font-family:var(--sans);font-stretch:80%;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--papel-2);margin-top:20px}
 .cb-home .cb-fim{padding-block:96px 120px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));
@@ -98,14 +69,12 @@
 .cb-home .cb-step .cb-fria{font-family:var(--sans);font-stretch:80%;letter-spacing:.06em;color:#9fb6cc}
 .cb-home .cb-step .cb-btn{text-shadow:none}
 .cb-home .cb-btn.cb-grande{padding:18px 28px;font-size:15px;background:var(--ambar);color:var(--rua);border-color:var(--ambar)}
-.cb-home .cb-btnx{display:inline-block;font-family:var(--sans);font-stretch:85%;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;background:#3b4350;color:#9aa3b0;border-radius:0;text-shadow:none}
 .cb-home .cb-chat{display:grid;gap:10px;justify-items:start;font-family:var(--sans);font-stretch:90%;font-size:clamp(16px,2.4vw,22px);text-align:left;max-width:30ch}
 .cb-home .cb-bolha{background:rgba(245,243,238,.94);color:var(--tinta);padding:12px 16px;border-radius:16px 16px 16px 4px;text-shadow:none}
 .cb-home .cb-bolha.cb-eu{background:#ffe38a;border-radius:16px 16px 4px 16px;justify-self:end}
 .cb-home .cb-bolha.cb-form{background:#3b4350;color:var(--papel-2);border-radius:0}
 .cb-home .cb-step p.cb-big + .cb-chat{margin-top:20px}
 .cb-home .cb-bolha.cb-erro{background:#3b4350;color:#ff9c92;border-radius:0;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.cb-home .cb-btnx.cb-quente{background:var(--ambar);color:var(--tinta);border-radius:999px}
 .cb-home .cb-capa{display:block;margin:0 auto 18px;height:min(30svh,240px);width:auto;border-radius:4px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
 .cb-home .cb-fim.cb-claro{background:var(--casa);padding-block:72px}
 .cb-home .cb-fim .cb-w.cb-wide{max-width:1000px}
@@ -127,7 +96,6 @@
 .cb-home .cb-fim details{background:#fff;border:1px solid #e6e1cf;border-radius:12px;padding:14px 16px}
 .cb-home .cb-fim summary{cursor:pointer;font-weight:600;font-size:18px}
 .cb-home .cb-fim details p{margin:10px 0 0}
-.cb-home .cb-nota{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:#5a6070}
 /* saídas da travessia: o PDF ou a conversa, sem precisar rolar até o fim */
 .cb-home .cb-saidas{position:fixed;z-index:20;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;max-width:calc(100vw - 28px);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .5s,transform .5s}
 .cb-home .cb-saidas.cb-on{opacity:1;pointer-events:auto;transform:none}
@@ -170,7 +138,6 @@ html.cb-snap{scroll-snap-type:none}
 .cb-home .cb-fim.cb-claro{border-top:1px solid rgba(24,27,38,.08)}
 .cb-home .cb-fim .cb-w{max-width:46rem;gap:var(--s3)}
 .cb-home .cb-fim .cb-w.cb-wide{max-width:68rem}
-.cb-home .cb-fim .cb-w.cb-estreito{max-width:46rem}
 .cb-home .cb-fim h2{font-size:clamp(1.75rem,1.2rem + 2vw,2.75rem);line-height:1.12;max-width:20em}
 .cb-home .cb-fim p{font-size:var(--fs-body);line-height:1.6;max-width:62ch}
 .cb-home .cb-fim .cb-rot{font-size:var(--fs-label);letter-spacing:.16em}
@@ -200,7 +167,6 @@ html.cb-snap{scroll-snap-type:none}
 .cb-home .cb-fim details{padding:var(--s2) var(--s3)}
 .cb-home .cb-fim summary{font-size:var(--fs-body);line-height:1.35}
 .cb-home .cb-fim details p{font-size:1rem;line-height:1.6;margin-top:var(--s2)}
-.cb-home .cb-nota{margin-top:var(--s3);font-size:var(--fs-label)}
 .cb-home{--fs-title:clamp(1.875rem,1.25rem + 2.3vw,3.1rem);--fs-h2:clamp(2.5rem,1.5rem + 3.6vw,4.5rem);--fs-display:clamp(2.75rem,1.6rem + 4.6vw,5.5rem)}
 .cb-home .cb-chat{margin-inline:auto;width:fit-content}
 .cb-home .cb-fim .cb-papel{font-size:var(--fs-label);line-height:1.5;margin:var(--s1) 0 0;max-width:none}
@@ -273,6 +239,16 @@ html.cb-snap{scroll-snap-type:none}
 @media (prefers-reduced-motion: reduce){
 .cb-home .cb-e-mais,.cb-home .cb-e-mais::before,.cb-home .cb-e-mais::after,.cb-home .cb-porta{transition:none}
 }
+
+/* ===== Superfícies do navegador e estados ===== */
+/* foco: papel sobre a noite da travessia, tinta sobre o creme da Casa */
+.cb-home .cb-journey :focus-visible{outline:2px solid var(--papel);outline-offset:3px;border-radius:2px}
+.cb-home .cb-fim :focus-visible{outline:2px solid var(--tinta);outline-offset:3px;border-radius:2px}
+.cb-home .cb-card{transition:border-color .2s ease}
+.cb-home .cb-card:hover{border-color:#7a5d00}
+.cb-home .cb-card p,
+.cb-home .cb-fim details p{text-wrap:pretty}
+.cb-home .cb-faq summary:hover{text-decoration:underline;text-decoration-color:var(--ambar);text-decoration-thickness:2px;text-underline-offset:.3em}
 
 /* ===== Adaptação ao site real ===== */
 /* o CSS global do site define fonte, cor e margem de títulos: aqui valem os da home */
