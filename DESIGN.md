@@ -83,8 +83,8 @@ components:
   header-cta:
     backgroundColor: "{colors.ambar}"
     textColor: "{colors.tinta}"
-    rounded: "{rounded.pill}"
-    padding: "8px 18px"
+    rounded: "{rounded.guiche}"
+    padding: "8px 16px"
   card-casa:
     backgroundColor: "{colors.branco}"
     textColor: "{colors.tinta}"
@@ -117,7 +117,7 @@ Toda tela anda da Rua para a Casa. A Rua é noite azulada, asfalto molhado, guic
 
 O tom é **cinematográfico e quente**: fotografia de cinema em tela cheia, grão de película, uma frase por vez, muito silêncio em volta. A densidade é baixa de propósito: um corte por ideia. Depois da travessia, a página "entra em casa": fundo creme, cards brancos, leitura calma.
 
-A identidade oficial é a da home nova (`src/app/home.css`, escopo `.cb-home`). O restante do site (artigos, páginas legais, cabeçalho e rodapé) ainda usa o visual anterior, marfim/mogno/vermelho-pimenta com Playfair Display + Inter (`src/app/globals.css`). Isso é dívida de migração, não uma segunda identidade: trabalho novo nessas páginas deve caminhar para este sistema.
+A identidade oficial é a da home nova (`src/app/home.css`, escopo `.cb-home`), e o cabeçalho e o rodapé já seguem ela. O miolo das outras páginas (artigos e páginas legais) ainda usa o visual anterior, marfim/mogno/vermelho-pimenta com Playfair Display + Inter (`src/app/globals.css`). Isso é dívida de migração, não uma segunda identidade: trabalho novo nessas páginas deve caminhar para este sistema.
 
 **Key Characteristics:**
 - Fotografia de cinema em tela cheia (16:9 no desktop, 9:16 no celular) com grão e texto sobreposto.
@@ -196,7 +196,7 @@ A forma conta a história. A Rua é quase reta: botões com 2px de raio, formul�
 Discretos até a Casa.
 - **Botão da Rua** (`button-rua`): contorno fino de papel a 50%, fundo noite translúcido, label condensada. Usado no download dentro da travessia: presente, mas sem gritar.
 - **Botão da Casa** (`button-casa`): âmbar sólido com texto noite, maior (18px 28px, 15px). Só no convite final "Baixar o manifesto".
-- **CTA do cabeçalho** (`header-cta`): pílula âmbar com texto tinta, "Baixar grátis" ("Baixar" em telas estreitas).
+- **CTA do cabeçalho** (`header-cta`): âmbar com texto tinta e o mesmo canto de 2px do botão da Casa, "Baixar grátis" ("Baixar" em telas estreitas).
 - **Foco:** contorno de 2px na cor papel, com afastamento de 3px.
 
 ### Cards / Containers
@@ -210,7 +210,10 @@ Discretos até a Casa.
 Bolhas que encenam o método dentro da travessia. **Casa:** bolha papel com cauda à esquerda e bolha "minha" âmbar-claro (`#ffe38a`) à direita. **Rua:** caixa cinza-guichê reta, para protocolo e "Erro crítico" (vermelho-salmão `#ff9c92` em caixa-alta).
 
 ### Navigation
-O cabeçalho ainda é o do sistema anterior (logo em Inter 900 com "BRASIL" em vermelho-pimenta, links em caixa-alta), agora com o CTA âmbar. No celular ele fica numa linha só: o link "Manifesto" some, e abaixo de 340px somem todos os links. Um botão flutuante "Ir ao convite ↓" aparece durante a travessia.
+Cabeçalho fixo sobre o creme da Casa (escurece para a noite da Rua no tema escuro). A marca é uma placa em Archivo condensada, caixa-alta e espaçada, com "BRASIL" em âmbar queimado. Os links (Manifesto, Artigos, Diagnóstico) usam a mesma placa e ganham um sublinhado âmbar no hover e na página ativa. No celular fica numa linha só: "Manifesto" some até 640px, "Diagnóstico" até 460px e todos os links até 400px, sobrando marca, CTA e tema. Um botão flutuante "Ir ao convite ↓" aparece durante a travessia.
+
+### Footer
+A última luz da Casa (`#fff1c4`; noite da Rua no tema escuro). Três colunas a partir de 900px: marca e frase; a conversa em primeiro plano ("Fale com Fabian no WhatsApp" em Newsreader com sublinhado âmbar, número em algarismos tabulares e a nota da conversa gratuita); links em placa e o copyright. No celular tudo empilha alinhado à esquerda. Na home o rodapé encosta direto na última seção creme.
 
 ## Do's and Don'ts
 

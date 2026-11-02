@@ -1,35 +1,33 @@
 import Link from 'next/link';
+import { linkWhatsapp } from '@/data/produto';
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <div className="footer-logo">O CÓDIGO BRASIL</div>
+          <p className="footer-logo">O CÓDIGO <span>BRASIL</span></p>
           <p className="footer-tagline">
             Decifrando o comportamento instintivo no mercado mais emocional do mundo.
           </p>
         </div>
-        
+
+        <div className="footer-conversa">
+          <a className="footer-whatsapp" href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+            Fale com Fabian no WhatsApp<span className="sr-only"> (abre em nova aba)</span>
+          </a>
+          <p className="footer-numero">+55 51 99965-4160 · A primeira conversa é gratuita e sem compromisso.</p>
+        </div>
+
         <div className="footer-meta">
-          <div className="footer-links" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem', fontSize: '0.875rem' }}>
-            <Link href="/privacidade" className="footer-link">Privacidade</Link>
-            <Link href="/termos" className="footer-link">Termos de Uso</Link>
-          </div>
-
-          <div className="footer-company-info" style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-            <p>WhatsApp: <a href="https://wa.me/5551999654160" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>+55 51 99965-4160</a></p>
-          </div>
-
-          <p className="footer-author" style={{ marginBottom: '0.5rem' }}>
-            Criado por <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Fabian Baldovino</a>
-            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
-            <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>LinkedIn</a>
-            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
-            <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>Instagram</a>
-            <span style={{ margin: '0 0.5rem', opacity: 0.5 }}>·</span>
-            <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer" style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>YouTube</a>
-          </p>
+          <nav aria-label="Links do rodapé" className="footer-links">
+            <a href="https://www.fabian.art.br/sobre" target="_blank" rel="noopener noreferrer">Fabian Baldovino</a>
+            <a href="https://www.linkedin.com/in/fabianbaldovino/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+            <a href="https://www.instagram.com/fabianbaldovino9/" target="_blank" rel="me noopener noreferrer">Instagram</a>
+            <a href="https://www.youtube.com/@FabianBaldovino9" target="_blank" rel="me noopener noreferrer">YouTube</a>
+            <Link href="/privacidade">Privacidade</Link>
+            <Link href="/termos">Termos de Uso</Link>
+          </nav>
           <p className="footer-copy">© 2026 O Código Brasil. Todos os direitos reservados.</p>
         </div>
       </div>

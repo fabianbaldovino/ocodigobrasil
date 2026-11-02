@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Newsreader, Archivo } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
@@ -20,6 +20,22 @@ const playfair = Playfair_Display({
   style: ['normal'],
   display: 'swap',
   variable: '--font-playfair',
+});
+
+// Identidade da travessia: Newsreader (voz editorial, com eixo óptico) e Archivo (rótulos e botões)
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
+  display: 'swap',
+  variable: '--font-newsreader',
+});
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  axes: ['wdth'],
+  display: 'swap',
+  variable: '--font-archivo',
 });
 
 export const metadata: Metadata = {
@@ -49,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" data-theme="light" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" data-theme="light" className={`${inter.variable} ${playfair.variable} ${newsreader.variable} ${archivo.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -68,6 +84,7 @@ export default function RootLayout({
             <nav aria-label="Navegação principal" className="header-nav">
               <ActiveLink href="/" className="header-nav__link header-nav__link--home">Manifesto</ActiveLink>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
+              <Link href="/#diagnostico" className="header-nav__link header-nav__link--diag">Diagnóstico</Link>
               <Link href="/#baixar" className="header-nav__cta">
                 Baixar{' '}<span className="header-nav__cta-extra">grátis</span>
               </Link>

@@ -63,9 +63,9 @@
       "name": "CTA do cabeçalho",
       "kind": "button",
       "refersTo": "header-cta",
-      "description": "Pílula âmbar fixa no cabeçalho.",
+      "description": "CTA âmbar fixo no cabeçalho, com o canto de 2px do botão da Casa.",
       "html": "<a class=\"ds-cta\" href=\"#\">Baixar grátis</a>",
-      "css": ".ds-cta{display:inline-flex;align-items:center;min-height:34px;background:#ffc94a;color:#181b26;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;border-radius:999px;text-decoration:none;transition:transform .16s,box-shadow .16s,filter .16s}.ds-cta:hover,.ds-cta:focus-visible{filter:brightness(1.06);box-shadow:0 4px 12px rgba(24,27,38,.2);transform:translateY(-1px)}"
+      "css": ".ds-cta{display:inline-flex;align-items:center;min-height:36px;background:#ffc94a;color:#181b26;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:85%;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:2px;text-decoration:none;transition:filter .16s}.ds-cta:hover{filter:brightness(1.06)}.ds-cta:focus-visible{outline:2px solid #181b26;outline-offset:3px}"
     },
     {
       "name": "Card de artigo",

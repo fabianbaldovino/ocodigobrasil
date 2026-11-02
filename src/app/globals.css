@@ -74,17 +74,16 @@
   --whatsapp-text: #FFFFFF;
 }
 
-[data-theme="dark"] .site-header {
-  background: rgba(25, 18, 16, 0.92);
-  border-bottom: 1px solid rgba(245, 239, 235, 0.08);
-}
-
-[data-theme="dark"] .header-nav__link {
-  color: var(--text-muted);
-}
-[data-theme="dark"] .header-nav__link:hover,
-[data-theme="dark"] .header-nav__link:focus-visible {
-  color: var(--foreground);
+/* no escuro, cabeçalho e rodapé são a noite da Rua */
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .site-footer {
+  --h-bg: rgba(13, 20, 28, 0.92);
+  --h-ink: #f5f3ee;
+  --h-marca: #ffc94a;
+  --h-linha: rgba(245, 243, 238, 0.1);
+  --h-borda: rgba(245, 243, 238, 0.28);
+  --f-bg: #0d141c;
+  --f-ink-2: #b8bcc6;
 }
 
 [data-theme="dark"] .comment-field input,
@@ -250,16 +249,21 @@ a {
 }
 .skip-link:focus { left: 0; }
 
-/* Sticky Header */
+/* Sticky Header — identidade da travessia: placa de Archivo sobre o creme da Casa */
 .site-header {
+  --h-bg: rgba(255, 246, 220, 0.94);
+  --h-ink: #181b26;
+  --h-marca: #7a5d00;
+  --h-linha: rgba(24, 27, 38, 0.1);
+  --h-borda: rgba(24, 27, 38, 0.22);
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(252, 251, 248, 0.94);
+  background: var(--h-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(56, 26, 20, 0.06);
-  transition: all var(--motion-base) ease;
+  border-bottom: 1px solid var(--h-linha);
+  color: var(--h-ink);
 }
 
 .header-inner {
@@ -272,10 +276,12 @@ a {
 .header-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 1.05rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  gap: 0.4em;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 85%;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   padding: 0.5rem 0;
   white-space: nowrap;
   flex-shrink: 0;
@@ -284,10 +290,10 @@ a {
   text-decoration: none;
 }
 .logo-main {
-  color: var(--foreground);
+  color: var(--h-ink);
 }
 .logo-accent {
-  color: var(--accent);
+  color: var(--h-marca);
 }
 
 .header-nav {
@@ -297,53 +303,50 @@ a {
 }
 
 .header-nav__link {
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 88%;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--foreground);
+  letter-spacing: 0.14em;
+  color: var(--h-ink);
   padding: 0.5rem 0.25rem;
-  transition: color var(--motion-fast) ease;
-}
-.header-nav__link:hover, .header-nav__link:focus-visible {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.header-nav__link.is-active {
-  color: var(--accent);
   text-decoration: underline;
+  text-decoration-color: transparent;
   text-decoration-thickness: 2px;
-  text-underline-offset: 0.45em;
+  text-underline-offset: 0.5em;
+  transition: text-decoration-color var(--motion-fast) ease;
 }
-.header-nav__link.is-active:hover, .header-nav__link.is-active:focus-visible {
-  color: var(--accent);
+.header-nav__link:hover, .header-nav__link:focus-visible,
+.header-nav__link.is-active {
+  text-decoration-color: #ffc94a;
 }
 
 .header-nav__cta {
   background-color: #ffc94a;
   color: #181b26 !important;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 85%;
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.5rem 1.1rem;
-  border-radius: 9999px;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
+  min-height: 36px;
   white-space: nowrap;
-  transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, filter var(--motion-fast) ease;
+  transition: filter var(--motion-fast) ease;
 }
 .header-nav__cta:hover, .header-nav__cta:focus-visible {
   filter: brightness(1.06);
-  box-shadow: 0 4px 12px rgba(24, 27, 38, 0.2);
   text-decoration: none;
-  transform: translateY(-1px);
 }
-.header-nav__cta:active {
-  transform: translateY(0);
+.header-nav__cta:focus-visible {
+  outline: 2px solid var(--h-ink);
+  outline-offset: 3px;
 }
 
 /* Theme Toggle Button */
@@ -357,33 +360,21 @@ a {
   min-width: 44px;
   border-radius: 9999px;
   background: transparent;
-  border: 1px solid rgba(56, 26, 20, 0.16);
-  color: var(--foreground);
+  border: 1px solid var(--h-borda, rgba(24, 27, 38, 0.22));
+  color: var(--h-ink, var(--foreground));
   cursor: pointer;
   padding: 0;
-  transition: color var(--motion-fast) ease, border-color var(--motion-fast) ease, background-color var(--motion-fast) ease, transform var(--motion-fast) ease;
+  transition: border-color var(--motion-fast) ease, background-color var(--motion-fast) ease;
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  transform: translateY(-1px);
+  border-color: var(--h-ink, var(--foreground));
+  background: var(--h-linha, transparent);
 }
 .theme-toggle svg {
   width: 19px;
   height: 19px;
   display: block;
-}
-[data-theme="dark"] .theme-toggle {
-  border-color: rgba(245, 239, 235, 0.22);
-  color: var(--foreground);
-}
-[data-theme="dark"] .theme-toggle:hover,
-[data-theme="dark"] .theme-toggle:focus-visible {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
 }
 
 /* Badges */
@@ -1025,53 +1016,117 @@ hr.divider {
   background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
 
-/* Footer */
+/* Footer — a última luz da Casa, com a conversa em primeiro plano */
 .site-footer {
+  --h-ink: #181b26;
+  --h-marca: #7a5d00;
+  --h-linha: rgba(24, 27, 38, 0.12);
+  --f-bg: #fff1c4;
+  --f-ink-2: #3a3f52;
   margin-top: 5rem;
   padding: 3.5rem 0 2.5rem;
-  background: var(--surface);
-  border-top: 1px solid rgba(56, 26, 20, 0.08);
+  background: var(--f-bg);
+  border-top: 1px solid var(--h-linha);
+  color: var(--h-ink);
+}
+/* na home as seções creme já encostam no rodapé: sem faixa entre eles */
+#conteudo-principal:has(.cb-home) + .site-footer {
+  margin-top: 0;
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1.2fr 1fr;
+    align-items: start;
+  }
 }
 
 .footer-logo {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: var(--foreground);
-  letter-spacing: -0.02em;
+  margin: 0;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 85%;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.footer-logo span {
+  color: var(--h-marca);
 }
 
 .footer-tagline {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  max-width: 44ch;
-  margin-top: 0.35rem;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1rem;
+  color: var(--f-ink-2);
+  max-width: 34ch;
+  margin-top: 0.5rem;
   line-height: 1.5;
 }
 
-.footer-meta {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.footer-whatsapp {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--h-ink);
+  text-decoration: underline;
+  text-decoration-color: #ffc94a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color var(--motion-fast) ease;
+}
+.footer-whatsapp:hover,
+.footer-whatsapp:focus-visible {
+  text-decoration-color: var(--h-marca);
 }
 
-.footer-author {
+.footer-numero {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--f-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 88%;
   font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--foreground);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--h-ink);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.45em;
+  transition: text-decoration-color var(--motion-fast) ease;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration-color: #ffc94a;
 }
 
 .footer-copy {
-  font-size: 0.75rem;
-  color: var(--text-faint);
+  font-size: 0.8125rem;
+  color: var(--f-ink-2);
 }
 
 /* Markdown Articles Content */
@@ -1274,17 +1329,6 @@ hr.divider {
     height: 20px;
   }
 
-  .footer-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .footer-meta {
-    text-align: center;
-  }
-
   .conversion-box {
     padding: 2.5rem 1.25rem;
   }
@@ -1381,12 +1425,13 @@ hr.divider {
 
   .header-logo {
     min-height: 44px;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
     padding: 0;
   }
 
   .header-nav {
-    gap: 0.25rem;
+    gap: 0.5rem;
     display: flex;
     align-items: center;
   }
@@ -1605,6 +1650,23 @@ hr.divider {
 
 .header-nav__cta-extra {
   margin-left: 0.3em;
+}
+
+/* "Diagnóstico" sai do cabeçalho no celular: a home já leva até ele */
+@media (max-width: 460px) {
+  .header-nav .header-nav__link--diag {
+    display: none;
+  }
+}
+
+/* celular comum: a marca precisa de respiro antes do primeiro link */
+.header-inner {
+  gap: 1rem;
+}
+@media (max-width: 400px) {
+  .header-nav .header-nav__link {
+    display: none;
+  }
 }
 
 /* telas muito estreitas (≈320px): só logo, botão e tema */
