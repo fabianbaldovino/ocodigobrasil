@@ -28,7 +28,8 @@ O Código Brasil é a porta de entrada: é a marca do site, do manifesto e do m�
 
 - Site estático (Next.js 16, `output: "export"`, `trailingSlash: true`) publicado no Firebase Hosting a partir de `out/`; CSP restritiva em `firebase.json` (scripts só do próprio domínio e do Google Tag Manager, fontes só locais).
 - Rotas: `/` (página do manifesto e da consultoria), `/conteudo/` e `/conteudo/[slug]/` (artigos em Markdown em `content/artigos/`), `/termos/`, `/privacidade/`, `/reembolso/`.
-- Conversão: download direto do PDF (`/o-codigo-brasil-manifesto-fabian-baldovino.pdf`, sem cadastro) e link `wa.me` para o WhatsApp de Fabian com mensagem pré-preenchida. O GA4 registra cliques no WhatsApp.
+- A home (`src/components/home/HomeJourney.tsx` + `HomeSections.tsx`) é uma travessia em capítulos da Rua para a Casa, com rolagem por fases (scroll-snap). Ela termina no convite para baixar o PDF e depois traz artigos, autor e FAQ.
+- Conversão: download direto do PDF (`/o-codigo-brasil-manifesto-fabian-baldovino.pdf`, sem cadastro). O card da consultoria com o botão de WhatsApp pré-preenchido existe em `ProductDetails.tsx`, mas **não aparece na home atual**: hoje o único caminho para o WhatsApp é o número no rodapé. O GA4 registra cliques no WhatsApp.
 - Comentários em artigos (Firestore) existem no código, mas estão desligados (`FEATURE_COMMENTS_ENABLED = false`).
 - Tema claro por padrão, com alternância para escuro guardada em `localStorage`.
 - Comando de dev: `npm run dev` (Next.js, porta 3000).

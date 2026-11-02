@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T00:00:00Z",
+  "title": "Design System: O Código Brasil",
+  "extensions": {
+    "colorMeta": {
+      "ambar": { "role": "primary", "displayName": "Âmbar da Cozinha", "canonical": "#ffc94a", "tonalRamp": ["#3d2c00", "#5c4300", "#7a5d00", "#a67f0a", "#d6a52a", "#ffc94a", "#ffdf8f", "#fff3d1"] },
+      "ambar-tinta": { "role": "primary", "displayName": "Âmbar Queimado", "canonical": "#7a5d00" },
+      "poste": { "role": "secondary", "displayName": "Luz de Poste", "canonical": "#e08a3c", "tonalRamp": ["#3a1f08", "#5a3010", "#7d4518", "#a95d22", "#e08a3c", "#eba86e", "#f4c9a2", "#fbe9d8"] },
+      "rua-azul": { "role": "secondary", "displayName": "Azul da Rua", "canonical": "#9fb6cc" },
+      "rua": { "role": "neutral", "displayName": "Noite da Rua", "canonical": "#0d141c", "tonalRamp": ["#0d141c", "#1b2733", "#2a3846", "#3b4350", "#5a6070", "#9aa3b0", "#c4d2e2", "#e8eef4"] },
+      "rua-2": { "role": "neutral", "displayName": "Noite da Rua 2", "canonical": "#1b2733" },
+      "casa": { "role": "neutral", "displayName": "Creme da Casa", "canonical": "#fff6dc", "tonalRamp": ["#3a3f52", "#6b6450", "#9c9478", "#c9c0a0", "#e6e1cf", "#fff1c4", "#fff6dc", "#fffbef"] },
+      "papel": { "role": "neutral", "displayName": "Papel", "canonical": "#f5f3ee" },
+      "papel-2": { "role": "neutral", "displayName": "Papel Apagado", "canonical": "#b8bcc6" },
+      "tinta": { "role": "neutral", "displayName": "Tinta", "canonical": "#181b26" },
+      "tinta-2": { "role": "neutral", "displayName": "Tinta Suave", "canonical": "#3a3f52" },
+      "cinza-guiche": { "role": "neutral", "displayName": "Cinza Guichê", "canonical": "#3b4350" },
+      "borda-casa": { "role": "neutral", "displayName": "Borda da Casa", "canonical": "#e6e1cf" },
+      "branco": { "role": "neutral", "displayName": "Branco", "canonical": "#ffffff" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Só a frase de abertura sobre a fotografia." },
+      "headline": { "displayName": "Headline", "purpose": "Título de cada capítulo da travessia." },
+      "title": { "displayName": "Title", "purpose": "Frases grandes, uma por fase; tese em citação." },
+      "section": { "displayName": "Section", "purpose": "Títulos das seções creme depois da travessia." },
+      "body": { "displayName": "Body", "purpose": "Bio, FAQ, cards; máx. 62ch." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, rótulos, botões; Archivo condensada em caixa-alta." }
+    },
+    "shadows": [
+      { "name": "texto-sobre-foto", "value": "0 1px 2px rgba(0,0,0,.55), 0 2px 22px rgba(0,0,0,.6)", "purpose": "text-shadow das frases sobre a fotografia." },
+      { "name": "capa", "value": "0 10px 40px rgba(0,0,0,.5)", "purpose": "Capa do manifesto no convite final; única sombra estrutural." },
+      { "name": "fio-de-luz", "value": "0 0 24px 6px rgba(255,201,74,.55)", "purpose": "Brilho do fio âmbar na cortina Rua/Casa." }
+    ],
+    "motion": [
+      { "name": "revelar-fase", "value": "opacity .7s ease, transform .7s ease (translateY 24px → 0)", "purpose": "Entrada de cada frase da travessia." },
+      { "name": "temperatura", "value": "--warm 0→1 (quadrático) ligado ao scroll", "purpose": "Véu azul da Rua vira âmbar da Casa." },
+      { "name": "dica", "value": "2s ease-in-out infinite, 5px", "purpose": "Setas 'Desça ↓' e 'Deslize →'; desligadas com movimento reduzido." }
+    ],
+    "breakpoints": [
+      { "name": "retrato", "value": "700px" },
+      { "name": "grade", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão da Rua",
+      "kind": "button",
+      "refersTo": "button-rua",
+      "description": "Download dentro da travessia: contorno fino, sem gritar.",
+      "html": "<div class=\"ds-noite\"><a class=\"ds-btn-rua\" href=\"#\">Baixar o manifesto (PDF)</a></div>",
+      "css": ".ds-noite{background:#0d141c;padding:32px;display:flex;justify-content:center}.ds-btn-rua{font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#f5f3ee;border:1px solid rgba(243,236,226,.5);padding:12px 18px;border-radius:2px;text-decoration:none;background:rgba(13,20,28,.35);transition:border-color .2s,background .2s}.ds-btn-rua:hover{border-color:#f5f3ee;background:rgba(245,243,238,.08)}.ds-btn-rua:focus-visible{outline:2px solid #f5f3ee;outline-offset:3px}"
+    },
+    {
+      "name": "Botão da Casa",
+      "kind": "button",
+      "refersTo": "button-casa",
+      "description": "Convite final: âmbar sólido, o prêmio da travessia.",
+      "html": "<div class=\"ds-noite\"><a class=\"ds-btn-casa\" href=\"#\">Baixar o manifesto (PDF)</a></div>",
+      "css": ".ds-noite{background:#0d141c;padding:32px;display:flex;justify-content:center}.ds-btn-casa{font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#0d141c;background:#ffc94a;border:1px solid #ffc94a;padding:18px 28px;border-radius:2px;text-decoration:none;transition:filter .2s}.ds-btn-casa:hover{filter:brightness(1.06)}.ds-btn-casa:focus-visible{outline:2px solid #f5f3ee;outline-offset:3px}"
+    },
+    {
+      "name": "CTA do cabeçalho",
+      "kind": "button",
+      "refersTo": "header-cta",
+      "description": "Pílula âmbar fixa no cabeçalho.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Baixar grátis</a>",
+      "css": ".ds-cta{display:inline-flex;align-items:center;min-height:34px;background:#ffc94a;color:#181b26;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;border-radius:999px;text-decoration:none;transition:transform .16s,box-shadow .16s,filter .16s}.ds-cta:hover,.ds-cta:focus-visible{filter:brightness(1.06);box-shadow:0 4px 12px rgba(24,27,38,.2);transform:translateY(-1px)}"
+    },
+    {
+      "name": "Card de artigo",
+      "kind": "card",
+      "refersTo": "card-casa",
+      "description": "Artigo na seção creme 'O Código na cultura'.",
+      "html": "<div class=\"ds-creme\"><a class=\"ds-card\" href=\"#\"><h3>O Case Havaianas</h3><p>Como a borracha virou ouro hackeando o inconsciente brasileiro.</p><span>Ler o artigo →</span></a></div>",
+      "css": ".ds-creme{background:#fff6dc;padding:32px}.ds-card{display:grid;gap:10px;max-width:17rem;background:#fff;border:1px solid #e6e1cf;border-radius:14px;padding:2rem;color:#181b26;text-decoration:none;font-family:Newsreader,Georgia,serif}.ds-card h3{margin:0;font-weight:500;font-size:1.375rem;line-height:1.15}.ds-card p{margin:0;font-size:1rem;line-height:1.5;color:#3a3f52}.ds-card span{font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:88%;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#7a5d00}.ds-card:hover{border-color:#7a5d00}.ds-card:focus-visible{outline:2px solid #181b26;outline-offset:3px}"
+    },
+    {
+      "name": "FAQ",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "details nativo sobre o creme.",
+      "html": "<div class=\"ds-creme\"><details class=\"ds-faq\" open><summary>O manifesto é gratuito mesmo?</summary><p>Sim. Sem cartão, sem cadastro e sem pegadinha.</p></details></div>",
+      "css": ".ds-creme{background:#fff6dc;padding:32px}.ds-faq{background:#fff;border:1px solid #e6e1cf;border-radius:12px;padding:1rem 1.5rem;color:#181b26;font-family:Newsreader,Georgia,serif;max-width:46rem}.ds-faq summary{cursor:pointer;font-weight:600;font-size:1.125rem;line-height:1.35}.ds-faq p{margin:1rem 0 0;font-size:1rem;line-height:1.6;color:#3a3f52}.ds-faq summary:focus-visible{outline:2px solid #181b26;outline-offset:3px}"
+    },
+    {
+      "name": "Chat Rua × Casa",
+      "kind": "custom",
+      "refersTo": "bolha-casa",
+      "description": "Bolhas que encenam o método: guichê reto contra conversa com nome.",
+      "html": "<div class=\"ds-noite ds-chat\"><div class=\"ds-bolha ds-form\">Formulário · Protocolo nº 48213</div><div class=\"ds-bolha\">digitando…</div><div class=\"ds-bolha ds-eu\">Oi! Aqui é o João. Já separei o seu pedido 🙂</div></div>",
+      "css": ".ds-noite{background:#0d141c;padding:32px}.ds-chat{display:grid;gap:10px;justify-items:start;font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-stretch:90%;font-size:1.0625rem;max-width:30ch}.ds-bolha{background:rgba(245,243,238,.94);color:#181b26;padding:.75rem 1rem;border-radius:16px 16px 16px 4px}.ds-eu{background:#ffe38a;border-radius:16px 16px 4px 16px;justify-self:end}.ds-form{background:#3b4350;color:#9aa3b0;border-radius:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Travessia",
+    "overview": "Toda tela anda da Rua para a Casa. A Rua é noite azulada, asfalto molhado, guichê, senha, formulário: frio, quadrado, impessoal. A Casa é a porta entreaberta, a luz âmbar da cozinha, a mesa posta: quente, arredondada, com nome e voz. O site não descreve o método Casa × Rua; ele faz o visitante atravessá-lo.\n\nO tom é cinematográfico e quente: fotografia de cinema em tela cheia, grão de película, uma frase por vez, muito silêncio em volta. Depois da travessia, a página entra em casa: fundo creme, cards brancos, leitura calma.\n\nA identidade oficial é a da home nova. O restante do site ainda usa o visual anterior; isso é dívida de migração, não uma segunda identidade.",
+    "keyCharacteristics": [
+      "Fotografia de cinema em tela cheia (16:9 no desktop, 9:16 no celular) com grão e texto sobreposto.",
+      "Gradiente de temperatura: azul da Rua → âmbar da Casa, ligado ao progresso da leitura.",
+      "Serifa editorial (Newsreader) para a voz; Archivo condensada em caixa-alta para rótulos e botões.",
+      "Âmbar como a única cor de ação, guardado para o convite.",
+      "Movimento só para revelar a próxima frase; tudo legível e estático com movimento reduzido."
+    ],
+    "rules": [
+      { "name": "The Porta Fechada Rule", "body": "O âmbar não aparece em superfícies da Rua como cor de fundo. Na Rua ele só existe como palavra em itálico ou luz entrando; o botão âmbar sólido é o prêmio da Casa.", "section": "colors" },
+      { "name": "The Guichê Rule", "body": "Cinza-guichê, cantos retos e caixa-alta são a linguagem do que não queremos ser. Use para encenar a Rua, nunca para componentes reais da marca.", "section": "colors" },
+      { "name": "The Uma Frase Rule", "body": "Sobre a fotografia, cada fase mostra uma frase só, centralizada, com quebra equilibrada. Se precisar de duas ideias, são duas fases.", "section": "typography" },
+      { "name": "The Itálico É a Casa Rule", "body": "A ênfase é sempre itálico em âmbar, nunca negrito nem sublinhado.", "section": "typography" },
+      { "name": "The Luz, Não Sombra Rule", "body": "Para destacar algo, acenda (âmbar, brilho do fio, vinheta), não levante (box-shadow).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do tratar cada capítulo como um plano de cinema: foto real em tela cheia (versões 16:9 e 9:16), grão, uma frase por fase.",
+      "Do guardar o âmbar sólido para a ação da Casa (convite, CTA do cabeçalho) e usar itálico âmbar para a ênfase na fala.",
+      "Do encenar a Rua com cinza-guichê, cantos retos e Archivo em caixa-alta, e a Casa com creme, curvas e Newsreader.",
+      "Do manter tudo legível como texto real no HTML e garantir uma versão estática e completa com prefers-reduced-motion.",
+      "Do migrar artigos e páginas legais para Newsreader/Archivo e para a paleta Casa quando forem tocados."
+    ],
+    "donts": [
+      "Don't parecer landing de infoproduto: nada de contador regressivo, seta piscando, selo falso ou \"últimas vagas\".",
+      "Don't parecer SaaS gringo frio: nada de gradiente roxo, card de vidro ou ícone genérico de biblioteca. Isso é a própria Rua.",
+      "Don't usar verde-amarelo, bandeira, Copa ou carnaval como decoração.",
+      "Don't parecer corporativo engessado: nada de azul-marinho institucional nem foto de banco de imagem com aperto de mão.",
+      "Don't usar box-shadow para dar importância; acenda com luz e cor.",
+      "Don't colocar duas frases grandes na mesma fase da travessia."
+    ]
+  }
+}
