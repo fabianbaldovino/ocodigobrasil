@@ -63,10 +63,9 @@ const CHAPTERS: Chapter[] = [
     img: '1',
     alt: 'Sala de espera com painel de senha 247, guichê de vidro e cadeiras de plástico azuis',
     steps: [
-      <div key="a"><p className="cb-eyebrow">O diagnóstico</p><h2>Por que o produto melhor perde?</h2></div>,
-      <p key="b" className="cb-big">Melhor produto.</p>,
-      <p key="c" className="cb-big">Menor preço.</p>,
-      <p key="d" className="cb-big"><em>E mesmo assim, não vende.</em></p>,
+      <h2 key="a">Por que o produto melhor perde?</h2>,
+      <p key="b" className="cb-big">Melhor produto.<br />Menor preço.</p>,
+      <p key="c" className="cb-big"><em>E mesmo assim, não vende.</em></p>,
     ],
   },
   {
@@ -76,11 +75,14 @@ const CHAPTERS: Chapter[] = [
     alt: 'Portão de grade fechado de uma casa brasileira à noite',
     hook: 'cortina',
     steps: [
-      <div key="a"><p className="cb-eyebrow">Roberto DaMatta</p><h2>A Rua e a Casa.</h2></div>,
-      <p key="b" className="cb-big">
-        Na Rua, somos <em style={{ color: '#9fb6cc' }}>indivíduos</em>: senha, fila, regra.<br />
-        Na Casa, somos <em>pessoas</em>: nome, afeto, confiança.
-      </p>,
+      <h2 key="a">A Rua e a Casa.</h2>,
+      <div key="b">
+        <p className="cb-big">
+          Na Rua, somos <em style={{ color: '#9fb6cc' }}>indivíduos</em>: senha, fila, regra.<br />
+          Na Casa, somos <em>pessoas</em>: nome, afeto, confiança.
+        </p>
+        <p className="cb-credito">A partir de Roberto DaMatta, <i>A Casa &amp; a Rua</i></p>
+      </div>,
       <blockquote key="c" className="cb-big cb-tese" style={{ margin: 0 }}>
         Todo ato de consumo no Brasil é uma tentativa de transformar a frieza da Rua na segurança da Casa.
         <cite>A tese do Código</cite>
@@ -94,25 +96,11 @@ const CHAPTERS: Chapter[] = [
     alt: 'Retrato de uma mulher com o olhar firme de quem acabou de decidir',
     hook: 'ms',
     steps: [
-      <div key="a"><p className="cb-eyebrow">A Reação Primária</p><h2>Quem decide a compra não é a lógica.</h2></div>,
-      <p key="b" className="cb-big">A lógica só explica a compra <em>no dia seguinte.</em></p>,
-      <p key="c" className="cb-big">
+      <h2 key="a">Quem decide a compra não é a lógica.</h2>,
+      <p key="b" className="cb-big">
         Quem decide é o instinto, em <em><span data-role="ms">0</span> milissegundos.</em>
       </p>,
-    ],
-  },
-  {
-    id: 'cap4',
-    label: 'O Homem Cordial',
-    img: '4',
-    alt: 'Balcão de padaria com o caderno de fiado aberto e o padeiro com a mão no ombro do cliente',
-    steps: [
-      <div key="a"><p className="cb-eyebrow">O Homem Cordial</p><h2>Cordial não é ser educado.</h2></div>,
-      <p key="b" className="cb-big">A palavra vem de <em>cordis</em>.</p>,
-      <p key="c" className="cb-big">
-        Cordis quer dizer <em>coração.</em><br />
-        O brasileiro compra de quem lhe toca o coração.
-      </p>,
+      <p key="c" className="cb-big">E o brasileiro compra de quem lhe <em>toca o coração.</em></p>,
     ],
   },
   {
@@ -121,7 +109,7 @@ const CHAPTERS: Chapter[] = [
     img: '5',
     alt: 'Duas mãos ao redor de uma xícara branca com vapor',
     steps: [
-      <div key="a"><p className="cb-eyebrow">Pilar 1 · O Fim da Frieza</p><h2>Pare de listar características.</h2></div>,
+      <h2 key="a">Pare de listar características.</h2>,
       <p key="b" className="cb-big cb-fria">Aço inox<br />12 meses de garantia<br />Frete grátis</p>,
       <p key="c" className="cb-big">O mercado acha que compra produtos.<br />Ele compra <em>alívio.</em></p>,
     ],
@@ -132,7 +120,7 @@ const CHAPTERS: Chapter[] = [
     img: '6',
     alt: 'Celular sobre a mesa branca da cozinha, tela acesa com uma conversa',
     steps: [
-      <div key="a"><p className="cb-eyebrow">Pilar 2 · O Efeito WhatsApp</p><h2>O WhatsApp é a Casa dentro do celular.</h2></div>,
+      <h2 key="a">O WhatsApp é a Casa dentro do celular.</h2>,
       <div key="b">
         <p className="cb-big">Na Rua, você é um número de protocolo.</p>
         <div className="cb-chat"><div className="cb-bolha cb-form">Formulário · Protocolo nº 48213</div></div>
@@ -158,7 +146,7 @@ const CHAPTERS: Chapter[] = [
     img: '7',
     alt: 'Um adulto ao lado de uma criança de capacete, segurando o banco da bicicleta',
     steps: [
-      <div key="a"><p className="cb-eyebrow">Pilar 3 · A Marca Padrinho</p><h2>Não seja o herói. Seja o padrinho.</h2></div>,
+      <h2 key="a">Não seja o herói. Seja o padrinho.</h2>,
       <p key="b" className="cb-big">Todo cliente pensa: se der problema, <em>com quem eu falo?</em></p>,
       <p key="c" className="cb-big">Seja esse alguém.<br />Segure o banco até ele <em>aprender a pedalar.</em></p>,
     ],
@@ -169,7 +157,7 @@ const CHAPTERS: Chapter[] = [
     img: '8',
     alt: 'Soleira de uma casa com a porta aberta e luz dourada saindo de dentro',
     steps: [
-      <div key="a"><p className="cb-eyebrow">Pilar 4 · O Design de Confiança</p><h2>O design fala antes das palavras.</h2></div>,
+      <h2 key="a">O design fala antes das palavras.</h2>,
       <div key="b">
         <p className="cb-big">Na Rua, o erro é punido.</p>
         <div className="cb-chat"><div className="cb-bolha cb-erro">Erro crítico.<br />Senha inválida.</div></div>
@@ -186,7 +174,7 @@ const CHAPTERS: Chapter[] = [
     img: '9',
     alt: 'Família e amigos rindo ao redor de uma mesa posta com toalha branca',
     steps: [
-      <div key="a"><p className="cb-eyebrow">A casa é sua</p><h2>Baixe o manifesto.</h2></div>,
+      <h2 key="a">A casa é sua.<br />Baixe o manifesto.</h2>,
       <div key="b">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="cb-capa" src="/capa_manifesto_o_codigo_brasil_fabian_baldovino.webp" alt="Capa do manifesto O Código Brasil" loading="lazy" decoding="async" />
@@ -261,7 +249,8 @@ export default function HomeJourney() {
           fio.style.setProperty('--done', p >= 1 || p <= 0 ? '1' : '0');
         }
         steps.forEach((s, i) => s.classList.toggle('cb-on', i === idx));
-        if (cap.dataset.hook === 'ms' && ms) ms.textContent = String(Math.round(50 * clamp((p - 0.5) / 0.5)));
+        // o contador sobe enquanto a 2ª fase (de 3) está na tela e chega a 50 antes da frase seguinte
+        if (cap.dataset.hook === 'ms' && ms) ms.textContent = String(Math.round(50 * clamp((p - 0.25) / 0.35)));
         void ci;
       });
       // temperatura geral da página: do azul da Rua ao âmbar da Casa

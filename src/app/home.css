@@ -29,7 +29,8 @@
 .cb-home .cb-step h2{font-weight:500;font-size:clamp(40px,8.6vw,88px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance;margin:0}
 .cb-home .cb-step p.cb-big{font-weight:500;font-size:clamp(28px,5.4vw,48px);line-height:1.14;letter-spacing:-.01em;margin:0;text-wrap:balance}
 .cb-home .cb-step em{font-style:italic;color:var(--ambar)}
-.cb-home .cb-eyebrow{font-family:var(--sans);font-stretch:88%;font-weight:600;font-size:13px;line-height:1.4;letter-spacing:.18em;text-transform:uppercase;color:#d9dce3;margin:0 0 18px}
+.cb-home .cb-credito{font-family:var(--sans);font-stretch:88%;font-weight:600;font-size:var(--fs-label,.8125rem);line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:#d9dce3;margin:var(--s3,1.5rem) 0 0}
+.cb-home .cb-credito i{font-style:italic;text-transform:none;letter-spacing:.02em;font-family:var(--serif);font-size:1.0625rem}
 .cb-home .cb-acoes{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:28px}
 .cb-home .cb-btn{font-family:var(--sans);font-stretch:85%;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--papel);
   border:1px solid rgba(243,236,226,.5);padding:12px 18px;border-radius:2px;text-decoration:none;background:rgba(13,20,28,.35)}
@@ -146,7 +147,6 @@ html.cb-snap{scroll-snap-type:none}
 .cb-home .cb-step h1{font-size:var(--fs-display);line-height:1.04;max-width:13em;margin-inline:auto}
 .cb-home .cb-step h2{font-size:var(--fs-h2);line-height:1.06;max-width:14em;margin-inline:auto}
 .cb-home .cb-step p.cb-big{font-size:var(--fs-title);line-height:1.16;max-width:20em;margin-inline:auto}
-.cb-home .cb-eyebrow{font-size:var(--fs-label);margin:0 0 var(--s3)}
 .cb-home .cb-acoes{margin-top:var(--s4)}
 .cb-home .cb-step p.cb-big + .cb-chat{margin-top:var(--s3)}
 .cb-home .cb-tese{font-size:var(--fs-title);max-width:22em}

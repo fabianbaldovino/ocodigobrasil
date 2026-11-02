@@ -165,7 +165,7 @@ Duas temperaturas em oposição: azuis noturnos e cinzas de guichê para a Rua, 
 - **Title** (500, até 3,1rem, 1,16): as frases grandes (`cb-big`) e a tese em citação; uma ideia por fase.
 - **Section** (400, até 2,75rem, 1,12): títulos das seções creme depois da travessia.
 - **Body** (400, 1,125rem, 1,6, máx. 62ch): bio, respostas do FAQ, textos de card.
-- **Label** (600, 0,8125rem, 0,16–0,18em, caixa-alta): eyebrows, rótulos de seção, botões, "Rua"/"Casa".
+- **Label** (600, 0,8125rem, 0,16–0,18em, caixa-alta): créditos de fonte, rótulos de grade, botões, "Rua"/"Casa". Nunca como rótulo acima de um título: o título fala sozinho.
 
 ### Named Rules
 **The Uma Frase Rule.** Sobre a fotografia, cada fase mostra uma frase só, centralizada, com quebra equilibrada (`text-wrap: balance`). Se precisar de duas ideias, são duas fases.
