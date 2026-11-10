@@ -11,3 +11,7 @@
 *.pdf binary
 *.woff binary
 *.woff2 binary
+
+# Scripts .cmd do Windows precisam de CRLF; o launcher sh precisa de LF.
+*.cmd text eol=crlf
+.claude/skills/impeccable/scripts/impeccable text eol=lf
