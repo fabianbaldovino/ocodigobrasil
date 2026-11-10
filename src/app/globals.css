@@ -48,6 +48,22 @@
   /* Movimento */
   --motion-fast: 160ms;
   --motion-base: 240ms;
+
+  /* Identidade O Código Brasil: papel, tinta e um acento terracota (ver DESIGN.md) */
+  --cb-papel: #f4f1eb;
+  --cb-papel-2: #ebe7de;
+  --cb-card: #fbfaf7;
+  --cb-tinta: #14161a;
+  --cb-tinta-2: #565b64;
+  --cb-linha: rgba(20, 22, 26, 0.14);
+  --cb-linha-forte: rgba(20, 22, 26, 0.38);
+  --cb-acento: #a8401f;
+  --cb-acento-btn: #b4472a;
+  --cb-acento-btn-2: #983a20;
+  --cb-noite-fundo: #101317;
+  --cb-display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  --cb-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cb-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
 }
 
 /* Tema Escuro: controlado explicitamente por data-theme="dark" (padrão é sempre claro) */
@@ -72,18 +88,16 @@
 
   --whatsapp-bg: #1F5C3E;
   --whatsapp-text: #FFFFFF;
-}
 
-/* no escuro, cabeçalho e rodapé são a noite da Rua */
-[data-theme="dark"] .site-header,
-[data-theme="dark"] .site-footer {
-  --h-bg: rgba(13, 20, 28, 0.92);
-  --h-ink: #f5f3ee;
-  --h-marca: #ffc94a;
-  --h-linha: rgba(245, 243, 238, 0.1);
-  --h-borda: rgba(245, 243, 238, 0.28);
-  --f-bg: #0d141c;
-  --f-ink-2: #b8bcc6;
+  --cb-papel: #101317;
+  --cb-papel-2: #161a20;
+  --cb-card: #1a1e25;
+  --cb-tinta: #f1eee8;
+  --cb-tinta-2: #a9aeb7;
+  --cb-linha: rgba(241, 238, 232, 0.14);
+  --cb-linha-forte: rgba(241, 238, 232, 0.4);
+  --cb-acento: #f0906f;
+  --cb-noite-fundo: #0a0c0f;
 }
 
 [data-theme="dark"] .comment-field input,
@@ -124,8 +138,8 @@
 
 /* seleção de texto na luz da Casa */
 ::selection {
-  background: #ffc94a;
-  color: #181b26;
+  background: #b4472a;
+  color: #fff;
 }
 
 *:focus-visible {
@@ -250,104 +264,116 @@ a {
 }
 .skip-link:focus { left: 0; }
 
-/* Sticky Header — identidade da travessia: placa de Archivo sobre o creme da Casa */
+/* Sticky Header — marca em caixa mista sobre o papel; o único botão cheio é a conversa */
 .site-header {
-  --h-bg: rgba(255, 246, 220, 0.94);
-  --h-ink: #181b26;
-  --h-marca: #7a5d00;
-  --h-linha: rgba(24, 27, 38, 0.1);
-  --h-borda: rgba(24, 27, 38, 0.22);
+  --h-ink: var(--cb-tinta);
+  --h-linha: var(--cb-linha);
+  --h-borda: var(--cb-linha-forte);
   position: sticky;
   top: 0;
   z-index: 40;
-  background: var(--h-bg);
+  background: color-mix(in srgb, var(--cb-papel) 90%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--h-linha);
-  color: var(--h-ink);
+  border-bottom: 1px solid var(--cb-linha);
+  color: var(--cb-tinta);
+  font-family: var(--cb-display);
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  gap: 1rem;
+  height: 68px;
+  max-width: 78rem;
+  padding-inline: max(clamp(20px, 5vw, 56px), env(safe-area-inset-left, 0px));
 }
 
 .header-logo {
   display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 85%;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  align-items: baseline;
+  gap: 0.3em;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
   padding: 0.5rem 0;
   white-space: nowrap;
   flex-shrink: 0;
+  color: var(--cb-tinta);
 }
 .header-logo:hover {
   text-decoration: none;
 }
-.logo-main {
-  color: var(--h-ink);
-}
 .logo-accent {
-  color: var(--h-marca);
+  font-family: var(--cb-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
+  color: var(--cb-acento);
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.75rem;
 }
 
 .header-nav__link {
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 88%;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--h-ink);
-  padding: 0.5rem 0.25rem;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.5em;
-  transition: text-decoration-color var(--motion-fast) ease;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--cb-tinta-2);
+  padding: 0.5rem 0;
+  transition: color var(--motion-fast) ease;
 }
 .header-nav__link:hover, .header-nav__link:focus-visible,
 .header-nav__link.is-active {
-  text-decoration-color: #ffc94a;
+  color: var(--cb-tinta);
+  text-decoration: none;
 }
 
 .header-nav__cta {
-  background-color: #ffc94a;
-  color: #181b26 !important;
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 85%;
-  font-size: 0.75rem;
+  background-color: var(--cb-tinta);
+  color: var(--cb-papel) !important;
+  font-size: 0.875rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: -0.005em;
   padding: 0.5rem 1rem;
-  border-radius: 2px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
+  min-height: 40px;
   white-space: nowrap;
-  transition: filter var(--motion-fast) ease;
+  transition: background-color var(--motion-fast) ease;
 }
 .header-nav__cta:hover, .header-nav__cta:focus-visible {
-  filter: brightness(1.06);
+  background-color: var(--cb-acento-btn);
+  color: #fff !important;
   text-decoration: none;
 }
 .header-nav__cta:focus-visible {
-  outline: 2px solid var(--h-ink);
+  outline: 2px solid var(--cb-acento);
   outline-offset: 3px;
+}
+.header-nav__cta-extra {
+  margin-left: 0.3em;
+}
+/* celular: marca, botão da conversa e tema numa linha só */
+@media (max-width: 820px) {
+  .header-nav {
+    gap: 0.75rem;
+  }
+  .header-nav .header-nav__link {
+    display: none;
+  }
+}
+@media (max-width: 460px) {
+  .header-nav__cta-extra {
+    display: none;
+  }
 }
 
 /* Theme Toggle Button */
@@ -773,27 +799,29 @@ hr.divider {
   background: linear-gradient(to right, transparent, var(--accent), transparent);
 }
 
-/* Footer — a última luz da Casa, com a conversa em primeiro plano */
+/* Footer — fecha na noite, com a conversa em primeiro plano */
 .site-footer {
-  --h-ink: #181b26;
-  --h-marca: #7a5d00;
-  --h-linha: rgba(24, 27, 38, 0.12);
-  --f-bg: #fff1c4;
-  --f-ink-2: #3a3f52;
+  --f-ink: #f1eee8;
+  --f-ink-2: #a9aeb7;
+  --f-linha: rgba(241, 238, 232, 0.14);
+  --f-acento: #f0906f;
   margin-top: 5rem;
-  padding: 3.5rem 0 2.5rem;
-  background: var(--f-bg);
-  border-top: 1px solid var(--h-linha);
-  color: var(--h-ink);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 2.5rem;
+  background: var(--cb-noite-fundo);
+  color: var(--f-ink);
+  font-family: var(--cb-sans);
 }
-/* na home as seções creme já encostam no rodapé: sem faixa entre eles */
+/* na home o convite final já é noite: o rodapé continua dele, separado por um fio */
 #conteudo-principal:has(.cb-home) + .site-footer {
   margin-top: 0;
+  border-top: 1px solid var(--f-linha);
 }
 
 .footer-inner {
   display: grid;
   gap: 2.5rem;
+  max-width: 78rem;
+  padding-inline: max(clamp(20px, 5vw, 56px), env(safe-area-inset-left, 0px));
 }
 @media (min-width: 900px) {
   .footer-inner {
@@ -804,40 +832,43 @@ hr.divider {
 
 .footer-logo {
   margin: 0;
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 85%;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--cb-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 .footer-logo span {
-  color: var(--h-marca);
+  font-family: var(--cb-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+  color: var(--f-acento);
 }
 
 .footer-tagline {
-  font-family: var(--font-newsreader), Georgia, serif;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--f-ink-2);
   max-width: 34ch;
-  margin-top: 0.5rem;
-  line-height: 1.5;
+  margin-top: 0.75rem;
+  line-height: 1.55;
 }
 
 .footer-whatsapp {
-  font-family: var(--font-newsreader), Georgia, serif;
+  font-family: var(--cb-display);
   font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
   font-weight: 500;
+  letter-spacing: -0.025em;
   line-height: 1.2;
-  color: var(--h-ink);
+  color: var(--f-ink);
   text-decoration: underline;
-  text-decoration-color: #ffc94a;
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--f-acento);
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.3em;
-  transition: text-decoration-color var(--motion-fast) ease;
+  transition: color var(--motion-fast) ease;
 }
 .footer-whatsapp:hover,
 .footer-whatsapp:focus-visible {
-  text-decoration-color: var(--h-marca);
+  color: var(--f-acento);
 }
 
 .footer-numero {
@@ -857,28 +888,24 @@ hr.divider {
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 88%;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 0 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 .footer-links a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--h-ink);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.45em;
-  transition: text-decoration-color var(--motion-fast) ease;
+  color: var(--f-ink);
+  transition: color var(--motion-fast) ease;
 }
 .footer-links a:hover,
 .footer-links a:focus-visible {
-  text-decoration-color: #ffc94a;
+  color: var(--f-acento);
+  text-decoration: none;
+}
+.site-footer :focus-visible {
+  outline-color: var(--f-acento);
 }
 
 .footer-copy {
@@ -1382,23 +1409,23 @@ hr.divider {
    ========================================================================== */
 
 .cb-artigo {
-  --a-fundo: #fff6dc;
-  --a-tinta: #181b26;
-  --a-tinta-2: #3a3f52;
-  --a-acento: #7a5d00;
-  --a-ambar: #ffc94a;
-  --a-card: #ffffff;
-  --a-borda: #e6e1cf;
-  --a-linha: rgba(24, 27, 38, 0.12);
-  --a-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  --a-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --a-fundo: var(--cb-papel);
+  --a-tinta: var(--cb-tinta);
+  --a-tinta-2: var(--cb-tinta-2);
+  --a-acento: var(--cb-acento);
+  --a-ambar: var(--cb-acento);
+  --a-card: var(--cb-card);
+  --a-borda: var(--cb-linha);
+  --a-linha: var(--cb-linha);
+  --a-serif: var(--cb-serif);
+  --a-sans: var(--cb-sans);
   /* tokens antigos usados por componentes compartilhados (comentários, foco) */
   --foreground: var(--a-tinta);
   --text-muted: var(--a-tinta-2);
   --text-faint: var(--a-tinta-2);
   --accent: var(--a-acento);
   --accent-text: var(--a-acento);
-  --accent-soft: rgba(255, 201, 74, 0.22);
+  --accent-soft: rgba(180, 71, 42, 0.1);
   --accent-border: var(--a-borda);
   --surface: var(--a-card);
   background: var(--a-fundo);
@@ -1410,14 +1437,7 @@ hr.divider {
 }
 
 [data-theme="dark"] .cb-artigo {
-  --a-fundo: #0d141c;
-  --a-tinta: #f5f3ee;
-  --a-tinta-2: #b8bcc6;
-  --a-acento: #ffc94a;
-  --a-card: #1b2733;
-  --a-borda: rgba(245, 243, 238, 0.12);
-  --a-linha: rgba(245, 243, 238, 0.14);
-  --accent-soft: rgba(255, 201, 74, 0.14);
+  --accent-soft: rgba(240, 144, 111, 0.14);
   color-scheme: dark;
 }
 
@@ -1457,7 +1477,6 @@ hr.divider {
   flex-wrap: wrap;
   gap: 0.25rem 0.5rem;
   font-family: var(--a-sans);
-  font-stretch: 88%;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -1520,7 +1539,6 @@ hr.divider {
   gap: 0.25rem 1.5rem;
   margin: 0 0 1.5rem;
   font-family: var(--a-sans);
-  font-stretch: 88%;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -1595,7 +1613,7 @@ hr.divider {
 .cb-artigo .markdown-content blockquote {
   margin: 2.25rem 0;
   padding: 0.25rem 0 0.25rem 1.25rem;
-  border-left: 2px solid var(--a-ambar); /* impeccable-disable-line side-tab -- o fio de luz âmbar da cortina */
+  border-left: 2px solid var(--a-ambar); /* impeccable-disable-line side-tab -- fio de acento da citação */
   border-radius: 0;
   background: none;
   font-size: 1.15em;
@@ -1624,7 +1642,7 @@ hr.divider {
   height: auto;
   margin: 2rem auto;
   display: block;
-  border-radius: 14px;
+  border-radius: 6px;
   box-shadow: none;
 }
 .cb-artigo .markdown-content table {
@@ -1651,7 +1669,6 @@ hr.divider {
 }
 .cb-artigo .share-bar__label {
   font-family: var(--a-sans);
-  font-stretch: 88%;
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -1676,7 +1693,7 @@ hr.divider {
   padding: clamp(1.5rem, 5vw, 2.5rem);
   background: var(--a-card);
   border: 1px solid var(--a-borda);
-  border-radius: 14px;
+  border-radius: 6px;
 }
 .cb-a-convite h2 {
   font-weight: 400;
@@ -1713,7 +1730,6 @@ hr.divider {
   min-height: 48px;
   padding: 14px 22px;
   font-family: var(--a-sans);
-  font-stretch: 85%;
   font-weight: 600;
   font-size: 0.8125rem;
   letter-spacing: 0.1em;
@@ -1732,13 +1748,13 @@ hr.divider {
 .cb-a-btn--casa {
   padding: 18px 28px;
   font-size: 0.9375rem;
-  background: var(--a-ambar);
-  border-color: var(--a-ambar);
-  color: #0d141c;
+  background: var(--cb-acento-btn);
+  border-color: var(--cb-acento-btn);
+  color: #fff;
 }
 .cb-a-btn--casa:hover {
-  background: var(--a-ambar);
-  filter: brightness(1.06);
+  background: var(--cb-acento-btn-2);
+  border-color: var(--cb-acento-btn-2);
 }
 
 /* bio do autor */
@@ -1771,8 +1787,7 @@ hr.divider {
 }
 .author-bio__role {
   margin: 0 0 0.75rem;
-  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  font-stretch: 88%;
+  font-family: var(--cb-sans);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -1829,7 +1844,7 @@ hr.divider {
   padding: 1.5rem;
   background: var(--a-card);
   border: 1px solid var(--a-borda);
-  border-radius: 14px;
+  border-radius: 6px;
   color: var(--a-tinta);
   transition: border-color var(--motion-fast) ease;
 }
@@ -1853,7 +1868,6 @@ hr.divider {
 .cb-a-card time,
 .cb-a-card > span {
   font-family: var(--a-sans);
-  font-stretch: 88%;
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
@@ -1889,33 +1903,5 @@ hr.divider {
 @media (prefers-reduced-motion: reduce) {
   .cb-a-btn, .cb-a-card, .cb-artigo .markdown-content a {
     transition: none;
-  }
-}
-
-/* telas estreitas: o botão do cabeçalho fica só "Conversar" para caber numa linha */
-@media (max-width: 460px) {
-  .header-nav__cta-extra {
-    display: none;
-  }
-}
-
-.header-nav__cta-extra {
-  margin-left: 0.3em;
-}
-
-/* celular comum: a marca precisa de respiro antes do primeiro link */
-.header-inner {
-  gap: 1rem;
-}
-@media (max-width: 400px) {
-  .header-nav .header-nav__link {
-    display: none;
-  }
-}
-
-/* telas muito estreitas (≈320px): só logo, botão e tema */
-@media (max-width: 340px) {
-  .header-nav .header-nav__link {
-    display: none;
   }
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site';
-import { Inter, Playfair_Display, Newsreader, Archivo } from 'next/font/google';
+import { Inter, Playfair_Display, Newsreader, Instrument_Sans } from 'next/font/google';
 import ActiveLink from '@/components/ActiveLink';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
 });
 
-// Identidade da travessia: Newsreader (voz editorial, com eixo óptico) e Archivo (rótulos e botões)
+// Identidade: Instrument Sans (títulos, marca e botões), Inter (texto) e Newsreader (itálico de ênfase e artigos)
 const newsreader = Newsreader({
   subsets: ['latin'],
   style: ['normal', 'italic'],
@@ -31,11 +31,10 @@ const newsreader = Newsreader({
   variable: '--font-newsreader',
 });
 
-const archivo = Archivo({
+const instrument = Instrument_Sans({
   subsets: ['latin'],
-  axes: ['wdth'],
   display: 'swap',
-  variable: '--font-archivo',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -65,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" data-theme="light" className={`${inter.variable} ${playfair.variable} ${newsreader.variable} ${archivo.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" data-theme="light" className={`${inter.variable} ${playfair.variable} ${newsreader.variable} ${instrument.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -78,13 +77,15 @@ export default function RootLayout({
         <header className="site-header">
           <div className="container header-inner">
             <Link href="/" className="header-logo" aria-label="O Código Brasil, página inicial">
-              <span className="logo-main">O CÓDIGO</span>{' '}
-              <span className="logo-accent">BRASIL</span>
+              <span className="logo-main">O Código</span>{' '}
+              <span className="logo-accent">Brasil</span>
             </Link>
             <nav aria-label="Navegação principal" className="header-nav">
-              <ActiveLink href="/" className="header-nav__link header-nav__link--home">Manifesto</ActiveLink>
+              <Link href="/#metodo" className="header-nav__link">Método</Link>
+              <Link href="/#consultoria" className="header-nav__link">Consultoria</Link>
+              <Link href="/#manifesto" className="header-nav__link">Manifesto</Link>
               <ActiveLink href="/conteudo" className="header-nav__link">Artigos</ActiveLink>
-              <Link href="/#diagnostico" className="header-nav__cta">
+              <Link href="/#consultoria" className="header-nav__cta">
                 Conversar<span className="header-nav__cta-extra">com Fabian</span>
               </Link>
               <ThemeToggle />
