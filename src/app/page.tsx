@@ -1,8 +1,7 @@
 import { faqData } from "@/lib/faqData";
 import { JsonLd } from "@/components/JsonLd";
 import { generateWebSite, generatePerson, generateOrganization, generateCreativeWork, generateFAQPage, buildGraph } from "@/lib/jsonld";
-import HomeJourney from "@/components/home/HomeJourney";
-import HomeSections from "@/components/home/HomeSections";
+import HomeConteudo from "@/components/home/Home";
 import "./home.css";
 
 export default function Home() {
@@ -18,8 +17,7 @@ export default function Home() {
   return (
     <main className="cb-home">
       <JsonLd data={jsonLdData} />
-      <HomeJourney />
-      <HomeSections />
+      <HomeConteudo />
     </main>
   );
 }

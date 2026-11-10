@@ -6,9 +6,9 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <p className="footer-logo">O CÓDIGO <span>BRASIL</span></p>
+          <p className="footer-logo">O Código <span>Brasil</span></p>
           <p className="footer-tagline">
-            Decifrando o comportamento instintivo no mercado mais emocional do mundo.
+            Consultoria de marca a partir da leitura cultural do consumidor brasileiro.
           </p>
         </div>
 
